@@ -1,0 +1,87 @@
+﻿filename,date_data,date_publication,alert,alert_under_investigation,cases_confirmed,cases_suspected,deaths_confirmed,deaths_suspected,deaths_hcw,beds_confirmed,beds_suspected,tested,undergoing_testing,isolated,not_isolated,recoveries,contacts,contacts_fu_today,region,districts,page,notes
+SitRep_MVE_001-2026,14/05/2026,15/05/2026,261,,8,246,4,55,4+,ND,ND,,,,,ND,82+,,Ituri,"Mongbwalu, Bunia et Rwampara",1,
+SitRep_MVE_002-2026,17/05/2026,18/05/2026,340,336,13,246,ND,100,4,ND,ND,,,,,0,,,Ituri,"Mongbwalu, Bunia et Rwampara",1,
+SitRep_MVE_002-2026,17/05/2026,18/05/2026,256,256,0,57,,,,,,7,0,3,,,,,,ZS Mongbwalu,3,
+SitRep_MVE_002-2026,17/05/2026,18/05/2026,72,72,13,27,,,,,,25,5,5,,,,,,ZS Rwampara,3,
+SitRep_MVE_002-2026,17/05/2026,18/05/2026,12,8,0,3,,,,,,0,6,4,,,,,,ZS Bunia,3,
+SitRep_MVE_004-2026,19/05/2026,20/05/2026,,,33,ND,4,,,ND,ND,,,,,0,457,,Ituri; Nord-Kivu,"Mongbwalu, Rwampara, Bunia, Nyankunde, Goma, Katwa et Butembo",1,
+SitRep_MVE_004-2026,19/05/2026,20/05/2026,,,1,302,,74,,,,,,,,,161,,Ituri,Mongbwalu,3,
+SitRep_MVE_004-2026,19/05/2026,20/05/2026,,,18,136,,38,,,,,,,,,120,,Ituri,Rwampara,3,
+SitRep_MVE_004-2026,19/05/2026,20/05/2026,,,6,61,,18,,,,,,,,,127,,Ituri,Bunia,3,
+SitRep_MVE_004-2026,19/05/2026,20/05/2026,,,4,14,,1,,,,,,,,,133,,Ituri,Nyankunde,3,
+SitRep_MVE_004-2026,19/05/2026,20/05/2026,,,1,1,,0,,,,,,,,,ND,,Nord-Kivu,Goma,3,
+SitRep_MVE_004-2026,19/05/2026,20/05/2026,,,1,1,,0,,,,,,,,,ND,,Nord-Kivu,Katwa,3,
+SitRep_MVE_004-2026,19/05/2026,20/05/2026,,,1,1,,0,,,,,,,,,ND,,Nord-Kivu,Butembo,3,
+SitRep_MVE_004-2026,18/05/2026,20/05/2026,16,16,,,,6,,,,10,,9,1,,,,Ituri,Bunia,4,
+SitRep_MVE_004-2026,18/05/2026,20/05/2026,30,22,,,,10,,,,21,,46,0,,,,Ituri,Rwampara,4,
+SitRep_MVE_004-2026,18/05/2026,20/05/2026,4,4,,,,1,,,,4,,3,0,,,,Ituri,Nyankunde,4,
+SitRep_MVE_004-2026,18/05/2026,20/05/2026,11,9,,,,2,,,,2,,9,0,,,,Ituri,Mongbwalu,4,
+SitRep_MVE_004-2026,18/05/2026,20/05/2026,1,1,,,,0,,,,0,,0,1,,,,Ituri,Nizi,4,
+SitRep_MVE_004-2026,18/05/2026,20/05/2026,2,2,,,,0,,,,0,,2,0,,,,Ituri,Lita,4,
+SitRep_MVE_004-2026,18/05/2026,20/05/2026,ND,ND,,,,ND,,,,ND,,ND,ND,,,,Ituri,Bambu,4,
+SitRep_MVE_004-2026,18/05/2026,20/05/2026,ND,ND,,,,ND,,,,ND,,ND,ND,,,,Ituri,Fataki,4,
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,51,ND,4,,,ND,ND,,,,,0,847,,Ituri; Nord-Kivu,"Mongbwalu, Rwampara, Bunia, Nyankunde, Goma, Katwa et Butembo",1,
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,0,ND,0,,,,,,,,,0,76,,Ituri,Mongbwalu,1,incident/new
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,4,ND,0,,,,,,,,,0,215,,Ituri,Rwampara,1,incident/new
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,12,ND,0,,,,,,,,,0,15,,Ituri,Bunia,1,incident/new
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,0,ND,0,,,,,,,,,0,0,,Ituri,Nyankunde,1,incident/new
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,0,ND,0,,,,,,,,,0,ND,,Nord-Kivu,Goma,1,incident/new
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,0,ND,0,,,,,,,,,0,ND,,Nord-Kivu,Katwa,1,incident/new
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,0,ND,0,,,,,,,,,0,ND,,Nord-Kivu,Butembo,1,incident/new
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,35,33,,,,,,,,,10,30,,,,,Ituri,Bunia,3,total
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,27,20,,,,,,,,,13,13,,,,,Ituri,Rwampara,3,total
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,6,5,,,,,,,,,5,5,,,,,Ituri,Nyankunde,3,total
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,7,7,,,,,,,,,7,4,,,,,Ituri,Mongbwalu,3,total
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,3,3,,,,,,,,,2,2,,,,,[check],Komanda,3,total
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,1,1,,,,,,,,,0,0,,,,,[check],Bambu,3,total
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,2,2,,,,,,,,,1,1,,,,,[check],Mangala,3,total
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,,,,,,,,,,,,,203,3,Ituri,Bunia,4,total
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,,,,,,,,,,,,,335,78,Ituri,Rwampara,4,total
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,,,,,,,,,,,,,133,0,Ituri,Nyankunde,4,total
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,,,,,,,,,,,,,176,0,Ituri,Mongbwalu,4,total
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,13,309,,77,,,,,,,,,176,,Ituri,Mongbwalu,4,table 3
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,25,154,,43,,,,,,,,,335,,Ituri,Rwampara,4,table 3
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,6,90,,23,,,,,,,,,203,,Ituri,Bunia,4,table 3
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,4,19,,5,,,,,,,,,133,,Ituri,Nyankunde,4,table 3
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,1,1,,0,,,,,,,,,ND,,Nord-Kivu,Goma,4,table 3
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,1,1,,0,,,,,,,,,ND,,Nord-Kivu,Katwa,4,table 3
+SitRep_MVE_005-2026,19/05/2026,20/05/2026,,,1,1,,0,,,,,,,,,ND,,Nord-Kivu,Butembo,4,table 3
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,64,0,6,,,ND,ND,,,,,0,1441,,Ituri; Nord-Kivu,"Mongbwalu, Rwampara, Bunia, Nyankunde, Goma, Katwa et Butembo",1,
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,5,35,0,,,,,,,,,,0,,Ituri,Bunia,1,incident/new
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,3,25,0,,,,,,,,,,286,,Ituri,Rwampara,1,incident/new
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,0,8,0,,,,,,,,,,0,,Ituri,Mungbwalu,1,incident/new
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,1,1,0,,,,,,,,,,128,,Ituri,Bambu,1,incident/new
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,3,9,0,,,,,,,,,,0,,Ituri,Nyankunde,1,incident/new
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,0,ND,0,,,,,,,,,,ND,,Nord-Kivu,Goma,1,incident/new
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,0,ND,0,,,,,,,,,,ND,,Nord-Kivu,Butembo,1,incident/new
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,1,ND,0,,,,,,,,,,ND,,Nord-Kivu,Katwa,1,incident/new
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,39,35,,,,,,,,,24,30,1,,,,Ituri,Bunia,4,total
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,35,35,,,,,,,,,11,25,0,,,,Ituri,Rwampara,4,total
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,9,9,,,,,,,,,0,9,0,,,,Ituri,Nyankunde,4,total
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,9,8,,,,,,,,,1,6,0,,,,Ituri,Mongbwalu,4,total
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,,,,,,,,,,,,,203,0,Ituri,Bunia,5,
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,,,,,,,,,,,,,621,83,Ituri,Rwampara,5,
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,,,,,,,,,,,,,133,0,Ituri,Nyankunde,5,
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,,,,,,,,,,,,,176,0,Ituri,Mongbwalu,5,
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,,,,,,,,,,,,,128,,Ituri,Bambu,5,
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,13,317,,80,,,,,,,,,176,,Ituri,Mongbwalu,5,Table 4
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,24,179,,44,,,,,,,,,621,,Ituri,Rwampara,5,Table 4
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,11,125,,31,,,,,,,,,203,,Ituri,Bunia,5,Table 4
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,5,28,,5,,,,,,,,,133,,Ituri,Nyankunde,5,Table 4
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,1,2,,0,,,,,,,,,128,,Ituri,Bambu,5,Table 4
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,1,0,,0,,,,,,,,,ND,,Nord-Kivu,Goma,5,Table 4
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,1,13,,0,,,,,,,,,ND,,Nord-Kivu,Katwa,5,Table 4
+SitRep_MVE_006-2026,20/05/2026,21/05/2026,,,1,7,,0,,,,,,,,,ND,,Nord-Kivu,Butembo,5,Table 4
+SitRep_MVE_007-2026,21/05/2026,22/05/2026,,,83,746,9,,,,,,,,,,,,Ituri; Nord-Kivu; Sud-Kivu,Bambu; Bunia; Kilo; Mongbwalu; Nizi; Nyankunde; Rwampara; Butembo; Goma; Katwa; Miti-Murheza,1,overview
+SitRep_MVE_007-2026,21/05/2026,22/05/2026,,,6,41,1,,,,,,,,,,,,Ituri,Bunia,1,table 1
+SitRep_MVE_007-2026,21/05/2026,22/05/2026,,,7,14,1,,,,,,,,,,,,Ituri,Rwampara,1,table 1
+SitRep_MVE_007-2026,21/05/2026,22/05/2026,,,1,5,0,,,,,,,,,,,,Ituri,Mongbwalu,1,table 1
+SitRep_MVE_007-2026,21/05/2026,22/05/2026,,,0,0,0,,,,,,,,,,,,Ituri,Bambu,1,table 1
+SitRep_MVE_007-2026,21/05/2026,22/05/2026,,,2,9,0,,,,,,,,,,,,Ituri,Nyankunde,1,table 1
+SitRep_MVE_007-2026,21/05/2026,22/05/2026,,,1,1,0,,,,,,,,,,,,Ituri,Nizi,1,table 1
+SitRep_MVE_007-2026,21/05/2026,22/05/2026,,,1,1,0,,,,,,,,,,,,Ituri,Kilo,1,table 1
+SitRep_MVE_007-2026,21/05/2026,22/05/2026,,,0,ND,0,,,,,,,,,,,,Nord-Kivu,Goma,1,table 1
+SitRep_MVE_007-2026,21/05/2026,22/05/2026,,,0,ND,0,,,,,,,,,,,,Nord-Kivu,Butembo,1,table 1
+SitRep_MVE_007-2026,21/05/2026,22/05/2026,,,0,ND,0,,,,,,,,,,,,Nord-Kivu,Katwa,1,table 1
+SitRep_MVE_007-2026,21/05/2026,22/05/2026,,,1,ND,1,,,,,,,,,,,,Sud-Kivu,Miti Murheza,1,table 1
+SitRep_MVE_007-2026,21/05/2026,22/05/2026,,,,,,,,,,,,,,,,,,,,
