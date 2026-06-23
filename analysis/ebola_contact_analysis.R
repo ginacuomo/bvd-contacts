@@ -24,30 +24,27 @@ library(readxl)
 library(lme4)
 library(broom.mixed)
 
-# =============================================================================
-# 0. CANONICAL LEVEL DEFINITIONS
-# =============================================================================
+
+# 1. Define the canonical levels -- based on Bower et al. -----------------
 
 canonical_levels <- c(
-  "No/minimal contact",                              # Class 0 — reference
-  "Indirect contact only",                           # Class 1
+  "No/minimal contact",                                 # Class 0 — reference
+  "Indirect contact only",                              # Class 1
   "Direct physical contact — no fluids and no nursing", # Class 2
-  "Nursing care — no body fluids",                   # Class 3
-  "Body fluid contact",                              # Class 4
-  "Handled corpse"                                   # Class 5
+  "Nursing care — no body fluids",                      # Class 3
+  "Body fluid contact",                                 # Class 4
+  "Handled corpse"                                      # Class 5
 )
 
 reference_level    <- canonical_levels[1]
 non_reference_levels <- canonical_levels[-1]
 
-# =============================================================================
-# 1. DATA LOADING
-# =============================================================================
 
-raw <- read_excel("data/data_extraction.xlsx", sheet = "data_me")
+# 2. Read data ------------------------------------------------------------
+raw <- read_excel("data/sar_extraction.xlsx", sheet = "data_me")
 
-# TODO: fix the mapping in the files -- I don't currently agree with these
-mapping_raw <- read_csv("data/exposure_mapping.csv", show_col_types = FALSE)
+# TODO: fix the mapping in the files - this is currently my preliminary mapping
+mapping_raw <- read_excel("data/sar_extraction.xlsx", sheet = "exposure_mapping")
 
 # =============================================================================
 # 2. DATA CLEANING
