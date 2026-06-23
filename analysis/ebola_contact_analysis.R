@@ -143,6 +143,7 @@ if (nrow(unmapped) > 0) {
 # =============================================================================
 
 # (a) Contact level fractions — from rows mapping to exactly one canonical level
+# TODO: fix this -- this is currently biased becasue the encoding is completely wrong
 ref_fractions_contact <- dat_mapped %>%
   filter(!is_combined) %>%
   group_by(canonical_level) %>%
@@ -152,33 +153,12 @@ ref_fractions_contact <- dat_mapped %>%
 cat("\nReference contact level fractions (from disaggregated studies):\n")
 print(ref_fractions_contact)
 
-# (b) Household fraction — from studies with household = 0 or 1
-#     Used to impute household_encoded for household = 2 (both)
-ref_prop_household <- dat_mapped %>%
-  filter(household %in% c(0L, 1L)) %>%
-  group_by(household) %>%
-  summarise(total_n = sum(denominator), .groups = "drop") %>%
-  mutate(prop = total_n / sum(total_n)) %>%
-  filter(household == 1L) %>%
-  pull(prop)
-
-if (length(ref_prop_household) == 0) {
-  warning(
-    "No disaggregated household data found. ",
-    "Household = 2 rows will have household_encoded = NA."
-  )
-  ref_prop_household <- NA_real_
-}
-
-cat(sprintf(
-  "\nReference household fraction (from household = 0/1 studies): %.3f\n",
-  ref_prop_household
-))
-
 # =============================================================================
 # 6. APPLY CONTACT LEVEL FRACTIONS
 # =============================================================================
 
+# TODO: figure out the best way to enforce integer values for numerators and denominators
+#   when we have fractional encoding
 dat_fractions <- dat_mapped %>%
   left_join(
     ref_fractions_contact %>% select(canonical_level, fraction_contact),
@@ -199,23 +179,6 @@ dat_fractions <- dat_mapped %>%
   )
 
 # =============================================================================
-# 7. ENCODE HOUSEHOLD COLUMN
-# =============================================================================
-# 0 = non-household  → 0
-# 1 = household only → 1
-# 2 = both           → ref_prop_household (fractional, imputed from data)
-
-dat_fractions <- dat_fractions %>%
-  mutate(
-    household_encoded = case_when(
-      household == 0L ~ 0,
-      household == 1L ~ 1,
-      household == 2L ~ ref_prop_household,
-      TRUE            ~ NA_real_
-    )
-  )
-
-# =============================================================================
 # 8. BUILD DESIGN MATRIX
 # =============================================================================
 
@@ -226,7 +189,6 @@ design_matrix <- dat_fractions %>%
     denominator_adj   = sum(denominator_adj),
     uninfected_contacts_adj      = sum(uninfected_contacts_adj),
     fraction_contact  = sum(fraction_contact),
-    household_encoded = first(household_encoded),
     .groups           = "drop"
   ) %>%
   pivot_wider(
@@ -234,16 +196,16 @@ design_matrix <- dat_fractions %>%
     values_from = fraction_contact,
     values_fill = 0,
     id_cols     = c(study_id, numerator_adj, denominator_adj,
-                    uninfected_contacts_adj, household_encoded)
+                    uninfected_contacts_adj)
   ) %>%
   select(-any_of(reference_level)) %>%
   # Enforce canonical column order
   select(
     study_id, numerator_adj, denominator_adj, uninfected_contacts_adj,
-    household_encoded,
     any_of(non_reference_levels)
   )
 
+# TODO: figure out why the values of the design matrix aren't between 0 and 1?
 cat("\nDesign matrix:\n")
 print(design_matrix)
 
@@ -267,16 +229,17 @@ if (length(missing_cols) > 0) {
 # The mixed-effects model is provided commented out for use as studies accumulate.
 
 X <- design_matrix %>%
-  select(household_encoded, any_of(non_reference_levels)) %>%
+  select(any_of(non_reference_levels)) %>%
   as.matrix()
 
 X <- cbind(intercept = 1, X)
 
 y_num  <- design_matrix$numerator_adj
-y_fail <- design_matrix$uninfected_contacts_adj
+y_uninfected <- design_matrix$uninfected_contacts_adj
 
+# TODO: need to fix the non-integers before we get to this stage of the analysis
 fit_fixed <- glm(
-  cbind(y_num, y_fail) ~ X - 1,
+  cbind(y_num, y_uninfected) ~ X - 1,
   family = binomial(link = "logit")
 )
 
@@ -376,6 +339,7 @@ pop_prev <- pred_grid %>%
   ) %>%
   mutate(contribution = predicted_sar * overall_prop)
 
+# TODO: fix all of these pooled SARs -- this isn't what we wanted to do
 cat("\n=== Population-attributable prevalence ===\n")
 print(pop_prev %>% select(canonical_level, predicted_sar, overall_prop, contribution))
 cat(sprintf("\nEstimated overall SAR: %.3f\n", sum(pop_prev$contribution, na.rm = TRUE)))
@@ -386,6 +350,7 @@ cat(sprintf("\nEstimated overall SAR: %.3f\n", sum(pop_prev$contribution, na.rm 
 
 dat_disaggregated <- dat_fractions %>% filter(!is_combined)
 
+# TODO: fix the mapping -- there should be far less disaggregated
 cat(sprintf(
   "\nSensitivity: %d fully disaggregated rows out of %d total mapped rows\n",
   nrow(dat_disaggregated), nrow(dat_fractions)
@@ -399,6 +364,7 @@ cat(sprintf(
 # =============================================================================
 
 # Enforce factor order for plotting
+# TODO: fix pred_grid
 pred_grid <- pred_grid %>%
   mutate(canonical_level = factor(canonical_level, levels = rev(canonical_levels)))
 
