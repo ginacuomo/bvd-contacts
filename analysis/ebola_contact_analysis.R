@@ -165,19 +165,29 @@ print(ref_fractions_contact)
 #   when we have fractional encoding
 dat_fractions <- dat_mapped %>%
   left_join(ref_fractions_contact, by = "exposure") %>%
-  mutate(fraction_contact = if_else(!is_combined, 1, fraction_contact)) %>%  View()
+  mutate(fraction_contact = if_else(!is_combined, 1, fraction_contact)) %>%  
   # Renormalise within study x raw definition in case some levels have no
   # reference data (guards against fractions not summing to 1)
   group_by(study_id, definition_contact_me) %>%
-  mutate(fraction_contact = fraction_contact / sum(fraction_contact)) %>%
+  mutate(fraction_contact_adj = fraction_contact / sum(fraction_contact)) %>% 
   ungroup() %>%
-  mutate(numerator_adj = numerator * fraction_contact,
-         denominator_adj = denominator * fraction_contact,
-         uninfected_contacts_adj  = denominator_adj - numerator_adj)
+#   TODO: find more robust method for ensuring integers
+  mutate(numerator_adj = round(numerator * fraction_contact_adj, digits = 0),
+         denominator_adj = round(denominator * fraction_contact_adj, digits = 0),
+         uninfected_contacts_adj  = round(denominator_adj - numerator_adj, digits = 0))
 
-# =============================================================================
-# 8. BUILD DESIGN MATRIX
-# =============================================================================
+# check that this hasn't meant our numerators exceed denominators
+dat_fractions %>% 
+  group_by(study_id) %>%
+  summarise(total_num = sum(numerator),
+            total_contacts = unique(total_contacts)) %>%
+  mutate(error = total_num > total_contacts) %>% 
+  pull(error) %>%
+  unique()
+# [1] FALSE -- fine on this front
+
+
+# 8. Build the design matrix ----------------------------------------------
 
 design_matrix <- dat_fractions %>%
   group_by(study_id, exposure) %>%
@@ -251,10 +261,12 @@ or_fixed <- broom::tidy(fit_fixed, exponentiate = TRUE, conf.int = TRUE) %>%
 
 cat("\nOdds ratios (reference: No/minimal contact):\n")
 print(or_fixed)
+# I'm curious if the body fluids would come out differently if we separated out fomites
 
 # Predicted SAR at each canonical level, holding household at reference (0)
-pred_grid <- tibble(exposure = factor(canonical_levels, levels = canonical_levels)) %>%
-  mutate(household_encoded = 0)
+# TODO: fix from here onwards because the predicted SAR shouldn't be the same for all exposures
+# this is a misinterpretation rather than a bug
+pred_grid <- tibble(exposure = factor(canonical_levels, levels = canonical_levels)) 
 
 # Build prediction matrix matching X structure
 X_pred <- matrix(0, nrow = length(canonical_levels),
