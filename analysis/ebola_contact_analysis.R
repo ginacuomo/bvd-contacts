@@ -30,8 +30,8 @@ library(broom.mixed)
 canonical_levels <- c(
   "No/minimal contact",                                 # Class 0 — reference
   "Indirect contact only",                              # Class 1
-  "Direct physical contact — no fluids and no nursing", # Class 2
-  "Nursing care — no body fluids",                      # Class 3
+  "Direct physical contact - no fluids and no nursing", # Class 2
+  "Nursing care - no body fluids",                      # Class 3
   "Body fluid contact",                                 # Class 4
   "Handled corpse"                                      # Class 5
 )
@@ -39,51 +39,41 @@ canonical_levels <- c(
 reference_level    <- canonical_levels[1]
 non_reference_levels <- canonical_levels[-1]
 
-
-# 2. Read data ------------------------------------------------------------
+# 2. Read and clean data -------------------------------------------------------
 raw <- read_excel("data/sar_extraction.xlsx", sheet = "data_me")
 
 # TODO: fix the mapping in the files - this is currently my preliminary mapping
 mapping_raw <- read_excel("data/sar_extraction.xlsx", sheet = "exposure_mapping")
 
-# =============================================================================
-# 2. DATA CLEANING
-# =============================================================================
-
 dat <- raw %>%
-  mutate(
-    numerator    = as.integer(numerator),
-    denominator  = as.integer(denominator),
-    year         = as.character(year),
-    study_id     = paste(first_author, year_publication, location, sep = "_"),
-    sar_observed = numerator / denominator,
-    uninfected_contacts     = denominator - numerator
-  ) %>%
-  filter(
-    !is.na(numerator),
-    !is.na(denominator),
-    denominator > 0,
-    numerator <= denominator
-  ) %>% filter(include == TRUE)
+  mutate(numerator = as.integer(numerator),
+         denominator = as.integer(denominator),
+         year = as.character(year),
+         study_id = paste(first_author, year_publication, location, sep = "_"),
+         sar_observed = numerator / denominator,
+         uninfected_contacts = denominator - numerator) %>%
+  filter(!is.na(numerator),
+         !is.na(denominator),
+         denominator > 0,
+         numerator <= denominator) %>% 
+  filter(include == TRUE)
 
 cat("Studies and contact definitions in dataset:\n")
-dat %>% count(first_author, definition_contact_me) %>% print()
+dat %>% 
+  group_by(first_author) %>%
+  summarise(n = length(unique(definition_contact_me)))
 
-# =============================================================================
-# 3. PARSE AND VALIDATE MAPPING TABLE
-# =============================================================================
- 
-mapping_table <- mapping_raw %>%
-  filter(is.na(include) | include == 1) %>%
-  mutate(
-    # Split semicolon-separated canonical levels into one row per level
-    canonical_level = str_split(canonical_level, ";\\s*")
-  ) %>%
-  unnest(canonical_level) %>%
-  mutate(
-    canonical_level = str_trim(canonical_level),
-    household       = as.integer(household)
-  ) %>%
+
+# 3. Mapping of exposures -------------------------------------------------
+mapping_long <- mapping_raw %>%
+  # one exposure per row therefore make the dataframe long
+  pivot_longer(cols = starts_with("exposure"),
+               names_to = "exposurenum",
+               values_to = "exposure") %>%
+  select(-exposurenum) %>%
+  filter(!(is.na(exposure))) 
+
+mapping_table <- mapping_long %>%
   # Classify rows: disaggregated (1 canonical level) vs combined (>1)
   group_by(first_author, definition_contact_me) %>%
   mutate(
@@ -94,13 +84,13 @@ mapping_table <- mapping_raw %>%
 
 # Validate: every canonical level must be in the defined hierarchy
 unrecognised <- mapping_table %>%
-  filter(!canonical_level %in% canonical_levels) %>%
-  distinct(canonical_level)
+  filter(!exposure %in% canonical_levels) %>%
+  distinct(exposure)
 
 if (nrow(unrecognised) > 0) {
   stop(
     "Unrecognised canonical levels in mapping table — check spelling:\n",
-    paste(unrecognised$canonical_level, collapse = "\n")
+    paste(unrecognised$exposure, collapse = "\n")
   )
 } else {
   cat("\nMapping table validated: all canonical levels recognised.\n")
@@ -112,18 +102,20 @@ if (nrow(unrecognised) > 0) {
 # Join on first_author + definition_contact_me so that identical strings
 # used by different authors can map to different canonical levels if needed.
 
+# 4. Join mapping and data together ---------------------------------------
+
 dat_mapped <- dat %>%
   left_join(
     mapping_table %>%
-      select(first_author, definition_contact_me, canonical_level,
+      select(first_author, definition_contact_me, exposure,
              household, is_combined, n_canonical),
-    by = c("first_author", "definition_contact_me"),
+    by = c("first_author", "definition_contact_me", "household"),
     relationship = "many-to-many"
   )
 
 # Flag and remove unmapped rows
 unmapped <- dat_mapped %>%
-  filter(is.na(canonical_level)) %>%
+  filter(is.na(exposure)) %>%
   distinct(first_author, definition_contact_me)
 
 if (nrow(unmapped) > 0) {
@@ -132,55 +124,63 @@ if (nrow(unmapped) > 0) {
     paste(unmapped$first_author, unmapped$definition_contact_me,
           sep = " | ", collapse = "\n")
   )
-  dat_mapped <- dat_mapped %>% filter(!is.na(canonical_level))
+  dat_mapped <- dat_mapped %>% filter(!is.na(exposure))
 }
 
-# =============================================================================
-# 5. COMPUTE REFERENCE FRACTIONS FROM DISAGGREGATED STUDIES
-# =============================================================================
+
+# 5. Reference fractions for fractional encoding --------------------------
+
 
 # (a) Contact level fractions — from rows mapping to exactly one canonical level
-# TODO: fix this -- this is currently biased becasue the encoding is completely wrong
+# TODO: figure out if there being such small numbers in no/minimal will cause bias
+#   because it is the reference category
+# TODO: fix this to reflect that this is an oversimplification 
+# steps:
+# 1. work out the fraction in each exposure for each study
+# 2. averae this out across studies
+# TODO: make this reflect that some types of contacts are explicitly excluded from some
+# studies i.e. minimal contact might be 50% but if they don't meet the contact definition
+# then they are inherently missing from that study and figure out if this is actually 
+# necessary to do for fractional encoding
+# see how to propagate the uncertainty in this percentage through in the analysis
+study_fraction_contact <- dat_mapped %>%
+  # group_by(study_id, exposure) %>%
+  summarise(.by = c(study_id, exposure),
+            study_fraction = sum(denominator) / total_contacts)
+
 ref_fractions_contact <- dat_mapped %>%
-  filter(!is_combined) %>%
-  group_by(canonical_level) %>%
-  summarise(total_n = sum(denominator), .groups = "drop") %>%
-  mutate(fraction_contact = total_n / sum(total_n))
+  filter(!(is_combined)) %>%
+  left_join(study_fractions_contact) %>%
+  group_by(exposure) %>% 
+  mutate(fraction_contact = mean(study_fraction)) %>%
+  select(exposure, fraction_contact) %>%
+  distinct() %>%
+  arrange(canonical_levels)
 
 cat("\nReference contact level fractions (from disaggregated studies):\n")
-print(ref_fractions_contact)
+print(ref_fractions_contact) 
 
-# =============================================================================
-# 6. APPLY CONTACT LEVEL FRACTIONS
-# =============================================================================
-
+# 6. Applying the fractional encoding for combined exposures --------------
 # TODO: figure out the best way to enforce integer values for numerators and denominators
 #   when we have fractional encoding
 dat_fractions <- dat_mapped %>%
-  left_join(
-    ref_fractions_contact %>% select(canonical_level, fraction_contact),
-    by = "canonical_level"
-  ) %>%
-  mutate(
-    fraction_contact = if_else(!is_combined, 1, fraction_contact)
-  ) %>%
+  left_join(ref_fractions_contact, by = "exposure") %>%
+  mutate(fraction_contact = if_else(!is_combined, 1, fraction_contact)) %>%  View()
   # Renormalise within study x raw definition in case some levels have no
   # reference data (guards against fractions not summing to 1)
   group_by(study_id, definition_contact_me) %>%
   mutate(fraction_contact = fraction_contact / sum(fraction_contact)) %>%
   ungroup() %>%
-  mutate(
-    numerator_adj   = numerator   * fraction_contact,
-    denominator_adj = denominator * fraction_contact,
-    uninfected_contacts_adj    = denominator_adj - numerator_adj
-  )
+  mutate(numerator_adj = numerator * fraction_contact,
+         denominator_adj = denominator * fraction_contact,
+         uninfected_contacts_adj  = denominator_adj - numerator_adj)
 
 # =============================================================================
 # 8. BUILD DESIGN MATRIX
 # =============================================================================
 
 design_matrix <- dat_fractions %>%
-  group_by(study_id, canonical_level) %>%
+  group_by(study_id, exposure) %>%
   summarise(
     numerator_adj     = sum(numerator_adj),
     denominator_adj   = sum(denominator_adj),
@@ -189,7 +189,7 @@ design_matrix <- dat_fractions %>%
     .groups           = "drop"
   ) %>%
   pivot_wider(
-    names_from  = canonical_level,
+    names_from  = exposure,
     values_from = fraction_contact,
     values_fill = 0,
     id_cols     = c(study_id, numerator_adj, denominator_adj,
@@ -253,7 +253,7 @@ cat("\nOdds ratios (reference: No/minimal contact):\n")
 print(or_fixed)
 
 # Predicted SAR at each canonical level, holding household at reference (0)
-pred_grid <- tibble(canonical_level = factor(canonical_levels, levels = canonical_levels)) %>%
+pred_grid <- tibble(exposure = factor(canonical_levels, levels = canonical_levels)) %>%
   mutate(household_encoded = 0)
 
 # Build prediction matrix matching X structure
@@ -278,7 +278,7 @@ pred_grid <- pred_grid %>%
   )
 
 cat("\nPredicted SAR by canonical exposure level (household = non-household):\n")
-print(pred_grid %>% select(canonical_level, predicted_sar, ci_lower, ci_upper))
+print(pred_grid %>% select(exposure, predicted_sar, ci_lower, ci_upper))
 
 # --- Mixed-effects model (uncomment when >1 study available) ----------------
 # fit_mixed <- glmer(
@@ -299,13 +299,13 @@ print(pred_grid %>% select(canonical_level, predicted_sar, ci_lower, ci_upper))
 # =============================================================================
 
 exposure_dist <- dat_fractions %>%
-  group_by(study_id, canonical_level) %>%
+  group_by(study_id, exposure) %>%
   summarise(n = sum(denominator_adj), .groups = "drop") %>%
   group_by(study_id) %>%
   mutate(
     total_n = sum(n),
     prop    = n / total_n,
-    canonical_level = factor(canonical_level, levels = canonical_levels)
+    exposure = factor(exposure, levels = canonical_levels)
   ) %>%
   ungroup()
 
@@ -313,7 +313,7 @@ cat("\n=== Exposure distribution within each study ===\n")
 print(exposure_dist)
 
 exposure_summary <- exposure_dist %>%
-  group_by(canonical_level) %>%
+  group_by(exposure) %>%
   summarise(
     n_studies      = n(),
     mean_prop      = weighted.mean(prop, total_n),
@@ -331,14 +331,14 @@ print(exposure_summary)
 
 pop_prev <- pred_grid %>%
   left_join(
-    exposure_summary %>% select(canonical_level, overall_prop),
-    by = "canonical_level"
+    exposure_summary %>% select(exposure, overall_prop),
+    by = "exposure"
   ) %>%
   mutate(contribution = predicted_sar * overall_prop)
 
 # TODO: fix all of these pooled SARs -- this isn't what we wanted to do
 cat("\n=== Population-attributable prevalence ===\n")
-print(pop_prev %>% select(canonical_level, predicted_sar, overall_prop, contribution))
+print(pop_prev %>% select(exposure, predicted_sar, overall_prop, contribution))
 cat(sprintf("\nEstimated overall SAR: %.3f\n", sum(pop_prev$contribution, na.rm = TRUE)))
 
 # =============================================================================
@@ -363,9 +363,9 @@ cat(sprintf(
 # Enforce factor order for plotting
 # TODO: fix pred_grid
 pred_grid <- pred_grid %>%
-  mutate(canonical_level = factor(canonical_level, levels = rev(canonical_levels)))
+  mutate(exposure = factor(exposure, levels = rev(canonical_levels)))
 
-p1 <- ggplot(pred_grid, aes(x = canonical_level, y = predicted_sar)) +
+p1 <- ggplot(pred_grid, aes(x = exposure, y = predicted_sar)) +
   geom_point(size = 3) +
   geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), width = 0.2) +
   scale_y_continuous(labels = scales::percent_format(), limits = c(0, 1)) +
@@ -381,8 +381,8 @@ p1 <- ggplot(pred_grid, aes(x = canonical_level, y = predicted_sar)) +
 ggsave("sar_by_exposure_level.png", p1, width = 8, height = 5, dpi = 150)
 
 p2 <- exposure_dist %>%
-  mutate(canonical_level = factor(canonical_level, levels = rev(canonical_levels))) %>%
-  ggplot(aes(x = canonical_level, y = prop, fill = study_id)) +
+  mutate(exposure = factor(exposure, levels = rev(canonical_levels))) %>%
+  ggplot(aes(x = exposure, y = prop, fill = study_id)) +
   geom_col(position = "dodge") +
   scale_y_continuous(labels = scales::percent_format()) +
   coord_flip() +
