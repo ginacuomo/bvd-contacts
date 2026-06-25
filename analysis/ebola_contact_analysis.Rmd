@@ -1,0 +1,716 @@
+---
+title: "Ebola Contact Risk Analysis"
+subtitle: "Secondary attack rates and contact patterns by exposure level"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    theme: flatly
+    highlight: tango
+    df_print: kable
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo    = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width  = 8,
+  fig.height = 5
+)
+```
+
+```{r libraries}
+library(tidyverse)
+library(readxl)
+library(lme4)
+library(broom.mixed)
+```
+
+# Overview
+
+This document presents a systematic analysis of secondary attack rates (SAR) and contact patterns by exposure level, drawing on data extracted from published Ebola outbreak studies. The analysis proceeds in four stages:
+
+1. **Data preparation** — standardising heterogeneous contact definitions across studies to a common canonical hierarchy
+2. **SAR estimation** — fitting a multivariable binomial logistic regression to estimate disease risk by exposure level
+3. **Contact rate estimation** — fitting a negative binomial model to estimate contacts per index case by exposure level
+4. **Risk threshold analysis** — evaluating sensitivity and specificity of alternative high-risk contact definitions using a simulation
+
+---
+
+# 1. Canonical Exposure Hierarchy
+
+Contact definitions vary substantially across studies. Raw definitions were mapped to a five-level canonical hierarchy ordered from lowest to highest transmission risk. The two lowest-risk classes (no/minimal contact; indirect contact only) were merged into a single reference category because both are sparsely reported and share the defining characteristic of no direct physical contact with the index case.
+
+```{r canonical-levels}
+canonical_levels <- c(
+  "No direct physical contact",                         # Classes 0+1 — reference
+  "Direct physical contact - no fluids and no nursing", # Class 2
+  "Nursing care - no body fluids",                      # Class 3
+  "Body fluid contact",                                 # Class 4
+  "Handled corpse"                                      # Class 5
+)
+
+canonical_levels_sensitivity <- c(
+  "No/minimal contact",
+  "Indirect contact only",
+  "Direct physical contact - no fluids and no nursing",
+  "Nursing care - no body fluids",
+  "Body fluid contact",
+  "Handled corpse"
+)
+
+reference_level      <- canonical_levels[1]
+non_reference_levels <- canonical_levels[-1]
+
+tibble(
+  Class     = c("Reference", paste("Class", 2:5)),
+  Label     = canonical_levels,
+  `Key criterion` = c(
+    "No direct physical contact with index case",
+    "Touched index case; no fluids, no nursing",
+    "Actively cared for index case; no documented fluid exposure",
+    "Documented exposure to blood or body fluids",
+    "Participated in funeral preparation or burial"
+  )
+)
+```
+
+---
+
+# 2. Data Loading and Cleaning
+
+```{r load-data}
+raw <- read_excel(here::here("data", "sar_extraction.xlsx"), sheet = "data_me")
+mapping_raw <- read_excel(here::here("data", "sar_extraction.xlsx"), 
+                          sheet = "exposure_mapping")
+
+dat <- raw %>%
+  mutate(
+    numerator           = as.integer(numerator),
+    denominator         = as.integer(denominator),
+    num_index           = as.integer(num_index),
+    year                = as.character(year),
+    study_id            = paste(first_author, year_publication, location, sep = "_"),
+    sar_observed        = numerator / denominator,
+    uninfected_contacts = denominator - numerator
+  ) %>%
+  filter(
+    !is.na(numerator),
+    !is.na(denominator),
+    denominator > 0,
+    numerator <= denominator,
+    include == TRUE
+  )
+
+dat %>%
+  group_by(first_author, year_publication, location) %>%
+  summarise(
+    n_definitions = length(unique(definition_contact_me)),
+    total_contacts = sum(denominator),
+    total_cases    = sum(numerator),
+    .groups = "drop"
+  ) %>%
+  rename(Author = first_author, Year = year_publication,
+         Location = location, `Contact definitions` = n_definitions,
+         `Total contacts` = total_contacts, `Total cases` = total_cases)
+```
+
+---
+
+# 3. Exposure Mapping
+
+Raw contact definitions were mapped to canonical levels via a manually curated mapping table. Where a definition spanned multiple canonical levels (e.g. "high-risk" covering both body fluid contact and corpse handling), fractional encoding was applied.
+
+```{r parse-mapping}
+mapping_long <- mapping_raw %>%
+  pivot_longer(
+    cols      = starts_with("exposure"),
+    names_to  = "exposurenum",
+    values_to = "exposure"
+  ) %>%
+  dplyr::select(-exposurenum) %>%
+  filter(!is.na(exposure)) %>%
+  mutate(
+    exposure = case_when(
+      exposure %in% c("No/minimal contact", "Indirect contact only") ~
+        "No direct physical contact",
+      TRUE ~ exposure
+    )
+  )
+
+mapping_table <- mapping_long %>%
+  distinct(first_author, definition_contact_me, exposure, .keep_all = TRUE) %>%
+  group_by(first_author, definition_contact_me) %>%
+  mutate(
+    n_canonical    = n(),
+    is_combined    = n_canonical > 1,
+    covered_levels = list(exposure)
+  ) %>%
+  ungroup()
+
+# Validate
+unrecognised <- mapping_table %>%
+  filter(!exposure %in% canonical_levels) %>%
+  distinct(exposure)
+
+if (nrow(unrecognised) > 0) {
+  stop("Unrecognised canonical levels: ", paste(unrecognised$exposure, collapse = ", "))
+}
+
+mapping_table %>%
+  dplyr::select(first_author, definition_contact_me, exposure, is_combined) %>%
+  rename(Author = first_author, `Raw definition` = definition_contact_me,
+         `Canonical level` = exposure, Combined = is_combined)
+```
+
+---
+
+# 4. Join Mapping onto Data
+
+```{r join-mapping}
+dat_mapped <- dat %>%
+  left_join(
+    mapping_table %>%
+      dplyr::select(first_author, definition_contact_me, exposure,
+                    is_combined, n_canonical, covered_levels),
+    by           = c("first_author", "definition_contact_me"),
+    relationship = "many-to-many"
+  )
+
+unmapped <- dat_mapped %>%
+  filter(is.na(exposure)) %>%
+  distinct(first_author, definition_contact_me)
+
+if (nrow(unmapped) > 0) {
+  warning("Unmapped rows excluded: ",
+          paste(unmapped$first_author, unmapped$definition_contact_me,
+                sep = " | ", collapse = "; "))
+  dat_mapped <- dat_mapped %>% filter(!is.na(exposure))
+}
+```
+
+---
+
+# 5. Fractional Encoding
+
+For studies reporting combined exposure categories, contacts were distributed across the relevant canonical levels proportionally. Proportions were derived from studies that fully disaggregated their contacts, weighted by study size. For each combined definition, reference proportions were renormalised over only the levels that definition covered — so a definition spanning three of five levels receives equal treatment across those three, with weights informed by observed data.
+
+```{r fractional-encoding}
+# Fully disaggregated studies
+fully_disaggregated_studies <- dat_mapped %>%
+  group_by(study_id) %>%
+  summarise(any_combined = any(is_combined), .groups = "drop") %>%
+  filter(!any_combined) %>%
+  pull(study_id)
+
+# Study-level proportions
+study_level_props <- dat_mapped %>%
+  filter(study_id %in% fully_disaggregated_studies) %>%
+  group_by(study_id, exposure) %>%
+  summarise(n_exposure = sum(denominator), .groups = "drop") %>%
+  group_by(study_id) %>%
+  mutate(
+    total_n    = sum(n_exposure),
+    study_prop = n_exposure / total_n,
+    n_levels_observed = n()
+  ) %>%
+  ungroup()
+
+# Global reference distribution
+ref_distribution <- study_level_props %>%
+  group_by(exposure) %>%
+  summarise(
+    ref_prop  = weighted.mean(study_prop, total_n),
+    n_studies = n(),
+    .groups   = "drop"
+  ) %>%
+  complete(exposure = canonical_levels, fill = list(ref_prop = 0, n_studies = 0)) %>%
+  mutate(
+    ref_prop = ref_prop / sum(ref_prop),
+    exposure = factor(exposure, levels = canonical_levels)
+  ) %>%
+  arrange(exposure)
+
+ref_distribution %>%
+  rename(`Canonical level` = exposure,
+         `Reference proportion` = ref_prop,
+         `N studies contributing` = n_studies) %>%
+  mutate(`Reference proportion` = scales::percent(`Reference proportion`, accuracy = 0.1))
+```
+
+```{r apply-fractions}
+dat_fractions <- dat_mapped %>%
+  left_join(ref_distribution %>% dplyr::select(exposure, ref_prop), by = "exposure") %>%
+  mutate(fraction_raw = if_else(!is_combined, 1, ref_prop)) %>%
+  group_by(study_id, definition_contact_me) %>%
+  mutate(
+    fraction_sum     = sum(fraction_raw),
+    fraction_contact = if_else(fraction_sum > 0, fraction_raw / fraction_sum, 1 / n())
+  ) %>%
+  ungroup() %>%
+  mutate(
+    numerator_adj           = numerator   * fraction_contact,
+    denominator_adj         = denominator * fraction_contact,
+    uninfected_contacts_adj = denominator_adj - numerator_adj
+  )
+
+# Fraction check
+fraction_check <- dat_fractions %>%
+  group_by(study_id, definition_contact_me) %>%
+  summarise(fraction_sum = sum(fraction_contact), .groups = "drop") %>%
+  filter(abs(fraction_sum - 1) > 1e-6)
+
+if (nrow(fraction_check) == 0) {
+  cat("Fraction check passed: all fractions sum to 1 within study x definition.")
+}
+```
+
+---
+
+# 6. Model Data
+Note that at the moment I round the adjusted numerators to the nearest integer so that what I am passing into the Binomial logistic regression is an integer. I need to figure out if there is a more sophisticated way of doing this such as by using an approximation using a Gamma function.
+```{r model-data}
+model_data <- dat_fractions %>%
+  group_by(study_id, exposure) %>%
+  summarise(
+    numerator_adj           = round(sum(numerator_adj), digits = 0),
+    denominator_adj         = round(sum(denominator_adj), digits = 0),
+    uninfected_contacts_adj = round(sum(uninfected_contacts_adj), digits = 0),
+    num_index               = first(num_index),
+    .groups                 = "drop") %>%
+  mutate(exposure  = factor(exposure, levels = canonical_levels),
+    exposure  = relevel(exposure, ref = reference_level)) %>%
+  filter(denominator_adj > 0)
+
+# Wide design matrix for inspection
+design_matrix_wide <- dat_fractions %>%
+  group_by(study_id, exposure) %>%
+  summarise(
+    numerator_adj           = round(sum(numerator_adj), digits = 0),
+    denominator_adj         = round(sum(denominator_adj), digits = 0),
+    uninfected_contacts_adj = round(sum(uninfected_contacts_adj), digits = 0),
+    fraction_contact        = min(sum(fraction_contact), 1),
+    .groups = "drop"
+  ) %>%
+  pivot_wider(
+    names_from  = exposure,
+    values_from = fraction_contact,
+    values_fill = 0,
+    id_cols     = c(study_id, numerator_adj, denominator_adj, uninfected_contacts_adj)
+  ) %>%
+  dplyr::select(-any_of(reference_level)) %>%
+  dplyr::select(study_id, numerator_adj, denominator_adj,
+                uninfected_contacts_adj, any_of(non_reference_levels))
+
+design_matrix_wide
+```
+
+---
+
+# 7. Analysis 1: Secondary Attack Rate by Exposure Level
+
+A multivariable binomial logistic regression was fit with exposure level as covariates. Exposure level was treated as a categorical variable with "No direct physical contact" as the reference. The model was fit by maximum likelihood. Coefficients are reported as odds ratios relative to the reference category; predicted SARs were obtained on the probability scale with 95% confidence intervals derived via the delta method.
+
+```{r sar-model}
+fit_fixed <- glm(
+  cbind(numerator_adj, uninfected_contacts_adj) ~ exposure,
+  data   = model_data,
+  family = binomial(link = "logit")
+)
+
+or_fixed <- broom::tidy(fit_fixed, exponentiate = TRUE, conf.int = TRUE) %>%
+  rename(odds_ratio = estimate, ci_lower = conf.low, ci_upper = conf.high) %>%
+  mutate(
+    term      = str_remove(term, "^exposure"),
+    across(c(odds_ratio, ci_lower, ci_upper), ~ round(.x, 2)),
+    p.value   = scales::pvalue(p.value)
+  )
+
+or_fixed %>%
+  rename(Term = term, `Odds ratio` = odds_ratio,
+         `CI lower` = ci_lower, `CI upper` = ci_upper,
+         `p value` = p.value) %>%
+  dplyr::select(Term, `Odds ratio`, `CI lower`, `CI upper`, `p value`)
+```
+
+```{r sar-predictions}
+pred_grid <- tibble(
+  exposure          = factor(canonical_levels, levels = canonical_levels)
+)
+
+pred_link <- predict(fit_fixed, newdata = pred_grid, type = "link", se.fit = TRUE)
+
+pred_grid <- pred_grid %>%
+  mutate(
+    predicted_sar = plogis(pred_link$fit),
+    ci_lower      = plogis(pred_link$fit - 1.96 * pred_link$se.fit),
+    ci_upper      = plogis(pred_link$fit + 1.96 * pred_link$se.fit)
+  )
+
+pred_grid %>%
+  mutate(across(c(predicted_sar, ci_lower, ci_upper), ~ scales::percent(.x, accuracy = 0.1))) %>%
+  rename(`Exposure level` = exposure, `Predicted SAR` = predicted_sar,
+         `CI lower` = ci_lower, `CI upper` = ci_upper)
+```
+
+```{r sar-plot, fig.cap="Predicted secondary attack rate by exposure level. Open circles show observed SAR per study."}
+ggplot() +
+  geom_errorbar(data  = pred_grid,
+    aes(x = fct_rev(exposure), ymin = ci_lower, ymax = ci_upper),
+    width = 0.2) +
+  geom_point(data  = pred_grid,
+    aes(x = fct_rev(exposure), y = predicted_sar),
+    size  = 3, shape = 18) +
+  geom_point(data  = model_data,
+    aes(x = fct_rev(exposure), y = numerator_adj / denominator_adj, col = study_id),
+    size  = 2, shape = 1) +
+  scale_y_continuous(labels = scales::percent_format(), limits = c(0, 1)) +
+  scale_colour_brewer(palette = "Set2") +
+  coord_flip() +
+  labs(title    = "Secondary attack rate by exposure level",
+    subtitle = paste("Reference:", reference_level),
+    x        = NULL,
+    y        = "Secondary attack rate",
+    col      = "Study") +
+  theme_bw() +
+  theme(legend.position = "bottom", legend.direction = "horizontal")
+ggsave(here::here("plots", "sar_by_exposure.png"), 
+                  dpi = 500, width = 30, height = 20, units = "cm")
+```
+
+---
+
+# 8. Analysis 2: Contacts per Index Case
+
+The number of contacts per index case was modelled using a negative binomial regression with `log(num_index)` as an offset, converting total contact counts to rates per index case. This accounts for variation in the number of index cases across studies. The negative binomial distribution was preferred over Poisson to accommodate overdispersion — heterogeneity in the contact burden across index cases.
+
+```{r contacts-model}
+contact_data <- dat_mapped %>%
+  group_by(study_id, exposure) %>%
+  summarise(
+    n_contacts = sum(denominator),
+    num_index  = first(num_index),
+    .groups    = "drop"
+  ) %>%
+  filter(!is.na(num_index), num_index > 0) %>%
+  mutate(
+    exposure  = factor(exposure, levels = canonical_levels),
+    exposure  = relevel(exposure, ref = reference_level),
+    log_index = log(num_index)
+  )
+
+contact_data_overall <- contact_data %>%
+  group_by(study_id, num_index, log_index) %>%
+  summarise(n_contacts = sum(n_contacts), .groups = "drop")
+
+fit_nb_overall <- MASS::glm.nb(
+  n_contacts ~ offset(log_index),
+  data = contact_data_overall
+)
+
+nb_overall_tidy <- broom::tidy(fit_nb_overall, conf.int = TRUE, exponentiate = TRUE)
+
+overall_rate <- tibble(
+  estimate = nb_overall_tidy$estimate[nb_overall_tidy$term == "(Intercept)"],
+  ci_lower = nb_overall_tidy$conf.low[nb_overall_tidy$term == "(Intercept)"],
+  ci_upper = nb_overall_tidy$conf.high[nb_overall_tidy$term == "(Intercept)"],
+  theta    = fit_nb_overall$theta
+)
+
+cat(sprintf(
+  "Estimated contacts per index case: %.1f (95%% CI %.1f-%.1f)\nDispersion parameter (theta): %.2f",
+  overall_rate$estimate, overall_rate$ci_lower, overall_rate$ci_upper, overall_rate$theta
+))
+```
+
+A dispersion parameter (θ) of `r round(overall_rate$theta, 2)` indicates moderate overdispersion — there is meaningful heterogeneity in the number of contacts generated per index case, but the distribution is not consistent with extreme superspreading (which would produce θ close to 0).
+
+```{r contacts-by-exposure}
+fit_nb_exposure <- MASS::glm.nb(
+  n_contacts ~ exposure + offset(log_index),
+  data = contact_data
+)
+
+pred_contacts <- tibble(
+  exposure  = factor(canonical_levels, levels = canonical_levels),
+  log_index = 0 # i.e. per index case
+)
+
+pred_link_contacts <- predict(fit_nb_exposure, newdata = pred_contacts,
+                               type = "link", se.fit = TRUE)
+
+pred_contacts <- pred_contacts %>%
+  mutate(
+    contacts_per_index = exp(pred_link_contacts$fit),
+    ci_lower           = exp(pred_link_contacts$fit - 1.96 * pred_link_contacts$se.fit),
+    ci_upper           = exp(pred_link_contacts$fit + 1.96 * pred_link_contacts$se.fit)
+  )
+
+pred_contacts %>%
+  mutate(across(c(contacts_per_index, ci_lower, ci_upper), ~ round(.x, 1))) %>%
+  rename(`Exposure level` = exposure, `Contacts per index case` = contacts_per_index,
+         `CI lower` = ci_lower, `CI upper` = ci_upper)
+```
+
+```{r contacts-plot, fig.cap="Predicted contacts per index case by exposure level."}
+pred_contacts %>%
+  mutate(exposure = fct_rev(factor(exposure, levels = canonical_levels))) %>%
+  ggplot(aes(x = exposure, y = contacts_per_index)) +
+  geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), width = 0.2) +
+  geom_point(size = 3) +
+  coord_flip() +
+  labs(
+    title    = "Contacts per index case by exposure level",
+    subtitle = sprintf("Overall: %.1f contacts per index case (95%% CI %.1f\u2013%.1f)",
+                       overall_rate$estimate, overall_rate$ci_lower, overall_rate$ci_upper),
+    x = NULL,
+    y = "Contacts per index case (predicted)"
+  ) +
+  theme_bw()
+ggsave(here::here("plots", "contacts_by_exposure.png"), 
+                  dpi = 500, width = 30, height = 20, units = "cm")
+```
+
+---
+
+# 9. Simulation: Contact Line List
+
+Starting with 100 index cases, total contacts per index case were sampled from the fitted negative binomial distribution. Contacts were then allocated across exposure levels using a multinomial draw informed by the reference distribution, and infections were sampled from a binomial distribution using the predicted SAR per exposure level.
+
+```{r simulation}
+set.seed(42)
+n_index <- 100
+
+exposure_props <- ref_distribution %>%
+  arrange(factor(exposure, levels = canonical_levels)) %>%
+  pull(ref_prop)
+names(exposure_props) <- canonical_levels
+
+sar_by_exposure <- pred_grid %>%
+  arrange(factor(exposure, levels = canonical_levels)) %>%
+  pull(predicted_sar)
+names(sar_by_exposure) <- canonical_levels
+
+line_list <- map_dfr(1:n_index, function(i) {
+  total_contacts <- rnbinom(n = 1, mu = overall_rate$estimate, size = overall_rate$theta)
+
+  if (total_contacts == 0) {
+    return(tibble(
+      index_case              = sprintf("%03d", i),
+      total_contacts          = 0L,
+      exposure                = canonical_levels,
+      total_contacts_exposure = 0L,
+      infected_contacts       = 0L,
+      uninfected_contacts     = 0L
+    ))
+  }
+
+  contacts_per_exposure <- as.integer(
+    rmultinom(n = 1, size = total_contacts, prob = exposure_props)
+  )
+  names(contacts_per_exposure) <- canonical_levels
+
+  infected_per_exposure <- map_int(canonical_levels, function(lvl) {
+    n   <- contacts_per_exposure[lvl]
+    sar <- sar_by_exposure[lvl]
+    if (n == 0) return(0L)
+    rbinom(n = 1, size = n, prob = sar)
+  })
+  names(infected_per_exposure) <- canonical_levels
+
+  tibble(
+    index_case              = sprintf("%03d", i),
+    total_contacts          = total_contacts,
+    exposure                = canonical_levels,
+    total_contacts_exposure = as.integer(contacts_per_exposure),
+    infected_contacts       = as.integer(infected_per_exposure),
+    uninfected_contacts     = as.integer(contacts_per_exposure - infected_per_exposure)
+  )
+}) %>%
+  mutate(exposure = factor(exposure, levels = rev(canonical_levels))) %>%
+  arrange(index_case, exposure) %>%
+  mutate(exposure = as.character(exposure))
+
+cat(sprintf("Total contacts simulated: %d\n", sum(line_list$total_contacts_exposure)))
+cat(sprintf("Total infected: %d\n", sum(line_list$infected_contacts)))
+cat(sprintf("Overall simulated SAR: %.3f\n",
+            sum(line_list$infected_contacts) / sum(line_list$total_contacts_exposure)))
+```
+
+```{r linelist-preview}
+line_list %>%
+  filter(total_contacts_exposure > 0) %>%
+  head(20) %>%
+  rename(`Index case` = index_case, `Total contacts` = total_contacts,
+         Exposure = exposure, `Contacts (exposure)` = total_contacts_exposure,
+         `Infected` = infected_contacts, `Uninfected` = uninfected_contacts)
+```
+
+```{r simulated-sar-by-exposure}
+line_list %>%
+  group_by(exposure) %>%
+  summarise(
+    total_contacts = sum(total_contacts_exposure),
+    total_infected = sum(infected_contacts),
+    simulated_sar  = scales::percent(total_infected / total_contacts, accuracy = 0.1),
+    .groups        = "drop"
+  ) %>%
+  rename(Exposure = exposure, `Total contacts` = total_contacts,
+         `Infected` = total_infected, `Simulated SAR` = simulated_sar)
+```
+
+---
+
+# 10. Risk Threshold Analysis
+
+Four cumulative high-risk contact definitions were evaluated, ranging from corpse handling only (most restrictive) to any direct physical contact (most inclusive). For each definition, sensitivity (proportion of infected contacts captured) and specificity (proportion of uninfected contacts correctly excluded) were computed from the simulated line list along with other important metrics to evaluate the efficiency of the high-risk contact definition.
+
+```{r threshold-setup}
+summary_stats <- function(high_risk_def) {
+  summary_table <- line_list %>%
+    mutate(contact_class = if_else(exposure %in% high_risk_def,
+                                   "high_risk", "non_high_risk")) %>%
+    group_by(contact_class) %>%
+    summarise(
+      cases          = sum(infected_contacts),
+      uninfected     = sum(uninfected_contacts),
+      total_contacts = sum(total_contacts_exposure)
+    ) %>%
+    bind_rows(
+      summarise(., across(where(is.numeric), sum, na.rm = TRUE),
+                across(where(is.character), ~ "total"))
+    )
+
+  sar         <- summary_table$cases[summary_table$contact_class == "high_risk"] /
+                 summary_table$total_contacts[summary_table$contact_class == "high_risk"]
+  sensitivity <- summary_table$cases[summary_table$contact_class == "high_risk"] /
+                 summary_table$cases[summary_table$contact_class == "total"]
+  specificity <- summary_table$uninfected[summary_table$contact_class == "non_high_risk"] /
+                 summary_table$uninfected[summary_table$contact_class == "total"]
+  missed_cases <- summary_table$cases[summary_table$contact_class == "non_high_risk"]
+  prop_missed  <- missed_cases / summary_table$cases[summary_table$contact_class == "total"]
+
+  list(
+    summary_table = summary_table,
+    diagnostics   = data.frame(sar, sensitivity, specificity, missed_cases, prop_missed)
+  )
+}
+
+threshold_definitions <- list(
+  "Class 5: Handled corpse only"                  = canonical_levels[5],
+  "Class 4-5: Body fluid contact and above"       = canonical_levels[4:5],
+  "Class 3-5: Nursing care and above"             = canonical_levels[3:5],
+  "Class 2-5: Direct physical contact and above"  = canonical_levels[2:5]
+)
+
+results <- imap(threshold_definitions, function(high_risk_def, def_name) {
+  res <- summary_stats(high_risk_def)
+  list(
+    definition  = def_name,
+    high_risk   = paste(high_risk_def, collapse = "; "),
+    summary     = res$summary_table     %>% mutate(definition = def_name, .before = 1),
+    diagnostics = res$diagnostics %>% mutate(definition = def_name, .before = 1)
+  )
+})
+
+all_summaries  <- map_dfr(results, "summary")
+all_diagnostics <- map_dfr(results, "diagnostics")
+
+diagnostics_wide <- all_diagnostics %>%
+  mutate(across(c(sar, sensitivity, specificity, prop_missed), ~ round(.x, 3))) %>%
+  dplyr::select(definition, sar, sensitivity, specificity, missed_cases, prop_missed)
+```
+
+```{r threshold-table}
+diagnostics_wide %>%
+  mutate(
+    sar         = scales::percent(sar,         accuracy = 0.1),
+    sensitivity = scales::percent(sensitivity, accuracy = 0.1),
+    specificity = scales::percent(specificity, accuracy = 0.1),
+    prop_missed = scales::percent(prop_missed, accuracy = 0.1)
+  ) %>%
+  rename(
+    Definition       = definition,
+    `SAR (high-risk)`= sar,
+    Sensitivity      = sensitivity,
+    Specificity      = specificity,
+    `Missed cases`   = missed_cases,
+    `Proportion missed` = prop_missed
+  )
+```
+
+```{r threshold-plot, fig.cap="Sensitivity and specificity across high-risk contact definitions. Broadening the definition increases sensitivity but reduces specificity."}
+all_diagnostics %>%
+  dplyr::select(definition, sensitivity, specificity) %>%
+  pivot_longer(
+    cols      = c(sensitivity, specificity),
+    names_to  = "metric",
+    values_to = "value"
+  ) %>%
+  mutate(
+    definition = factor(definition,
+      levels = names(threshold_definitions),
+      labels = c(
+        "Class 5\n(Corpse only)",
+        "Class 4-5\n(Fluids+)",
+        "Class 3-5\n(Nursing+)",
+        "Class 2-5\n(Direct contact+)"
+      )
+    ),
+    metric = factor(metric,
+      levels = c("sensitivity", "specificity"),
+      labels = c("Sensitivity", "Specificity")
+    )
+  ) %>%
+  ggplot(aes(x = definition, y = value, colour = metric, group = metric)) +
+  geom_line(linewidth = 0.8, linetype = "dashed", alpha = 0.6) +
+  geom_point(size = 4) +
+  geom_text(
+    aes(label = scales::percent(value, accuracy = 0.1)),
+    vjust = -1, size = 3.2, show.legend = FALSE
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format(),
+    limits = c(0, 1.05),
+    breaks = seq(0, 1, 0.2)
+  ) +
+  scale_colour_manual(values = c("Sensitivity" = "#E63946", "Specificity" = "#457B9D")) +
+  labs(
+    title    = "Sensitivity and specificity by high-risk contact definition",
+    subtitle = "Thresholds defined by including progressively lower-risk exposure classes",
+    x        = "High-risk definition (cumulative from highest risk)",
+    y        = NULL,
+    colour   = NULL
+  ) +
+  theme_bw() +
+  theme(
+    legend.position  = "top",
+    panel.grid.minor = element_blank()
+  )
+ggsave(here::here("plots", "contact_definition_diagnostics.png"), 
+                  dpi = 500, width = 30, height = 20, units = "cm")
+```
+
+---
+
+# 11. Export
+
+```{r export}
+write_csv(all_summaries, here::here("output", "contact_risk_summary_tables.csv"))
+write_csv(all_diagnostics, here::here("output", "contact_risk_diagnostics_long.csv"))
+write_csv(diagnostics_wide, here::here("output", "contact_risk_diagnostics_wide.csv"))
+write_csv(line_list, here::here("output", "contact_linelist_simulation.csv"))
+
+```
+
+---
+
+# Session Info
+
+```{r session-info}
+sessionInfo()
+```

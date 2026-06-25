@@ -459,3 +459,211 @@ pred_contacts <- pred_contacts %>%
 cat("\nPredicted contacts per index case by exposure level:\n")
 print(pred_contacts %>% dplyr::select(exposure, contacts_per_index, ci_lower, ci_upper))
 
+# 10. Simulation of incidence ---------------------------------------------
+# Starting with 100 index cases, assuming that each of them have a number of contacts
+# that is sampled from the negative binomial fitted earlier, then with a number of contacts
+# per exposure sampled based on the proportions and enforced to be an integer, working
+# from highest risk to lowest
+# Starting with 100 index cases, simulate:
+#   1. Total contacts per index case from fitted negative binomial
+#   2. Contacts per exposure level from multinomial draw using ref_distribution
+#   3. Infected contacts per exposure level from binomial draw using pred_grid SAR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+set.seed(42)
+n_index <- 100
+
+# --- Parameters from fitted models ------------------------------------------
+
+# Mean contacts per index case from negative binomial
+mean_contacts <- exp(coef(fit_nb_overall)[["(Intercept)"]])
+theta <- fit_nb_overall$theta
+
+# Exposure proportions from reference distribution (must sum to 1)
+exposure_props <- ref_distribution %>%
+  arrange(factor(exposure, levels = canonical_levels)) %>%
+  pull(ref_prop)
+names(exposure_props) <- canonical_levels
+
+# Predicted SAR per exposure level
+sar_by_exposure <- pred_grid %>%
+  arrange(factor(exposure, levels = canonical_levels)) %>%
+  pull(predicted_sar)
+names(sar_by_exposure) <- canonical_levels
+
+# --- Simulate ----------------------------------------------------------------
+
+line_list <- map_dfr(1:n_index, function(i) {
+  # Step 1: draw total contacts for this index case from negative binomial
+  total_contacts <- rnbinom(n = 1, mu = mean_contacts, size = theta)
+  # Edge case: if total_contacts = 0, return a single row with zeros
+  if (total_contacts == 0) {
+    return(tibble(
+      index_case               = sprintf("%03d", i),
+      total_contacts           = 0L,
+      exposure                 = canonical_levels,
+      total_contacts_exposure  = 0L,
+      infected_contacts        = 0L,
+      uninfected_contacts      = 0L
+    ))
+  }
+  
+  # Step 2: allocate contacts across exposure levels
+  # Draw from multinomial to get integer counts that sum to total_contacts
+  # Work from highest to lowest risk (canonical_levels is already ordered
+  # lowest to highest, so reverse for allocation then reorder at the end)
+  contacts_per_exposure <- as.integer(
+    rmultinom(n = 1, size = total_contacts, prob = exposure_props)
+  )
+  names(contacts_per_exposure) <- canonical_levels
+  
+  # Step 3: for each exposure level, draw infected contacts from binomial
+  # using the predicted SAR for that level
+  infected_per_exposure <- map_int(canonical_levels, function(lvl) {
+    n   <- contacts_per_exposure[lvl]
+    sar <- sar_by_exposure[lvl]
+    if (n == 0) return(0L)
+    rbinom(n = 1, size = n, prob = sar)
+  })
+  names(infected_per_exposure) <- canonical_levels
+  
+  # Step 4: assemble into long format, one row per exposure level
+  tibble(
+    index_case              = sprintf("%03d", i),
+    total_contacts          = total_contacts,
+    exposure                = canonical_levels,
+    total_contacts_exposure = as.integer(contacts_per_exposure),
+    infected_contacts       = as.integer(infected_per_exposure),
+    uninfected_contacts     = as.integer(contacts_per_exposure - infected_per_exposure)
+  )
+})
+
+# Order by index case and exposure level (highest to lowest risk)
+line_list <- line_list %>%
+  mutate(exposure = factor(exposure, levels = rev(canonical_levels))) %>%
+  arrange(index_case, exposure) %>%
+  mutate(exposure = as.character(exposure))
+
+# check that things add as they should
+# Check 1: total_contacts_exposure sums to total_contacts within each index case
+check_totals <- line_list %>%
+  group_by(index_case, total_contacts) %>%
+  summarise(sum_exposure = sum(total_contacts_exposure), .groups = "drop") %>%
+  filter(total_contacts != sum_exposure)
+
+if (nrow(check_totals) > 0) {
+  warning("total_contacts_exposure does not sum to total_contacts for:\n",
+          paste(check_totals$index_case, collapse = ", "))
+} else {
+  cat("\nCheck 1 passed: total_contacts_exposure sums to total_contacts for all index cases.\n")
+}
+
+# Check 2: infected + uninfected = total_contacts_exposure
+check_infected <- line_list %>%
+  filter(infected_contacts + uninfected_contacts != total_contacts_exposure)
+
+if (nrow(check_infected) > 0) {
+  warning("infected + uninfected != total_contacts_exposure for ",
+          nrow(check_infected), " rows.")
+} else {
+  cat("Check 2 passed: infected + uninfected = total_contacts_exposure for all rows.\n")
+}
+
+# 11. 2x2 summary table for each definition -------------------------------
+high_risk_def <- c(canonical_levels[5])
+
+summary_stats <- function(high_risk_def) {
+  non_hr_def <- c(canonical_levels[!(canonical_levels %in% high_risk_def)])
+  
+  summary_table <- line_list %>%
+    mutate(contact_class = if_else(exposure %in% high_risk_def, "high_risk", "non_high_risk")) %>%
+    group_by(contact_class) %>%
+    summarise(cases = sum(infected_contacts),
+              uninfected = sum(uninfected_contacts),
+              total_contacts = sum(total_contacts_exposure)) %>% 
+    bind_rows(summarise(., across(where(is.numeric), sum, na.rm = TRUE), 
+                        across(where(is.character), ~"total")))
+  
+  sar <- summary_table$cases[summary_table$contact_class == "high_risk"] /
+    summary_table$total_contacts[summary_table$contact_class == "high_risk"]
+  
+  sensitivity <- summary_table$cases[summary_table$contact_class == "high_risk"] /
+    summary_table$cases[summary_table$contact_class == "total"]
+  
+  specificity <- summary_table$uninfected[summary_table$contact_class == "non_high_risk"] /
+    summary_table$uninfected[summary_table$contact_class == "total"]
+  
+  missed_cases <- summary_table$cases[summary_table$contact_class == "non_high_risk"]
+  prop_missed <- missed_cases/summary_table$cases[summary_table$contact_class == "total"]
+  
+  diagnostics <- data.frame(
+    sar = sar,
+    sensitivity = sensitivity,
+    specificity = specificity,
+    missed_cases = missed_cases,
+    prop_missed = prop_missed
+  )
+  
+  return(list(summary_table, diagnostics))
+}
+
+# Define the four cumulative high-risk thresholds (highest to lowest risk)
+# These are the possible definitions of a high-risk contact to be followed up
+threshold_definitions <- list(
+  "class5_handled_corpse"                          = canonical_levels[5],
+  "class4to5_body_fluid_and_above"                 = canonical_levels[4:5],
+  "class3to5_nursing_and_above"                    = canonical_levels[3:5],
+  "class2to5_direct_physical_contact_and_above"    = canonical_levels[2:5]
+)
+
+results <- imap(threshold_definitions, function(high_risk_def, def_name) {
+  
+  res <- summary_stats(high_risk_def)
+  
+  list(
+    definition   = def_name,
+    high_risk    = paste(high_risk_def, collapse = "; "),
+    summary      = res[[1]] %>% mutate(definition = def_name, .before = 1),
+    diagnostics  = res[[2]] %>% mutate(definition = def_name, .before = 1)
+  )
+})
+
+# combine so they're easy to export
+# summary tables stacked
+all_summaries <- map_dfr(results, "summary")
+
+# All diagnostics stacked
+all_diagnostics <- map_dfr(results, "diagnostics")
+
+# Wide diagnostics table — one row per threshold, easy to read at a glance
+diagnostics_wide <- all_diagnostics %>%
+  mutate(
+    high_risk_classes = map_chr(threshold_definitions[definition], 
+                                ~ paste(.x, collapse = "; "))
+  ) %>%
+  dplyr::select(
+    definition, high_risk_classes,
+    sar, sensitivity, specificity, missed_cases, prop_missed
+  ) %>%
+  mutate(across(c(sar, sensitivity, specificity, prop_missed),
+                ~ round(.x, 3)))
+
+# export the files
+write_csv(all_summaries, "contact_risk_summary_tables.csv")
+write_csv(all_diagnostics, "contact_risk_diagnostics_long.csv")
+write_csv(diagnostics_wide, "contact_risk_diagnostics_wide.csv")
+
+
