@@ -1,0 +1,5 @@
+definition,sar,sensitivity,specificity,missed_cases,prop_missed
+Class 5: Handled corpse only,0.568,0.202,0.967,99,0.798
+Class 4-5: Body fluid contact and above,0.219,0.419,0.68,72,0.581
+Class 3-5: Nursing care and above,0.267,0.75,0.56,31,0.25
+Class 2-5: Direct physical contact and above,0.215,0.919,0.282,10,0.081

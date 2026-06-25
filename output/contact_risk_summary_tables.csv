@@ -1,0 +1,13 @@
+definition,contact_class,cases,uninfected,total_contacts
+Class 5: Handled corpse only,high_risk,25,19,44
+Class 5: Handled corpse only,non_high_risk,99,560,659
+Class 5: Handled corpse only,total,124,579,703
+Class 4-5: Body fluid contact and above,high_risk,52,185,237
+Class 4-5: Body fluid contact and above,non_high_risk,72,394,466
+Class 4-5: Body fluid contact and above,total,124,579,703
+Class 3-5: Nursing care and above,high_risk,93,255,348
+Class 3-5: Nursing care and above,non_high_risk,31,324,355
+Class 3-5: Nursing care and above,total,124,579,703
+Class 2-5: Direct physical contact and above,high_risk,114,416,530
+Class 2-5: Direct physical contact and above,non_high_risk,10,163,173
+Class 2-5: Direct physical contact and above,total,124,579,703
