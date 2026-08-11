@@ -15,7 +15,7 @@ execute:
 #| label: load-packages
 #| include: false
 
-library(tidyverse)
+#library(tidyverse)
 ```
 
 <i>NB all French text has been written by Michelle's hazy GCSE memory with some help from ChatGPT and definitely needs reviewing by a native/proficient speaker please!</i>
@@ -29,11 +29,11 @@ viewof intro_language = {
   const form = html`
     <form>
       <label style="display:block; margin-bottom:0.4rem;">
-        <input type="radio" name="lang" value="fr" checked>
+        <input type="radio" name="lang" value="fr">
         Français 🇫🇷 
       </label>
       <label style="display:block;">
-        <input type="radio" name="lang" value="en">
+        <input type="radio" name="lang" value="en" checked>
         English 🇬🇧
       </label>
     </form>
@@ -66,7 +66,21 @@ intro_language === "fr"
   : html`<p>For any infectious disease, the Public Health definition of a 'risky' contact will affect how many individuals are contact-traced per index case.
 With this definition come trade-offs for sensitivity and specificity, with implications for disease management and resource use.</p>
 
-<p>This web app brings together data from many previous studies of <i>Ebolavirus</i>, to quantify for a variety of 'risky' contact definitions (1) the numbers of contacts traced, and (2) the number of these who go on to test positive. For more details see the 'methods' tab..</p>`
+<p>This web app brings together data from many previous studies of <i>Ebolavirus</i>, to quantify for a variety of 'risky' contact definitions (1) the numbers of contacts traced, and (2) the number of these who go on to test positive. For more details see the 'methods' tab..</p>
+
+<p><b>Example</b></p>
+
+<p>Suppose a case has <b>50</b> contacts and <font color="#B25628"><b>10</b></font> of the contacts are <font color="#B25628">infected</font>.</p>
+
+<p>For a 'narrow' contact definition e.g. <b>"Close, unprotected nursing care"</b> we may find that:
+
+<img src = "plots/schematic_narrow.png" alt = "alternatetext" width="1000" >
+
+<p>whereas for a 'broad' contact definition e.g. <b>"Brief face-to-face interaction"</b> we may find that:</p>
+
+<img src = "plots/schematic_broad.png" alt = "alternatetext" width="1000" >
+`
+
 
 
 ```
