@@ -134,19 +134,16 @@ viewof literature_strain = Inputs.checkbox(
 ```{ojs}
 //| panel: fill
 //| 
+//| 
 
-html`<i><b>Sensitivity:</b> Across the literature reviewed, a policy of tracing contacts classified as '${contactType}' would have resulted in <b>missing ${proportionMissed}%</b> of cases among contacts of an index case.</i>`
 
-html`<br>`
+html`<p>Across the literature reviewed, a policy of tracing contacts classified as <b>'${contactType}'</b> would have resulted in:</p>
 
-html`<i><b>Specificity:</b> With this definition of a contact, <b>${specificity}%</b> of a case's contacts would be expected to go on to test positive.</i>`
+<p><i><b>Secondary attack rate:</b> <b>${sar}%</b> of traced contacts are infected</i></p>
 
-html`<br>`
+<p><i><b>Sensitivity:</b> tracing <b>${sensitivity}%</b> of infected contacts; missing <b>${proportionMissed}%</b></i></p>
 
-html`<i>Possibility to include more stats, a two-by-two table, maybe expected size of ring, SAR,...</i>`
-
-html`<br>`
-
+<p><i><b>Specificity:</b> not tracing <b>${specificity}%</b> of uninfected contacts (higher = better)</i></p>`
 ```
 
 ![](plots/contact_definition_diagnostics.png){fig-alt="Plot showing the tradeoffs in sensitivity and specificity of the classes of contact definition"}
