@@ -18,13 +18,14 @@ data <- readxl::read_excel("data/data-raw/sar_extraction.xlsx", sheet = "data-fo
 # now listing all of the unique exposures for inclusion
 exposures_to_map <- data %>%
   dplyr::filter(include == TRUE) %>%
-  dplyr::select(first_author:year, definition_contact_me:notes)
+  dplyr::select(first_author:year, household, definition_contact, definition_contact_me:notes)
 
 length(unique(data$doi))
-length(unique(exposures_to_map$doi)) # only missing Francescioni b/c currently not mapped successfully
+# Gayedu-Dennis I think should be excluded and some studies also with only all contacts available
+length(unique(exposures_to_map$doi)) 
 
 # now output this interim file to enable the mapping onto categories
-write.csv(exposures_to_map, "data/data-raw/exposures-to-map.csv")
+write.csv(exposures_to_map, "data/data-raw/exposures-to-map.csv", row.names = FALSE)
 
 # This was then manually edited and saved to the data/data-derived folder to read back in and merge with the 
 # standard data set in order to proceed with the analysis
