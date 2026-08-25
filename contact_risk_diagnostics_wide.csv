@@ -1,5 +1,0 @@
-definition,high_risk_classes,sar,sensitivity,specificity,missed_cases,prop_missed
-class5_handled_corpse,Handled corpse,0.568,0.202,0.967,99,0.798
-class4to5_body_fluid_and_above,Body fluid contact; Handled corpse,0.219,0.419,0.68,72,0.581
-class3to5_nursing_and_above,Nursing care - no body fluids; Body fluid contact; Handled corpse,0.267,0.75,0.56,31,0.25
-class2to5_direct_physical_contact_and_above,Direct physical contact - no fluids and no nursing; Nursing care - no body fluids; Body fluid contact; Handled corpse,0.215,0.919,0.282,10,0.081
