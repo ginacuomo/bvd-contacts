@@ -18,7 +18,8 @@ data <- readxl::read_excel("data/data-raw/sar_extraction.xlsx", sheet = "data-fo
 # now listing all of the unique exposures for inclusion
 exposures_to_map <- data %>%
   dplyr::filter(include == TRUE) %>%
-  dplyr::select(first_author:year, household, definition_contact, definition_contact_me:notes)
+  dplyr::select(first_author:year, household, definition_contact, definition_contact_me:notes) %>%
+  filter(definition_contact_me != "All")
 
 length(unique(data$doi))
 # Gayedu-Dennis I think should be excluded and some studies also with only all contacts available
