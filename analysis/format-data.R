@@ -15,6 +15,7 @@ library(ggplot2)
 
 # data import 
 data <- readxl::read_excel("data/data-raw/sar_extraction.xlsx", sheet = "data-fomite")
+labels <- readxl::read_excel("data/data-raw/sar_extraction.xlsx", sheet = "study-labels")
 
 # now listing all of the unique exposures for inclusion
 exposures_to_map <- data %>%
@@ -106,31 +107,10 @@ exposures_long %>%
 # reduce number of overlapping columns between the merging
 intersect(names(dat), names(exposures_long))
 
-# make a table of study labels
-study_labels <- dat %>%
-  distinct(doi, first_author, year) %>%
-  group_by(first_author, year) %>%
-  arrange(doi, .by_group = TRUE) %>%
-  mutate(
-    study_label = if (n() == 1) {
-      paste(first_author, year)
-    } else {
-      paste(first_author, year, LETTERS[row_number()])
-    }
-  ) %>%
-  ungroup()
-
 # join the dataframes together
-dat_joined <- left_join(dat, exposures_long) %>%
+dat_joined <- left_join(dat, labels) %>%
+  left_join(exposures_long) %>%
   dplyr::mutate(exposure = if_else(definition_contact_me == "All", "All", exposure))
-
-# test the labelling of the studies 
-# TODO: fix those with duplicates
-study_labels <- dat_joined %>%
-  dplyr::select(first_author, year_publication, doi) %>%
-  dplyr::distinct() %>%
-  dplyr::group_by(first_author, year_publication) %>%
-  dplyr::mutate(n = n()) 
 
 # studies that didn't have SDBs i.e. included exposures from handling a corpse
 non_sdb <- dat_joined %>%
@@ -138,13 +118,13 @@ non_sdb <- dat_joined %>%
   pull(first_author)
 
 all_contacts <- dat_joined %>%
-  dplyr::filter(exposure == "All") %>% group_by(doi) %>% 
+  dplyr::filter(exposure == "All") %>% group_by(label) %>% 
   dplyr::mutate(ci_lower = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$lower,
                 ci_upper = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$upper) %>%
   dplyr::mutate(sdb = if_else(first_author %in% non_sdb, TRUE, FALSE)) %>%
   dplyr::arrange(desc(sar_observed))
 
-ggplot(all_contacts, aes(x = doi, y = sar_observed*100, col = sdb)) +
+ggplot(all_contacts, aes(x = label, y = sar_observed*100, col = sdb)) +
   scale_x_discrete(labels = paste(all_contacts$first_author)) +
   theme_bw() + geom_point() + ylim(c(0, 50)) +
   geom_errorbar(aes(ymin = ci_lower*100, ymax = ci_upper*100)) +
