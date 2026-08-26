@@ -11,6 +11,7 @@
 # library
 library(tidyverse)
 require(readxl)
+library(ggplot2)
 
 # data import 
 data <- readxl::read_excel("data/data-raw/sar_extraction.xlsx", sheet = "data-fomite")
@@ -30,3 +31,125 @@ write.csv(exposures_to_map, "data/data-raw/exposures-to-map.csv", row.names = FA
 
 # This was then manually edited and saved to the data/data-derived folder to read back in and merge with the 
 # standard data set in order to proceed with the analysis
+# TODO: figure out how to map the Dowell study. 
+# we have % of cases with each risk factor but need to convert this into the actual numbers with 
+# numerators and denominators
+
+# define the exposure levels
+# Classes 0 and 1 merged into a single reference "No direct physical contact"
+# because both are sparsely reported and was propagating bias through the analysis
+
+canonical_levels <- c(
+  "No direct physical contact",                         # Classes 0+1 — reference
+  "Fomite exposure - no direct physical contact",       # Class 2
+  "Direct physical contact - no fluids and no nursing", # Class 3
+  "Nursing care - no body fluids",                      # Class 4
+  "Body fluid contact",                                 # Class 5
+  "Handled corpse"                                      # Class 6 
+)
+
+canonical_levels_sensitivity <- c(
+  "No/minimal contact",
+  "Indirect contact only",
+  "Fomite exposure - no direct physical contact",
+  "Direct physical contact - no fluids and no nursing",
+  "Nursing care - no body fluids",
+  "Body fluid contact",
+  "Handled corpse"
+)
+
+reference_level      <- canonical_levels[1]
+non_reference_levels <- canonical_levels[-1]
+
+exposures <- read.csv("data/data-derived/exposures-mapped.csv")
+
+# reformat the data into the classes that we want/need
+dat <- data %>%
+  mutate(numerator = as.integer(numerator),
+         denominator = as.integer(denominator),
+         num_index = as.integer(num_index),
+         year = as.character(year),
+         study_id = paste(first_author, year_publication, location, sep = "_"),
+         sar_observed = numerator / denominator,
+         uninfected_contacts = denominator - numerator,
+         household = as.integer(household)) %>%
+  filter(!is.na(numerator),
+         !is.na(denominator),
+         denominator > 0,
+         numerator <= denominator,
+         include == TRUE)
+
+# now reformat the exposures table
+# TODO: decide if we need to remap levels 0 and 1 -- separate for the moment
+exclude_vars <- c("include", "imputed", "notes", 
+                  "definition_contact", "location", "country")
+
+exposures_long <- exposures %>%
+  pivot_longer(cols = starts_with("exposure"),
+               names_to  = "exposurenum",
+               values_to = "exposure") %>%
+  dplyr::select(-exposurenum) %>%
+  dplyr::filter(!(is.na(exposure))) %>%
+  dplyr::select(-any_of(exclude_vars))
+
+# check if there are any duplicate mappings across the different studies
+exposures_long %>%
+  dplyr::group_by(first_author, doi, exposure) %>%
+  dplyr::summarise(n = n()) %>% 
+  dplyr::filter(n > 1) 
+# Jezek has duplicate between household and non-household contact exposure for non-caregiving
+exposures_long %>%
+  dplyr::group_by(first_author, doi, exposure, household) %>%
+  dplyr::summarise(n = n()) %>% 
+  dplyr::filter(n > 1)
+
+# reduce number of overlapping columns between the merging
+intersect(names(dat), names(exposures_long))
+
+# make a table of study labels
+study_labels <- dat %>%
+  distinct(doi, first_author, year) %>%
+  group_by(first_author, year) %>%
+  arrange(doi, .by_group = TRUE) %>%
+  mutate(
+    study_label = if (n() == 1) {
+      paste(first_author, year)
+    } else {
+      paste(first_author, year, LETTERS[row_number()])
+    }
+  ) %>%
+  ungroup()
+
+# join the dataframes together
+dat_joined <- left_join(dat, exposures_long) %>%
+  dplyr::mutate(exposure = if_else(definition_contact_me == "All", "All", exposure))
+
+# test the labelling of the studies 
+# TODO: fix those with duplicates
+study_labels <- dat_joined %>%
+  dplyr::select(first_author, year_publication, doi) %>%
+  dplyr::distinct() %>%
+  dplyr::group_by(first_author, year_publication) %>%
+  dplyr::mutate(n = n()) 
+
+# studies that didn't have SDBs i.e. included exposures from handling a corpse
+non_sdb <- dat_joined %>%
+  dplyr::filter(exposure == "Handled corpse") %>%
+  pull(first_author)
+
+all_contacts <- dat_joined %>%
+  dplyr::filter(exposure == "All") %>% group_by(doi) %>% 
+  dplyr::mutate(ci_lower = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$lower,
+                ci_upper = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$upper) %>%
+  dplyr::mutate(sdb = if_else(first_author %in% non_sdb, TRUE, FALSE)) %>%
+  dplyr::arrange(desc(sar_observed))
+
+ggplot(all_contacts, aes(x = doi, y = sar_observed*100, col = sdb)) +
+  scale_x_discrete(labels = paste(all_contacts$first_author)) +
+  theme_bw() + geom_point() + ylim(c(0, 50)) +
+  geom_errorbar(aes(ymin = ci_lower*100, ymax = ci_upper*100)) +
+  labs(x = "First Author", y = "Observed SAR (%)") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+  guides(col = guide_legend(title = "Cadaver exposures"))
+ggsave("plots/all_contacts.png", dpi = 500, width = 20, height = 15, units = "cm")
+  
