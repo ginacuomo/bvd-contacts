@@ -20,5 +20,5 @@ Bower,2016,10.3201/eid2208.160163,Kerry Town,Sierra Leone,2015,1,Handled corpse,
 Bower,2016,10.3201/eid2208.160163,Kerry Town,Sierra Leone,2015,1,Handled fluids,Handled fluids,Body fluid contact,NA,NA,NA,TRUE,FALSE,NA
 Bower,2016,10.3201/eid2208.160163,Kerry Town,Sierra Leone,2015,1,Minimal/no contact,Minimal/no contact,No/minimal contact,NA,NA,NA,TRUE,FALSE,NA
 Bower,2016,10.3201/eid2208.160163,Kerry Town,Sierra Leone,2015,1,Indirect contact combined,Indirect contact combined,Fomite exposure - no direct physical contact ,Indirect contact only,NA,NA,TRUE,TRUE,Combined indirect contact (wet + dry)
-Bower,2016,10.3201/eid2208.160163,Kerry Town,Sierra Leone,2015,1,Direct wet contact,Direct wet contact,Nursing care - no body fluids,NA,NA,NA,,,
-Bower,2016,10.3201/eid2208.160163,Kerry Town,Sierra Leone,2015,1,Direct dry contact,Direct dry contact,Direct physical contact - no fluids and no nursing,NA,NA,NA,,,
+Bower,2016,10.3201/eid2208.160163,Kerry Town,Sierra Leone,2015,1,Direct wet contact,Direct wet contact,Nursing care - no body fluids,,,,,,
+Bower,2016,10.3201/eid2208.160163,Kerry Town,Sierra Leone,2015,1,Direct dry contact,Direct dry contact,Direct physical contact - no fluids and no nursing,,,,,,

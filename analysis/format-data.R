@@ -122,13 +122,15 @@ all_contacts <- dat_joined %>%
                 ci_upper = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$upper) %>%
   dplyr::arrange(desc(sar_observed))
 
-ggplot(all_contacts, aes(x = label, y = sar_observed*100)) +
+ggplot(all_contacts, aes(x = label, y = sar_observed*100, col = study_design)) +
   theme_bw() + geom_point() + ylim(c(0, 50)) +
   geom_errorbar(aes(ymin = ci_lower*100, ymax = ci_upper*100)) +
   labs(x = "First Author", y = "Observed SAR (%)") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
-  labs(subtitle = "All contacts")
-ggsave("plots/all_contacts.png", dpi = 500, width = 20, height = 15, units = "cm")
+  labs(subtitle = "All contacts") + 
+  guides(col = guide_legend(title = "Study design")) + 
+  theme(legend.direction = "horizontal", legend.position = "bottom")
+ggsave("plots/all_contacts.png", dpi = 500, width = 25, height = 15, units = "cm")
   
 
 # 3. Exposure disaggregation ----------------------------------------------

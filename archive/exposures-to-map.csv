@@ -18,7 +18,6 @@
 "Dowell",1999,"10.1086/514284","Kikwit","DRC","1995",NA,"Did NOT have direct physical contact","Did NOT have direct physical contact",TRUE,FALSE,"This includes fomite contact"
 "Bower",2016,"10.3201/eid2208.160163","Kerry Town","Sierra Leone","2015","1","Handled corpse","Handled corpse",TRUE,FALSE,NA
 "Bower",2016,"10.3201/eid2208.160163","Kerry Town","Sierra Leone","2015","1","Handled fluids","Handled fluids",TRUE,FALSE,NA
-"Bower",2016,"10.3201/eid2208.160163","Kerry Town","Sierra Leone","2015","1","Direct wet contact","Direct wet contact",TRUE,FALSE,NA
-"Bower",2016,"10.3201/eid2208.160163","Kerry Town","Sierra Leone","2015","1","Direct dry contact","Direct dry contact",TRUE,FALSE,NA
 "Bower",2016,"10.3201/eid2208.160163","Kerry Town","Sierra Leone","2015","1","Minimal/no contact","Minimal/no contact",TRUE,FALSE,NA
 "Bower",2016,"10.3201/eid2208.160163","Kerry Town","Sierra Leone","2015","1","Indirect contact combined","Indirect contact combined",TRUE,TRUE,"Combined indirect contact (wet + dry)"
+"Bower",2016,"10.3201/eid2208.160163","Kerry Town","Sierra Leone","2015","1","Direct contact combined","Direct contact combined",TRUE,TRUE,"Combined direct contact (wet + dry)"
