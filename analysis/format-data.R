@@ -13,6 +13,9 @@ library(tidyverse)
 require(readxl)
 library(ggplot2)
 
+
+# 1. Read and format the data ---------------------------------------------
+
 # data import 
 data <- readxl::read_excel("data/data-raw/sar_extraction.xlsx", sheet = "data-fomite")
 labels <- readxl::read_excel("data/data-raw/sar_extraction.xlsx", sheet = "study-labels")
@@ -41,18 +44,9 @@ write.csv(exposures_to_map, "data/data-raw/exposures-to-map.csv", row.names = FA
 # because both are sparsely reported and was propagating bias through the analysis
 
 canonical_levels <- c(
-  "No direct physical contact",                         # Classes 0+1 — reference
-  "Fomite exposure - no direct physical contact",       # Class 2
-  "Direct physical contact - no fluids and no nursing", # Class 3
-  "Nursing care - no body fluids",                      # Class 4
-  "Body fluid contact",                                 # Class 5
-  "Handled corpse"                                      # Class 6 
-)
-
-canonical_levels_sensitivity <- c(
   "No/minimal contact",
   "Indirect contact only",
-  "Fomite exposure - no direct physical contact",
+  "Fomite exposure - no direct physical contact ",
   "Direct physical contact - no fluids and no nursing",
   "Nursing care - no body fluids",
   "Body fluid contact",
@@ -112,24 +106,26 @@ dat_joined <- left_join(dat, labels) %>%
   left_join(exposures_long) %>%
   dplyr::mutate(exposure = if_else(definition_contact_me == "All", "All", exposure))
 
+
+# 2. Analyse SAR across all contacts --------------------------------------
+
 # studies that didn't have SDBs i.e. included exposures from handling a corpse
-non_sdb <- dat_joined %>%
-  dplyr::filter(exposure == "Handled corpse") %>%
-  pull(first_author)
+# TODO: go to each individual study and see if they mention whether there were unsafe burials included
+# non_sdb <- dat_joined %>%
+#   dplyr::filter(exposure == "Handled corpse") %>%
+#   pull(first_author)
 
 all_contacts <- dat_joined %>%
   dplyr::filter(exposure == "All") %>% group_by(label) %>% 
   dplyr::mutate(ci_lower = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$lower,
                 ci_upper = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$upper) %>%
-  dplyr::mutate(sdb = if_else(first_author %in% non_sdb, TRUE, FALSE)) %>%
   dplyr::arrange(desc(sar_observed))
 
-ggplot(all_contacts, aes(x = label, y = sar_observed*100, col = sdb)) +
-  scale_x_discrete(labels = paste(all_contacts$first_author)) +
+ggplot(all_contacts, aes(x = label, y = sar_observed*100)) +
   theme_bw() + geom_point() + ylim(c(0, 50)) +
   geom_errorbar(aes(ymin = ci_lower*100, ymax = ci_upper*100)) +
   labs(x = "First Author", y = "Observed SAR (%)") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
-  guides(col = guide_legend(title = "Cadaver exposures"))
+  labs(subtitle = "All contacts")
 ggsave("plots/all_contacts.png", dpi = 500, width = 20, height = 15, units = "cm")
   
