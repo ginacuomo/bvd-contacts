@@ -50,8 +50,8 @@ non_reference_levels <- canonical_levels[-1]
 
 # 2. Import data and clean --------------------------
 
-raw <- read_excel("data/sar_extraction.xlsx", sheet = "data_me")
-mapping_raw <- read_excel("data/sar_extraction.xlsx", sheet = "exposure_mapping")
+raw <- raw <- read_excel("data/data-raw/sar_extraction.xlsx", sheet = "data-fomite")
+mapping_raw <-  read.csv("data/data-derived/exposures-mapped.csv")
 
 dat <- raw %>%
   mutate(numerator = as.integer(numerator),

@@ -71,8 +71,7 @@ dat <- data %>%
   filter(!is.na(numerator),
          !is.na(denominator),
          denominator > 0,
-         numerator <= denominator,
-         include == TRUE)
+         numerator <= denominator)
 
 # now reformat the exposures table
 # TODO: decide if we need to remap levels 0 and 1 -- separate for the moment
@@ -116,7 +115,9 @@ dat_joined <- left_join(dat, labels) %>%
 #   pull(first_author)
 
 all_contacts <- dat_joined %>%
-  dplyr::filter(exposure == "All") %>% group_by(label) %>% 
+  dplyr::filter(exposure == "All") %>%
+  dplyr::filter(include == TRUE) %>% 
+  group_by(label) %>% 
   dplyr::mutate(ci_lower = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$lower,
                 ci_upper = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$upper) %>%
   dplyr::arrange(desc(sar_observed))
@@ -129,3 +130,47 @@ ggplot(all_contacts, aes(x = label, y = sar_observed*100)) +
   labs(subtitle = "All contacts")
 ggsave("plots/all_contacts.png", dpi = 500, width = 20, height = 15, units = "cm")
   
+
+# 3. Exposure disaggregation ----------------------------------------------
+
+mapping_table <- dat_joined  %>%
+  dplyr::filter(exposure != "All") %>%
+  distinct(first_author, definition_contact_me, exposure, household, .keep_all = TRUE) %>%
+  group_by(first_author, definition_contact_me) %>%
+  mutate(n_canonical = n(),
+         disaggregated  = n_canonical == 1,
+         covered_levels = list(exposure)) %>%
+  mutate(exposure = factor(exposure, levels = canonical_levels)) %>%
+  ungroup()
+
+ggplot(mapping_table, aes(y = label, x = exposure, fill = disaggregated)) + 
+  theme_bw() + geom_tile() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggsave("plots/data-source.png", dpi = 500, width = 20, height = 15, units = "cm")
+
+# looking closely at the Bower study because we actually had to aggregate this ourselves
+bower <- dat_joined %>%
+  dplyr::filter(first_author == "Bower") %>%
+  group_by(definition_contact_me) %>%
+  dplyr::mutate(ci_lower = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$lower,
+                ci_upper = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$upper) %>%
+  distinct(numerator, denominator, definition_contact_me, .keep_all = TRUE)
+bower$definition_contact_me <- factor(bower$definition_contact_me,
+                                      levels = c("All", 
+                                                 "Handled corpse",
+                                                 "Handled fluids", 
+                                                 "Direct wet contact",        
+                                                 "Direct dry contact",
+                                                 "Direct contact combined",
+                                                 "Indirect wet contact",        
+                                                 "Indirect dry contact",
+                                                 "Indirect contact combined",
+                                                 "Minimal/no contact"))
+
+ggplot(bower, aes(x = definition_contact_me, y = (numerator/denominator)*100, col = imputed)) + 
+  theme_bw() + geom_point() + 
+  geom_errorbar(aes(ymin = ci_lower*100, ymax = ci_upper*100)) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + 
+  labs(x = "Exposure", y = "SAR (%)", subtitle = "Note: imputed exposures were to enable comparison with other papers") +
+  scale_y_continuous(breaks = seq(0, 100, by = 10), limits = c(0, 100)) #+ ylim(c(0,100))
+ggsave("plots/bower.png", dpi = 500, width = 20, height = 15, units = "cm")
