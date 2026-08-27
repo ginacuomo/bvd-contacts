@@ -1,0 +1,141 @@
+---
+title: "simulate-sar.Rmd"
+author: "Gina Cuomo-Dannenburg"
+date: "2026-08-27"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+require(purrr)
+
+```
+
+
+## Purpose of analysis
+We want to try and understand what the community secondary attack rate (SAR) is in order to generate a reproduction number, $R_t \approx 1$, which we assume to effectively be analagous to each index case producing on average one secondary case.
+
+Here, we perform some simulations to understand the community SAR that generates a constand epidemic size. Here, we assume that contacts are either low-risk or high-risk contacts. In many previous studies, the SAR in low-risk contacts is 0% but in Ebola Ca Suffit the SAR in low risk contacts was actually higher than in low risk contacts. Current beliefs are that the community SAR is anything from 1 - 5% and the framework of analysis cannot allow the community SAR to be lower than the SAR in low-risk contacts and therefore we explore a range of low-risk SARs < 1% to ensure that we can allow the community SAR to be what we believe to be plausible a priori. 
+
+Parameters are defined as below:
+* SAR for low-risk contacts: $SAR_{NHR}$
+* SAR for high-risk contacts: $SAR_{HR}$
+* Reproduction number: $R$
+* Number of contacts per index case: $N$
+* Proportion of contacts that are high-risk: $p$ 
+
+I explore viable ranges of values on all possible parameters, and identify which ones would give $R_t \approx 1$ across 100 index cases.
+
+I start by creating a function that simulates the number of index cases, all of their contacts and produces the average number of secondary cases per index case and the community SAR:
+
+```{r write-function}
+generate_sec_inf <- function(num_index, # number of index cases
+                             num_contacts, # number of contacts per index case
+                             prop_hr, # proportion of contacts that are high risk
+                             sar_lr, # SAR in non-low risk contacts,
+                             ratio ) { # SAR ratio between risk groups
+  
+  line_list <- map_dfr(1:num_index, function(i) {
+    # Step 1: draw total contacts for this index case from negative binomial
+    total_contacts <- rnbinom(n = 1, mu = num_contacts, size = 2)
+    canonical_levels <- c("low-risk", "high-risk")
+    # Edge case: if total_contacts = 0, return a single row with zeros
+    if (total_contacts == 0) {
+      return(tibble(
+        index_case  = sprintf("%03d", i),
+        total_contacts  = 0L,
+        exposure                 = canonical_levels,
+        total_contacts_exposure  = 0L,
+        infected_contacts        = 0L,
+        uninfected_contacts      = 0L
+      ))
+    }
+    
+    # Step 2: allocate contacts across exposure levels
+    # Draw from multinomial to get integer counts that sum to total_contacts
+    # Work from highest to lowest risk (canonical_levels is already ordered
+    # lowest to highest, so reverse for allocation then reorder at the end)
+    contacts_per_exposure <- as.integer(
+      rmultinom(n = 1, size = total_contacts, prob = c(1-prop_hr, prop_hr))
+    )
+    sar_by_exposure <- c(sar_lr, sar_lr*ratio)
+    names(contacts_per_exposure) <- canonical_levels
+    names(sar_by_exposure) <- canonical_levels
+    
+    # Step 3: for each exposure level, draw infected contacts from binomial
+    # using the predicted SAR for that level
+    infected_per_exposure <- map_int(canonical_levels, function(lvl) {
+      n   <- contacts_per_exposure[lvl]
+      sar <- sar_by_exposure[lvl]
+      if (n == 0) return(0L)
+      rbinom(n = 1, size = n, prob = sar)
+    })
+    names(infected_per_exposure) <- canonical_levels
+    
+    # Step 4: assemble into long format, one row per exposure level
+    tibble(
+      index_case = sprintf("%03d", i),
+      total_contacts = total_contacts,
+      exposure  = canonical_levels,
+      total_contacts_exposure = as.integer(contacts_per_exposure),
+      infected_contacts = as.integer(infected_per_exposure),
+      uninfected_contacts = as.integer(contacts_per_exposure - infected_per_exposure)
+    )
+  })
+  
+}
+
+# testing the function -- just checking that the outputs seem reasonable
+test1 <- generate_sec_inf(num_index = 5, num_contacts = 100, prop_hr = 0.5, sar_lr = 0.01, ratio = 5)
+test2 <- generate_sec_inf(num_index = 5, num_contacts = 100, prop_hr = 0.05, sar_lr = 0.01, ratio = 5)
+test3 <- generate_sec_inf(num_index = 5, num_contacts = 100, prop_hr = 0.05, sar_lr = 0.001, ratio = 5)
+test4 <- generate_sec_inf(num_index = 5, num_contacts = 50, prop_hr = 0.05, sar_lr = 0.01, ratio = 5)
+
+```
+
+We have some code that simulates the index cases, their contacts and how many secondary cases occur in each risk stratification based on the assumptions about SAR in the low risk group and the ratio of SAR between high and low risk groups. To process these simulations into a format that will enable the comparison across different parameters values that we will sweep through later we need a function that takes the simulations, estimates the SAR by risk stratification, for the entire community, and the average number of secondary cases per index case and the corresponding confidence intervals over the introduced stochasticity. 
+
+In short, for each simulation, I want to understand what are the confidence intervals on the community secondary attack rate and the reproduction number, and then I can filter for ones where the CI includes 1. 
+
+Still debugging....
+```{r process-simulations}
+process_sim <- function(sim_df) {
+  df <- sim_df %>%
+    dplyr::filter(total_contacts > 0) %>% # prevent NaN errors
+    dplyr::group_by(index_case) %>%
+    dplyr::mutate(secondary_infections = sum(infected_contacts),
+                     sar =  secondary_infections/total_contacts) %>%
+    ungroup() %>%
+    dplyr::distinct(index_case, secondary_infections, sar, .keep_all = TRUE) %>%
+    # CIs over all index cases, retaining all info
+    # TODO: decide how to come up with the central and CI values
+    dplyr::mutate(sar_lower = quantile(sar, 0.025),
+                  sar_mean = mean(sar),
+                  sar_upper = quantile(sar, 0.975),
+                  sec_lower = quantile(secondary_infections, 0.025),
+                  sec_mean = mean(secondary_infections),
+                  sec_upper = quantile(secondary_infections, 0.975))
+  return(df)
+}
+
+test <- generate_sec_inf(num_index = 1000, num_contacts = 20, prop_hr = 0.25, sar_lr = 0.005, ratio = 4)
+out <- process_sim(test)
+
+
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
