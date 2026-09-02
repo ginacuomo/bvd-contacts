@@ -31,6 +31,7 @@ Parameters are defined as below:
 
 I explore viable ranges of values on all possible parameters, and identify which ones would give $R_t \approx 1$ across 100 index cases.
 
+## Generate Analyses
 I start by creating a function that simulates the number of index cases, all of their contacts and produces the average number of secondary cases per index case and the community SAR:
 
 ```{r write-function}
@@ -109,33 +110,159 @@ process_sim <- function(sim_df) {
     dplyr::filter(total_contacts > 0) %>% # prevent NaN errors
     dplyr::group_by(index_case) %>%
     dplyr::mutate(secondary_infections = sum(infected_contacts),
-                     sar =  secondary_infections/total_contacts) %>%
-    ungroup() %>%
-    dplyr::distinct(index_case, secondary_infections, sar, .keep_all = TRUE) %>%
-    # CIs over all index cases, retaining all info
-    # TODO: decide how to come up with the central and CI values
-    dplyr::mutate(sar_lower = quantile(sar, 0.025),
-                  sar_mean = mean(sar),
-                  sar_upper = quantile(sar, 0.975),
-                  sec_lower = quantile(secondary_infections, 0.025),
-                  sec_mean = mean(secondary_infections),
-                  sec_upper = quantile(secondary_infections, 0.975))
-  return(df)
+                  sar = secondary_infections / total_contacts) %>%
+    dplyr::ungroup() %>%
+    dplyr::distinct(
+      index_case,
+      secondary_infections,
+      total_contacts,
+      sar,
+      .keep_all = TRUE)
+  
+  # Summarise simulation across index cases
+  summary <- df %>%
+    dplyr::summarise(
+      # ranges for individual SARs
+      sar_lower = quantile(sar, 0.025),
+      sar_mean = mean(sar),
+      sar_median = median(sar),
+      sar_upper = quantile(sar, 0.975),
+      sar_pooled = sum(secondary_infections) / sum(total_contacts), # this is to give the SAR across all contacts of index cases
+      # secondary cases per index case and their range of values
+      sec_lower = quantile(secondary_infections, 0.025),
+      sec_mean = mean(secondary_infections),
+      sec_median = median(secondary_infections),
+      sec_upper = quantile(secondary_infections, 0.975))
+
+  return(summary)
+  }
+
+test <- generate_sec_inf(num_index = 10000, num_contacts = 30, prop_hr = 0.20, sar_lr = 0.01, ratio = 10)
+out <- process_sim(test)
+View(out)
+
+```
+
+```{r generate-parameter-grid}
+
+generate_sims_grid<- function(num_index,
+                              num_contacts,
+                              prop_hr,
+                              sar_lr,
+                              ratio) {
+  
+  # Create all possible combinations of parameter values
+  parameter_grid <- expand_grid(
+    num_contacts = num_contacts,
+    prop_hr = prop_hr,
+    sar_lr = sar_lr,
+    ratio = ratio) %>%
+    dplyr::filter(sar_lr * ratio <= 1) %>%
+    mutate(parameter_set_id = sprintf("%06d", row_number()))
+  
+  print(paste("Number of viable parameter sets:", length(unique(parameter_grid$parameter_set_id))))
+  
+  # Generate a linelist for each parameter combination
+  simulations <- map_dfr(seq_len(nrow(parameter_grid)), function(i) {
+    if(i%%10 == 0) {print(paste("Simulation", i))}
+    params <- parameter_grid[i, ]
+    
+    sim <- generate_sec_inf(
+      num_index = num_index,
+      num_contacts = params$num_contacts,
+      prop_hr = params$prop_hr,
+      sar_lr = params$sar_lr,
+      ratio = params$ratio)
+    
+    # Add the parameter values to every row of this simulation
+    sim %>%
+      mutate(num_contacts = params$num_contacts,
+             prop_hr = params$prop_hr,
+             sar_lr = params$sar_lr,
+             ratio = params$ratio,
+             parameter_id = params$parameter_set_id,
+             .before = 1)
+  })
+  
+  return(simulations)
 }
 
-test <- generate_sec_inf(num_index = 1000, num_contacts = 20, prop_hr = 0.25, sar_lr = 0.005, ratio = 4)
-out <- process_sim(test)
-
-
+# test_sims <- generate_sims_grid(
+#   num_index = 100,
+#   num_contacts = c(30),
+#   prop_hr = c(0.2, 0.4, 0.6),
+#   sar_lr = c(0.05, 0.10),
+#   ratio = c(1, 2, 3)
+# )
 
 ```
 
-## Including Plots
+## Run and Analyse Full Parameter Set
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r full-run}
+
+parameter_grid <- expand_grid(
+  num_index = 100000,
+  num_contacts = seq(10, 100, by = 10),
+  prop_hr = c(0.01, 0.02, seq(0.05, 0.25, by = 0.05)),
+  sar_lr = c(0.001, 0.002, seq(0.005, by = 0.005, length.out = 10)),
+  ratio = c(1, 2, 3, 4, 5, 10)) %>%
+  mutate(parameter_set_id = sprintf("%05d", row_number()))
+
+simulations <- generate_sims_grid(
+  num_index = 10000,
+  num_contacts = seq(10, 100, by = 10),
+  prop_hr = c(0.01, 0.02, seq(0.05, 0.25, by = 0.05)),
+  sar_lr = c(0.001, 0.002, seq(0.005, by = 0.005, length.out = 10)),
+  ratio = c(1, 2, 3, 4, 5, 10))
+
+processed_sims <- simulations %>%
+  dplyr::group_nest(num_contacts, prop_hr, sar_lr, ratio) %>%
+  dplyr::mutate(results = purrr::map(data, process_sim)) %>%
+  dplyr::select(-data) %>%
+  tidyr::unnest(results)
+
+saveRDS(simulations, "simulations.rds")
+saveRDS(processed_sims, "processed_sims.rds")
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+We are interested in the sets of parameters where the mean number of secondary cases per index case is $\approx 1$ within some level of tolerance.
+
+The next question is how to present this information in a way that is easy to understand. 
+
+```{r data-vis}
+
+plot_outputs <- function(sims, tolerance = 0.05) {
+  
+  outputs <- sims %>%
+    filter(abs(sec_mean - 1) < tolerance) %>%
+    dplyr::group_by(num_contacts) %>% 
+    dplyr::mutate(mean_sar = mean(sar_pooled),
+                  num_contacts = factor(num_contacts)) 
+  
+  p <- ggplot(outputs, aes(x = sar_pooled*100, col = num_contacts, fill = num_contacts, group = num_contacts)) + theme_bw() +
+    geom_density(alpha = 0.2) + scale_color_discrete() + 
+    labs(x = "SAR (%)") + scale_x_continuous(limits = ~range(.x, 0)) + 
+    geom_vline(aes(xintercept = mean_sar*100, col = num_contacts), lty = 2)
+  
+  return(p)
+}
+
+plot_outputs(processed_sims)
+ggsave("~/Documents/code/bvd-contacts/plots/sar-rt.png", dpi = 500)
+
+ggplot(outputs, aes(x = sar_pooled*100)) + theme_bw() + geom_histogram(binwidth = 0.005) + facet_grid(num_contacts ~ ., scales = "free")
+ggsave("~/Documents/code/bvd-contacts/plots/sar-rt-hist.png", dpi = 500)
+
+outputs %>%
+  dplyr::select(num_contacts, sar_pooled) %>%
+  dplyr::group_by(num_contacts) %>%
+  dplyr::summarise(num_sims = n(),
+                   min_sar = min(sar_pooled)*100,
+                   exp_sar = mean(sar_pooled)*100,
+                   max_sar = max(sar_pooled)*100)
+
+
+```

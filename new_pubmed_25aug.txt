@@ -1,0 +1,3158 @@
+PMID- 42379200
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20260804
+LR  - 20260804
+IS  - 2214-109X (Electronic)
+IS  - 2214-109X (Linking)
+VI  - 14
+IP  - 8
+DP  - 2026 Aug
+TI  - Sudan virus disease in humans.
+PG  - 103942
+LID - S2214-109X(26)00072-0 [pii]
+LID - 10.1016/S2214-109X(26)00072-0 [doi]
+AB  - In 2025, Uganda had Africa's ninth outbreak of disease caused by Sudan virus 
+      (SUDV), a filovirus similar to Ebola virus (EBOV) that causes severe febrile 
+      disease in humans. In this Review, we summarise the evidence on the epidemiology, 
+      natural history, and immunology of Sudan virus disease (SVD) from outbreaks since 
+      1976. Following an incubation period averaging about 1 week, SVD typically 
+      presents with an influenza-like illness followed by a severe diarrhoeal disease, 
+      often accompanied by cardiorespiratory symptoms and dehydration. Clinical 
+      findings can include kidney and liver injury, acute inflammation, and 
+      coagulopathy. Severe cases can progress rapidly to shock, multiorgan failure, and 
+      death. The pooled case-fatality rate until 2022 was 49% (95% CI 39-58), although 
+      a lower case-fatality rate of 29% was recorded during the 2025 outbreak. The 
+      virus is detectable in blood from symptom onset, peaking during acute illness. 
+      Transmission occurs mainly through close contact with acutely symptomatic 
+      individuals and their body fluids, driving household and nosocomial spread. Early 
+      T-cell responses and SUDV-specific antibodies might be important for survival, 
+      and suppressed immunity and uncontrolled inflammation might predict fatal 
+      outcomes. Survivors present durable humoral and cellular immunity for up to 15 
+      years after infection. Although outbreaks to date offer valuable insights into 
+      SVD, substantial evidence gaps and limitations exist. Future outbreak 
+      preparedness should include prospective planning for high-quality research that 
+      can be rapidly implemented to address key evidence gaps. Strengthening these 
+      data, together with advancing the development and evaluation of vaccines and 
+      therapeutics, will be essential for timely and effective outbreak response.
+CI  - Copyright © 2026 The Author(s). Published by Elsevier Ltd.. All rights reserved.
+FAU - Whitworth, Hilary S
+AU  - Whitworth HS
+AD  - International AIDS Vaccine Initiative (IAVI) Africa, Cape Town, South Africa. 
+      Electronic address: HWhitworth@iavi.org.
+FAU - Meller, Margaret
+AU  - Meller M
+AD  - IAVI US, New York City, NY, USA.
+FAU - Zaric, Marija
+AU  - Zaric M
+AD  - IAVI UK, London, UK.
+FAU - Quintard, Gabriella
+AU  - Quintard G
+AD  - IAVI US, New York City, NY, USA.
+FAU - Kaleebu, Pontiano
+AU  - Kaleebu P
+AD  - Uganda Virus Research Institute, Entebbe, Uganda.
+FAU - Kirenga, Bruce
+AU  - Kirenga B
+AD  - Makerere University Lung Institute, Makerere University College of Health 
+      Sciences, Kampala, Uganda.
+FAU - Marini, Arianna
+AU  - Marini A
+AD  - IAVI UK, London, UK.
+FAU - Fast, Patricia
+AU  - Fast P
+AD  - IAVI US, New York City, NY, USA.
+FAU - Gurrion, Samuel
+AU  - Gurrion S
+AD  - IAVI US, New York City, NY, USA.
+FAU - Malkevich, Nina
+AU  - Malkevich N
+AD  - IAVI US, New York City, NY, USA.
+FAU - Heinrichs, Jon
+AU  - Heinrichs J
+AD  - IAVI US, New York City, NY, USA.
+FAU - Gupta, Swati B
+AU  - Gupta SB
+AD  - IAVI US, New York City, NY, USA.
+FAU - Francis, Suzanna C
+AU  - Francis SC
+AD  - IAVI Europe, Amsterdam, Netherlands.
+LA  - eng
+PT  - Journal Article
+PT  - Review
+DEP - 20260630
+PL  - England
+TA  - Lancet Glob Health
+JT  - The Lancet. Global health
+JID - 101613665
+SB  - IM
+MH  - Humans
+MH  - *Disease Outbreaks
+MH  - *Hemorrhagic Fever, Ebola/epidemiology
+MH  - Ebolavirus
+MH  - Sudan/epidemiology
+COIS- Declaration of interests The authors declare that they have no direct financial 
+      interest or personal relationships that could influence the content of this 
+      manuscript. However, of note, International AIDS Vaccine Initiative (IAVI) is 
+      actively engaged in the research and development of filovirus vaccines, which 
+      could be relevant to the topics covered in this Review. All authors were employed 
+      by IAVI at the time of participating in the Review.
+EDAT- 2026/07/01 00:34
+MHDA- 2026/08/09 15:18
+CRDT- 2026/06/30 18:53
+PHST- 2025/08/19 00:00 [received]
+PHST- 2026/02/27 00:00 [revised]
+PHST- 2026/03/06 00:00 [accepted]
+PHST- 2026/08/09 15:18 [medline]
+PHST- 2026/07/01 00:34 [pubmed]
+PHST- 2026/06/30 18:53 [entrez]
+AID - S2214-109X(26)00072-0 [pii]
+AID - 10.1016/S2214-109X(26)00072-0 [doi]
+PST - ppublish
+SO  - Lancet Glob Health. 2026 Aug;14(8):103942. doi: 10.1016/S2214-109X(26)00072-0. 
+      Epub 2026 Jun 30.
+
+
+PMID- 42341299
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20260716
+LR  - 20260717
+IS  - 1533-4406 (Electronic)
+IS  - 0028-4793 (Linking)
+VI  - 395
+IP  - 3
+DP  - 2026 Jul 16
+TI  - Bundibugyo Virus Disease in 2026 - Clinical and Public Health Responses.
+PG  - 278-289
+LID - 10.1056/NEJMra2607216 [doi]
+AB  - Bundibugyo virus is a relatively rare orthoebolavirus that has caused only two 
+      previously recognized disease outbreaks but remains capable of producing severe 
+      epidemic disease with substantial mortality. The 2026 outbreak of Bundibugyo 
+      virus disease in the Democratic Republic of Congo has highlighted persistent 
+      challenges in the detection of filovirus disease outbreaks, as well as in 
+      diagnosis, clinical management, and the public health response, particularly in 
+      resource-limited settings. As with other filovirus infections, effective control 
+      of the Bundibugyo virus disease outbreak depends on rapid identification of 
+      cases, laboratory confirmation of infection, isolation of cases, contact tracing, 
+      infection-prevention measures, protection of health care workers, and community 
+      engagement. Although no licensed vaccines or approved therapeutics specific to 
+      Bundibugyo virus disease are currently available, advances in supportive care 
+      have improved outcomes during recent filovirus disease outbreaks. Experimental 
+      evidence from studies involving nonhuman primates, serologic investigations with 
+      human samples, and monoclonal antibody research suggests that vaccines and 
+      therapeutics developed against Ebola virus may provide cross-protective activity 
+      against Bundibugyo virus. These observations support prototype-pathogen 
+      approaches to preparedness while underscoring the need for continued development 
+      of pathogen-specific countermeasures. The current outbreak reinforces the 
+      principle that a successful response to filovirus disease requires integration of 
+      medical countermeasures, clinical care, surveillance, diagnostics, and 
+      coordinated multinational public health operations.
+CI  - Copyright © 2026 Massachusetts Medical Society.
+FAU - Sullivan, Nancy J
+AU  - Sullivan NJ
+AD  - Department of Biology, College of Arts and Sciences, Boston University, Boston.
+AD  - Department of Virology, Immunology, and Microbiology, Chobanian and Avedisian 
+      School of Medicine, Boston University, Boston.
+LA  - eng
+PT  - Journal Article
+PT  - Review
+DEP - 20260624
+PL  - United States
+TA  - N Engl J Med
+JT  - The New England journal of medicine
+JID - 0255562
+RN  - 0 (Ebola Vaccines)
+SB  - IM
+MH  - Animals
+MH  - Humans
+MH  - Democratic Republic of the Congo/epidemiology
+MH  - *Disease Outbreaks/prevention & control
+MH  - *Ebolavirus/immunology/isolation & purification/pathogenicity
+MH  - *Hemorrhagic Fever, Ebola/epidemiology/prevention & control/therapy/virology
+MH  - *Public Health
+MH  - Palliative Care/methods
+MH  - Contact Tracing
+MH  - Cross Protection
+MH  - Ebola Vaccines/administration & dosage/immunology
+MH  - Epidemiological Monitoring
+MH  - Fluid Therapy/methods
+MH  - Nutritional Support/methods
+MH  - Point-of-Care Testing
+MH  - Disease Models, Animal
+EDAT- 2026/06/24 18:36
+MHDA- 2026/07/16 12:40
+CRDT- 2026/06/24 17:02
+PHST- 2026/07/16 12:40 [medline]
+PHST- 2026/06/24 18:36 [pubmed]
+PHST- 2026/06/24 17:02 [entrez]
+AID - 10.1056/NEJMra2607216 [doi]
+PST - ppublish
+SO  - N Engl J Med. 2026 Jul 16;395(3):278-289. doi: 10.1056/NEJMra2607216. Epub 2026 
+      Jun 24.
+
+
+PMID- 42376411
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20260630
+LR  - 20260816
+IS  - 2218-6050 (Electronic)
+IS  - 2226-4485 (Print)
+IS  - 2218-6050 (Linking)
+VI  - 16
+IP  - 2
+DP  - 2026 Feb
+TI  - Ebola virus disease: A persistent challenge in global health security.
+PG  - 768-787
+LID - 10.5455/OVJ.2026.v16.i2.1 [doi]
+AB  - Ebola virus disease (EVD) is a highly fatal zoonotic disease caused by a 
+      negative-stranded RNA virus of the genus Ebolavirus in the family Filoviridae. 
+      Since its first discovery in 1976 in Central Africa, the disease has triggered 
+      several large outbreaks with a mortality rate that can reach 90%. Ebola is 
+      transmitted through direct contact with the blood, body fluids, or tissues of 
+      infected individuals, including corpses, and can also spread in healthcare 
+      facilities if infection control procedures are not properly implemented. Fruit 
+      bats of the family Pteropodidae are thought to be the natural reservoir of the 
+      virus, playing a role in maintaining the ecological cycle and facilitating 
+      zoonotic transmission to humans through intermediary animals such as non-human 
+      primates. Clinically, EVD typically begins with high fever, muscle pain, 
+      vomiting, diarrhea, and extensive bleeding that can progress to multiple organ 
+      failure. Barriers to early detection, limited diagnostic laboratories, and weak 
+      health system preparedness in endemic areas contribute to accelerating the spread 
+      of the disease. The major outbreak that occurred in West Africa in 2014-2016 
+      provided a crucial momentum for improving the global health system, particularly 
+      in terms of surveillance, rapid detection, and coordination between countries. 
+      Current EVD prevention and control efforts focus on a One Health approach, the 
+      implementation of stringent biosafety standards, the use of the rVSV-ZEBOV 
+      vaccine, and the development of monoclonal antibody-based antiviral therapies. 
+      This review reviews the latest developments in EVD pathogenesis, epidemiology, 
+      and mitigation strategies to strengthen preparedness for potential future 
+      outbreaks.
+FAU - Muniroh, Muniroh
+AU  - Muniroh M
+AD  - Graduate School Student, Universitas Islam Negeri (UIN) Syarif Hidayatullah 
+      Jakarta, South Tangerang, Indonesia.
+AD  - Department of Clinical Pathology, Faculty of Medicine, Universitas Islam Negeri 
+      (UIN) Syarif Hidayatullah Jakarta, South Tangerang, Indonesia.
+FAU - Hermawati, Luluk
+AU  - Hermawati L
+AD  - Department of Medical Biology, Faculty of Medicine and Health Sciences, 
+      Universitas Sultan Ageng Tirtayasa, Serang, Indonesia.
+FAU - Fathurrohim, Fathurrohim
+AU  - Fathurrohim F
+AD  - Department of Microbiology, Faculty of Medicine, Universitas Sriwijaya, 
+      Palembang, Indonesia.
+FAU - Darifah, Siti
+AU  - Darifah S
+AD  - Department of Community Medicine, Faculty of Medicine and Health Sciences, 
+      Universitas Sultan Ageng Tirtayasa, Serang, Indonesia.
+FAU - Dewi, Lola Febriana
+AU  - Dewi LF
+AD  - Department of Oral Biology, Dentistry Study Program, Faculty of Medicine, 
+      Universitas Sriwijaya, Palembang, Indonesia.
+FAU - Putri, Neshya Ruriana
+AU  - Putri NR
+AD  - Department of Clinical Pathology, Faculty of Medicine, Universitas Sultan Ageng 
+      Tirtaysa, Serang, Indonesia.
+FAU - Fauziah, Yessy Andriani
+AU  - Fauziah YA
+AD  - School of Dental Medicine, Universitas Ciputra, Surabaya, Indonesia.
+FAU - Darmadi, Eveline Yulia
+AU  - Darmadi EY
+AD  - School of Dental Medicine, Universitas Ciputra, Surabaya, Indonesia.
+FAU - Setianingtyas, Dwi
+AU  - Setianingtyas D
+AD  - Department of Oral Medicine, Faculty of Dentistry, Universitas Hang Tuah, 
+      Surabaya, Indonesia.
+FAU - Khairullah, Aswin Rafif
+AU  - Khairullah AR
+AD  - Research Center for Veterinary Science, National Research and Innovation Agency 
+      (BRIN), Bogor, Indonesia.
+FAU - Furqoni, Abdul Hadi
+AU  - Furqoni AH
+AD  - Center for Biomedical Research, National Research and Innovation Agency (BRIN), 
+      Bogor, Indonesia.
+FAU - Pratama, Bima Putra
+AU  - Pratama BP
+AD  - Research Center for Process Technology, National Research and Innovation Agency 
+      (BRIN), South Tangerang, Indonesia.
+LA  - eng
+PT  - Journal Article
+PT  - Review
+DEP - 20260228
+PL  - Libya
+TA  - Open Vet J
+JT  - Open veterinary journal
+JID - 101653182
+SB  - IM
+MH  - *Hemorrhagic Fever, Ebola/epidemiology/prevention & control/transmission/virology
+MH  - Animals
+MH  - Humans
+MH  - *Disease Outbreaks/prevention & control
+MH  - *Zoonoses/epidemiology/virology/prevention & control/transmission
+MH  - *Global Health
+MH  - *Ebolavirus/physiology
+MH  - Chiroptera/virology
+PMC - PMC13313900
+OTO - NOTNLM
+OT  - EVD
+OT  - Filoviridae
+OT  - Vaccination
+OT  - Virus
+OT  - Zoonosis
+COIS- The authors declare that there is no conflict of interest.
+EDAT- 2026/06/30 10:09
+MHDA- 2026/06/30 10:10
+PMCR- 2026/02/01
+CRDT- 2026/06/30 05:27
+PHST- 2025/11/22 00:00 [received]
+PHST- 2026/01/01 00:00 [revised]
+PHST- 2026/01/09 00:00 [accepted]
+PHST- 2026/06/30 10:10 [medline]
+PHST- 2026/06/30 10:09 [pubmed]
+PHST- 2026/06/30 05:27 [entrez]
+PHST- 2026/02/01 00:00 [pmc-release]
+AID - OpenVetJ-16-2-768 [pii]
+AID - 10.5455/OVJ.2026.v16.i2.1 [doi]
+PST - ppublish
+SO  - Open Vet J. 2026 Feb;16(2):768-787. doi: 10.5455/OVJ.2026.v16.i2.1. Epub 2026 Feb 
+      28.
+
+
+PMID- 42565265
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20260807
+LR  - 20260818
+IS  - 1560-7917 (Electronic)
+IS  - 1025-496X (Print)
+IS  - 1025-496X (Linking)
+VI  - 31
+IP  - 31
+DP  - 2026 Aug
+TI  - An imported case of Bundibugyo virus infection, France, June 2026.
+LID - 10.2807/1560-7917.ES.2026.31.31.2600627 [doi]
+LID - 2600627
+AB  - In June 2026, an intensive care physician deployed in the Democratic Republic of 
+      the Congo and previously vaccinated against Ebola virus developed fatigue, nausea 
+      and headaches while returning to France. Bundibugyo virus was identified with 
+      RT-PCR. The patient was treated with remdesivir and recovered fully. Contact 
+      tracing identified five low-risk contacts and no secondary cases. Stringent 
+      infection prevention and control measures and multidisciplinary collaboration are 
+      important when managing suspected or confirmed Ebola disease cases, even with low 
+      viral loads.
+FAU - Mailhe, Morgane
+AU  - Mailhe M
+AD  - Infectious disease department, Hôpital Bichat-Claude Bernard, Assistance Publique 
+      - Hôpitaux de Paris Nord Paris, France.
+FAU - Pannetier, Delphine
+AU  - Pannetier D
+AD  - National Reference Center for Viral Hemorrhagic Fevers, Laboratoire P4 Jean 
+      Mérieux INSERM, Lyon, France.
+FAU - Yamani, Estelle
+AU  - Yamani E
+AD  - Agence Régionale de Santé Île-de-France, Saint-Denis, France.
+FAU - Aubert, Lyderic
+AU  - Aubert L
+AD  - Public Health Emergency Operations Centre (CORRUSS), Ministry of Health, Paris, 
+      France.
+FAU - Tarantola, Arnaud
+AU  - Tarantola A
+AD  - Direction des Régions, Santé publique France, Saint-Maurice, France.
+CN  - Ebola Investigation Team
+AD  - The members of the Ebola Investigation Team are listed under Collaborators.
+LA  - eng
+PT  - Case Reports
+PT  - Journal Article
+PL  - Sweden
+TA  - Euro Surveill
+JT  - Euro surveillance : bulletin Europeen sur les maladies transmissibles = European 
+      communicable disease bulletin
+JID - 100887452
+RN  - 415SHH325A (Adenosine Monophosphate)
+RN  - 0 (Antiviral Agents)
+RN  - 3QKI37EEHE (remdesivir)
+RN  - OF5P57N2ZX (Alanine)
+SB  - IM
+MH  - Humans
+MH  - Male
+MH  - *Adenosine Monophosphate/analogs & derivatives/therapeutic use/analogs & 
+      derivatives
+MH  - Antiviral Agents/therapeutic use
+MH  - Contact Tracing
+MH  - Democratic Republic of the Congo
+MH  - *Ebolavirus/isolation & purification/genetics
+MH  - France
+MH  - *Hemorrhagic Fever, Ebola/diagnosis/drug therapy/virology
+MH  - Reverse Transcriptase Polymerase Chain Reaction
+MH  - Travel
+MH  - Viral Load
+MH  - Middle Aged
+MH  - Alanine/analogs & derivatives
+PMC - PMC13451861
+OTO - NOTNLM
+OT  - Ebola
+OT  - blood-borne pathogens
+OT  - epidemiology
+OT  - filoviridae
+OT  - imported infection
+COIS- Conflict of interest: None declared.
+FIR - Baize, Sylvain
+IR  - Baize S
+FIR - Blanchard, Hervé
+IR  - Blanchard H
+FIR - Daimant, Emilie
+IR  - Daimant E
+FIR - Descamps, Diane
+IR  - Descamps D
+FIR - Figoni, Julie
+IR  - Figoni J
+FIR - Henegar, Adina
+IR  - Henegar A
+FIR - Kerneis, Solen
+IR  - Kerneis S
+FIR - Le Hingrat, Quentin
+IR  - Le Hingrat Q
+FIR - Lescure, François-Xavier
+IR  - Lescure FX
+FIR - Peneau, Camille
+IR  - Peneau C
+FIR - Roux, Nicolas
+IR  - Roux N
+EDAT- 2026/08/07 12:39
+MHDA- 2026/08/07 12:40
+PMCR- 2026/08/06
+CRDT- 2026/08/07 06:37
+PHST- 2026/08/07 12:40 [medline]
+PHST- 2026/08/07 12:39 [pubmed]
+PHST- 2026/08/07 06:37 [entrez]
+PHST- 2026/08/06 00:00 [pmc-release]
+AID - 2600627 [pii]
+AID - 10.2807/1560-7917.ES.2026.31.31.2600627 [doi]
+PST - ppublish
+SO  - Euro Surveill. 2026 Aug;31(31):2600627. doi: 
+      10.2807/1560-7917.ES.2026.31.31.2600627.
+
+
+PMID- 42430523
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20260710
+LR  - 20260710
+IS  - 1972-2680 (Electronic)
+IS  - 1972-2680 (Linking)
+VI  - 20
+IP  - 6
+DP  - 2026 Jun 30
+TI  - Clock-like behavior across Orthoebolavirus species suggests alternative evolution 
+      of the 2026 Bundibugyo virus outbreak.
+PG  - 767-771
+LID - 10.3855/jidc.23736 [doi]
+AB  - INTRODUCTION: Recent increase in reported cases of Bundibugyo virus (species 
+      Orthoebolavirus bundibugyoense) in the Democratic Republic of the Congo and 
+      Uganda highlight the importance of understanding their evolutionary dynamics. 
+      METHODOLOGY: We analyzed publicly available genomes obtained from the Pathoplexus 
+      database representing 3 medically relevant species of the Orthoebolavirus genus: 
+      Ebola virus (n = 3,388), Zaire virus (n = 166), and Bundibugyo virus (n = 49). We 
+      investigated whether genetic divergence is associated with sampling time 
+      utilizing root-to-tip regression analyses derived from temporally calibrated 
+      phylogenies as an indicator of molecular clock behavior. RESULTS: Sudan virus (R2 
+      = 0.855) and Ebola virus (R2 = 0.709) exhibited significant temporal structures 
+      between sampling time and genetic divergence. Bundibugyo virus displayed strong 
+      clock-like behavior after exclusion of 2026 genomes (R2 = 0.983), which showed a 
+      marked substitution deficit relative to the historical molecular clock and 
+      deviated substantially from the inferred regression. Date randomization tests 
+      supported the presence of temporal signal across all datasets (p < 0.001), 
+      indicating that the temporal signals exceeded expectations under a null model 
+      without temporal structure. CONCLUSIONS: These results provide a comparative 
+      assessment of the temporal structures across 3 medically relevant Orthoebolavirus 
+      species. While historical genomes largely conformed to molecular clock 
+      expectations, the inclusion of genomes from the ongoing 2026 Bundibugyo virus 
+      outbreak deviated from these projections, suggesting an alternative evolutionary 
+      process for 2026 Bundibugyo virus, such as viral persistence in immune-privileged 
+      anatomical sites of previously infected individuals or an independent zoonotic 
+      spillover event in an alternative species, in which the virus evolved within its 
+      natural reservoir prior to human infection.
+CI  - Copyright (c) 2026 Gustavo Sganzerla Martinez, Anuj Kumar, Mansi Dutt, Misaki 
+      Wayengera, Wilber Sabiiti, David J Kelvin, Henry Kyobe Bosa.
+FAU - Sganzerla Martinez, Gustavo
+AU  - Sganzerla Martinez G
+AD  - Basic Medical Sciences, Shantou University Medical College, Shantou, Guangdong, 
+      People's Republic of China.
+FAU - Kumar, Anuj
+AU  - Kumar A
+AD  - Microbiology and Immunology, Dalhousie University, Faculty of Medicine, Halifax, 
+      Nova Scotia, B3H4H7, Canada.
+FAU - Dutt, Mansi
+AU  - Dutt M
+AD  - Microbiology and Immunology, Dalhousie University, Faculty of Medicine, Halifax, 
+      Nova Scotia, B3H4H7, Canada.
+FAU - Wayengera, Misaki
+AU  - Wayengera M
+AD  - Interdisciplinary Consortium for Epidemic Research and Response (ICER), Kampala, 
+      Uganda.
+FAU - Sabiiti, Wilber
+AU  - Sabiiti W
+AD  - Interdisciplinary Consortium for Epidemic Research and Response (ICER), Kampala, 
+      Uganda.
+FAU - Kelvin, David J
+AU  - Kelvin DJ
+AD  - Basic Medical Sciences, Shantou University Medical College, Shantou, Guangdong, 
+      People's Republic of China.
+FAU - Kyobe Bosa, Henry
+AU  - Kyobe Bosa H
+AD  - Interdisciplinary Consortium for Epidemic Research and Response (ICER), Kampala, 
+      Uganda.
+LA  - eng
+PT  - Journal Article
+DEP - 20260630
+PL  - Italy
+TA  - J Infect Dev Ctries
+JT  - Journal of infection in developing countries
+JID - 101305410
+SB  - IM
+MH  - *Evolution, Molecular
+MH  - *Disease Outbreaks
+MH  - Phylogeny
+MH  - Humans
+MH  - Uganda/epidemiology
+MH  - Democratic Republic of the Congo/epidemiology
+MH  - Genome, Viral
+MH  - Animals
+MH  - *Ebolavirus/genetics
+MH  - Hemorrhagic Fever, Ebola/epidemiology/virology
+MH  - Genetic Variation
+OTO - NOTNLM
+OT  - Ebola
+OT  - Orthoebolavirus
+OT  - evolution
+COIS- AK, GSM, MD, and DJK are shareholders of the company BioForge Canada Limited. 
+      BioForge Canada Limited is a company that uses bioinformatics in immunological 
+      approaches for the monitoring, prevention, and treatment of infectious diseases. 
+      The authors disclose that the interests of BioForge Canada Limited had no impact 
+      in this study. DJK is a scientific advisory board member for Emergent 
+      BioSolutions
+EDAT- 2026/07/11 01:09
+MHDA- 2026/07/11 01:10
+CRDT- 2026/07/10 14:43
+PHST- 2026/06/19 00:00 [received]
+PHST- 2026/06/23 00:00 [accepted]
+PHST- 2026/07/11 01:10 [medline]
+PHST- 2026/07/11 01:09 [pubmed]
+PHST- 2026/07/10 14:43 [entrez]
+AID - 10.3855/jidc.23736 [doi]
+PST - epublish
+SO  - J Infect Dev Ctries. 2026 Jun 30;20(6):767-771. doi: 10.3855/jidc.23736.
+
+
+PMID- 42515560
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20260729
+LR  - 20260813
+IS  - 1999-4915 (Electronic)
+IS  - 1999-4915 (Linking)
+VI  - 18
+IP  - 7
+DP  - 2026 Jun 26
+TI  - Differentiated Contact Tracing for Emerging Zoonotic Hantavirus and Ebolavirus 
+      Infections: Lessons from the 2026 Andes Virus (MV Hondius) and Bundibugyo Virus 
+      Outbreaks.
+LID - 10.3390/v18070708 [doi]
+LID - 708
+AB  - In May 2026, two outbreaks occurred at once: an Andes virus outbreak aboard the 
+      MV Hondius expedition cruise ship (13 cases (12 laboratory-confirmed and 1 
+      probable), 3 deaths, and more than 600 contacts traced across 32 countries and 
+      territories; passengers and crew from 23 countries; data as of 22 June 2026) and 
+      a Bundibugyo virus disease (BDBV) outbreak in Central Africa (more than 1000 
+      laboratory-confirmed cases and more than 250 confirmed deaths in the Democratic 
+      Republic of the Congo and Uganda; data as of 22 June 2026). The two pathogens 
+      diverge sharply in their transmission epidemiology. Aboard the MV Hondius, 
+      person-to-person transmission was sustained across three generations from a 
+      single index case, and one asymptomatic, PCR-positive contact later developed 
+      symptoms, indicating pre-symptomatic ANDV RNA detection, although the extent to 
+      which this corresponds to infectiousness and onward transmission remains 
+      uncertain. BDBV, on current evidence, has not been documented to sustain 
+      pre-symptomatic transmission as a major driver of its outbreaks, which allows for 
+      contact tracing of different timing and intensity. This Perspective draws 
+      together the epidemiological data from the MV Hondius outbreak, the 
+      endemic-region experience (Chile's 2021-2025 secondary attack rate of 5.7%; 
+      Argentina's 1996 El Bolsón and 2018 Epuyén outbreaks), the molecular 
+      pathogenesis, the diagnostic platforms, the therapeutic pipeline (favipiravir, 
+      tocilizumab, Icatibant) and the vaccine strategies (USAMRIID DNA vaccine, phase 1 
+      completed). We set the contact-tracing and active-surveillance protocols applied 
+      to ANDV against the less stringent protocols that may suffice for BDBV.
+FAU - Broccolo, Francesco
+AU  - Broccolo F
+AUID- ORCID: 0000-0003-1297-2598
+AD  - UOSD Virology and Microbiology, University Hospital P.O. Vito Fazzi-ASL Lecce, 
+      73100 Lecce, Italy.
+AD  - Department of Experimental Medicine (DiMeS), University of Salento, 73100 Lecce, 
+      Italy.
+FAU - Galdiero, Massimiliano
+AU  - Galdiero M
+AUID- ORCID: 0000-0002-1576-6290
+AD  - Department of Woman, Child and General and Specialized Surgery, University of 
+      Campania Luigi Vanvitelli, 80138 Naples, Italy.
+AD  - UOC Virology and Microbiology, University Hospital "Luigi Vanvitelli", 80138 
+      Naples, Italy.
+LA  - eng
+PT  - Journal Article
+DEP - 20260626
+PL  - Switzerland
+TA  - Viruses
+JT  - Viruses
+JID - 101509722
+SB  - IM
+MH  - Humans
+MH  - *Disease Outbreaks
+MH  - Animals
+MH  - *Contact Tracing/methods
+MH  - *Hantavirus Infections/epidemiology/transmission/virology
+MH  - *Orthohantavirus/genetics
+MH  - *Zoonoses/epidemiology/transmission/virology
+MH  - *Communicable Diseases, Emerging/epidemiology/transmission/virology
+PMC - PMC13431576
+OTO - NOTNLM
+OT  - Andes virus
+OT  - Bundibugyo virus
+OT  - MV Hondius
+OT  - RT-qPCR diagnostics
+OT  - active surveillance
+OT  - asymptomatic transmission
+OT  - contact tracing
+OT  - favipiravir
+OT  - hantavirus vaccine
+OT  - person-to- person transmission
+OT  - presymptomatic transmission
+OT  - tocilizumab
+COIS- The author declares no conflicts of interest.
+EDAT- 2026/07/28 06:37
+MHDA- 2026/07/29 18:38
+PMCR- 2026/06/26
+CRDT- 2026/07/28 01:22
+PHST- 2026/06/09 00:00 [received]
+PHST- 2026/06/24 00:00 [revised]
+PHST- 2026/06/25 00:00 [accepted]
+PHST- 2026/07/29 18:38 [medline]
+PHST- 2026/07/28 06:37 [pubmed]
+PHST- 2026/07/28 01:22 [entrez]
+PHST- 2026/06/26 00:00 [pmc-release]
+AID - v18070708 [pii]
+AID - viruses-18-00708 [pii]
+AID - 10.3390/v18070708 [doi]
+PST - epublish
+SO  - Viruses. 2026 Jun 26;18(7):708. doi: 10.3390/v18070708.
+
+
+PMID- 42470890
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20260820
+LR  - 20260820
+IS  - 1873-2518 (Electronic)
+IS  - 0264-410X (Linking)
+VI  - 89
+DP  - 2026 Aug 30
+TI  - Ethical challenges in outbreak trial design: from Ebola to Nipah.
+PG  - 128858
+LID - S0264-410X(26)00667-5 [pii]
+LID - 10.1016/j.vaccine.2026.128858 [doi]
+AB  - Nipah virus causes sporadic outbreaks characterized by high mortality, with 
+      transmission concentrated within households and healthcare settings. Clinical 
+      trials of vaccines for high-mortality pathogens during outbreaks face significant 
+      methodological and ethical challenges, including due to short epidemic durations 
+      and variable community acceptance of standard individual randomized controlled 
+      trials (iRCTs). This paper examines key ethical issues in Nipah vaccine outbreak 
+      trial design. First, outbreak trials must recruit individuals at high risk of 
+      infection to reach efficacy endpoints before epidemics end, yet placebo controls 
+      may be controversial due to risks of infection among participants. Failure to 
+      accrue sufficient infections during outbreaks risks prolonged delays to vaccine 
+      licensure. Second, alternatives to classical iRCTs involve ethical and 
+      methodological trade-offs: cluster randomization may delay efficacy endpoints, 
+      especially when high transmission occurs in only a minority of clusters; trials 
+      involving delayed vaccination may involve similar risks (for control participants 
+      who are infected during the delay to vaccination) as for those in standard 
+      placebo iRCTs; and single arm trials risk failure to clarify vaccine efficacy due 
+      to their lack of controls. Third, although high pre-trial probability of 
+      experimental vaccine efficacy (>50% for recent Phase III vaccines) challenges 
+      traditional concepts of clinical equipoise, rigorous vaccine trials remain 
+      ethically acceptable. Fourth, policies for post-trial access to efficacious 
+      vaccines should be revised to provide accelerated access to control arm 
+      participants. Finally, ethical trial design depends on appropriate community 
+      engagement, which should begin early in outbreaks and ideally continue in 
+      inter-epidemic periods.
+CI  - Copyright © 2026 The Authors. Published by Elsevier Ltd.. All rights reserved.
+FAU - Jamrozik, Euzebiusz
+AU  - Jamrozik E
+AD  - Ethox Centre, University of Oxford, Oxford, UK; Pandemic Sciences Institute, 
+      University of Oxford, Oxford, UK; Department of Infectious Diseases at the Peter 
+      Doherty Institute, University of Melbourne, Australia. Electronic address: 
+      euzebiusz.jamrozik@ethox.ox.ac.uk.
+FAU - Abeler-Dörner, Lucie
+AU  - Abeler-Dörner L
+AD  - Pandemic Sciences Institute, University of Oxford, Oxford, UK; Nuffield 
+      Department of Medicine, University of Oxford, Oxford, UK.
+FAU - Chaudhari, Amol
+AU  - Chaudhari A
+AD  - Coalition for Epidemic Preparedness Innovations (CEPI), Oslo, Norway, London, UK, 
+      and Washington, DC, USA.
+FAU - Cheah, Phaik Yeong
+AU  - Cheah PY
+AD  - Ethox Centre, University of Oxford, Oxford, UK; Centre for Tropical Medicine and 
+      Global Health, Nuffield Department of Medicine, University of Oxford, Oxford, UK; 
+      Mahidol-Oxford Tropical Medicine Research, Mahidol University, Bangkok, Thailand.
+FAU - Hinch, Robert
+AU  - Hinch R
+AD  - Pandemic Sciences Institute, University of Oxford, Oxford, UK; Nuffield 
+      Department of Medicine, University of Oxford, Oxford, UK.
+FAU - Jarman, Richard
+AU  - Jarman R
+AD  - Coalition for Epidemic Preparedness Innovations (CEPI), Oslo, Norway, London, UK, 
+      and Washington, DC, USA.
+FAU - Johnson, Tess
+AU  - Johnson T
+AD  - Ethox Centre, University of Oxford, Oxford, UK; Pandemic Sciences Institute, 
+      University of Oxford, Oxford, UK.
+FAU - Parker, Michael
+AU  - Parker M
+AD  - Ethox Centre, University of Oxford, Oxford, UK; Pandemic Sciences Institute, 
+      University of Oxford, Oxford, UK.
+FAU - Vegvari, Carolin
+AU  - Vegvari C
+AD  - Coalition for Epidemic Preparedness Innovations (CEPI), Oslo, Norway, London, UK, 
+      and Washington, DC, USA.
+FAU - Wressnigg, Nina
+AU  - Wressnigg N
+AD  - Coalition for Epidemic Preparedness Innovations (CEPI), Oslo, Norway, London, UK, 
+      and Washington, DC, USA.
+FAU - Fraser, Christophe
+AU  - Fraser C
+AD  - Pandemic Sciences Institute, University of Oxford, Oxford, UK; Nuffield 
+      Department of Medicine, University of Oxford, Oxford, UK.
+LA  - eng
+PT  - Journal Article
+PT  - Review
+DEP - 20260718
+PL  - Netherlands
+TA  - Vaccine
+JT  - Vaccine
+JID - 8406899
+RN  - 0 (Viral Vaccines)
+SB  - IM
+MH  - Humans
+MH  - *Disease Outbreaks/prevention & control
+MH  - *Henipavirus Infections/prevention & control/epidemiology
+MH  - *Hemorrhagic Fever, Ebola/prevention & control/epidemiology
+MH  - Nipah Virus/immunology
+MH  - *Research Design
+MH  - *Randomized Controlled Trials as Topic/ethics/methods
+MH  - Viral Vaccines
+MH  - Vaccine Efficacy
+OTO - NOTNLM
+OT  - Bundibugyo
+OT  - Community engagement
+OT  - Ebola
+OT  - Equipoise
+OT  - Nipah
+OT  - Randomized controlled trials
+OT  - Research ethics
+OT  - Ring vaccination
+OT  - Vaccine trials
+COIS- Declaration of competing interest The authors declare the following financial 
+      interests/personal relationships which may be considered as potential competing 
+      interests: All authors reports financial support was provided by Coalition for 
+      Epidemic Preparedness Innovations. Michael Parker reports financial support was 
+      provided by Wellcome Trust. Michael Parker, Christophe Fraser reports financial 
+      support was provided by Moh Foundation. Euzebiusz Jamrozik reports financial 
+      support was provided by Australian Research Council. If there are other authors, 
+      they declare that they have no known competing financial interests or personal 
+      relationships that could have appeared to influence the work reported in this 
+      paper.
+EDAT- 2026/07/19 01:03
+MHDA- 2026/08/20 23:35
+CRDT- 2026/07/18 18:05
+PHST- 2026/05/04 00:00 [received]
+PHST- 2026/06/14 00:00 [accepted]
+PHST- 2026/08/20 23:35 [medline]
+PHST- 2026/07/19 01:03 [pubmed]
+PHST- 2026/07/18 18:05 [entrez]
+AID - S0264-410X(26)00667-5 [pii]
+AID - 10.1016/j.vaccine.2026.128858 [doi]
+PST - ppublish
+SO  - Vaccine. 2026 Aug 30;89:128858. doi: 10.1016/j.vaccine.2026.128858. Epub 2026 Jul 
+      18.
+
+
+PMID- 42566479
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20260807
+LR  - 20260813
+IS  - 1935-2735 (Electronic)
+IS  - 1935-2727 (Print)
+IS  - 1935-2727 (Linking)
+VI  - 20
+IP  - 8
+DP  - 2026 Aug
+TI  - Ebola in the DRC: A different problem compounded by violence.
+PG  - e0014623
+LID - 10.1371/journal.pntd.0014623 [doi]
+LID - e0014623
+AB  - A Public Health Emergency of International Concern (PHEIC) has been declared in 
+      the Democratic Republic of Congo (DRC) due to Ebola disease from Bundibugyo 
+      virus. Non-health-focused factors should be fundamental to how DRC and its 
+      partners respond to and recover from the current emergency. Filovirus emergencies 
+      are violent in every sense-the disease experience of patients and their 
+      caregivers, the tumult in impacted communities, sometimes the physical 
+      manifestations of frustration against healthcare services, the fits and starts of 
+      concerted response, and the milieu of conflict in which this emergency occurred. 
+      Yet, interpersonal and organized violence may contribute to frequency of health 
+      emergencies and delays in responding to them. We tend to focus on immediate, 
+      direct health needs when managing risks from emerging infectious diseases. 
+      Sustained success, though, requires concomitant action on both health and 
+      non-health aspects of emergencies and the contexts in which they arise.
+CI  - Copyright: © 2026 David M. Brett-Major. This is an open access article 
+      distributed under the terms of the Creative Commons Attribution License, which 
+      permits unrestricted use, distribution, and reproduction in any medium, provided 
+      the original author and source are credited.
+FAU - Brett-Major, David M
+AU  - Brett-Major DM
+AUID- ORCID: 0000-0002-7583-8495
+AD  - Department of Epidemiology, College of Public Health, University of Nebraska 
+      Medical Center, Omaha, Nebraska, United States of America.
+AD  - Division of Infectious Diseases, Department of Medicine, College of Medicine, 
+      University of Nebraska Medical Center, Omaha, Nebraska, United States of America.
+AD  - Global Center for Health Security, University of Nebraska Medical Center, Omaha, 
+      Nebraska, United States of America.
+LA  - eng
+PT  - Journal Article
+DEP - 20260807
+PL  - United States
+TA  - PLoS Negl Trop Dis
+JT  - PLoS neglected tropical diseases
+JID - 101291488
+SB  - IM
+MH  - Humans
+MH  - *Hemorrhagic Fever, Ebola/epidemiology/psychology
+MH  - Democratic Republic of the Congo/epidemiology
+MH  - *Violence
+MH  - Public Health
+PMC - PMC13450757
+COIS- The author has declared that no competing interests exist.
+EDAT- 2026/08/07 18:36
+MHDA- 2026/08/07 18:37
+PMCR- 2026/08/07
+CRDT- 2026/08/07 13:53
+PHST- 2026/08/07 18:37 [medline]
+PHST- 2026/08/07 18:36 [pubmed]
+PHST- 2026/08/07 13:53 [entrez]
+PHST- 2026/08/07 00:00 [pmc-release]
+AID - PNTD-D-26-01223 [pii]
+AID - 10.1371/journal.pntd.0014623 [doi]
+PST - epublish
+SO  - PLoS Negl Trop Dis. 2026 Aug 7;20(8):e0014623. doi: 10.1371/journal.pntd.0014623. 
+      eCollection 2026 Aug.
+
+
+PMID- 42332598
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20260703
+LR  - 20260813
+IS  - 1471-2393 (Electronic)
+IS  - 1471-2393 (Linking)
+VI  - 26
+IP  - 1
+DP  - 2026 Jun 23
+TI  - When it could have been prevented: A maternal death from postpartum hemorrhage 
+      due to genital tract lesions complicated by urinary fistula in an Ebola treatment 
+      unit in DR Congo.
+LID - 10.1186/s12884-026-09271-2 [doi]
+LID - 706
+AB  - BACKGROUND: Ebola Virus Disease (EVD) increases the risk for complications to a 
+      healthy pregnancy and delivery, notably post-partum hemorrhage. Additionally, 
+      successful management of post-partum hemorrhage and resource-intensive clinical 
+      interventions are difficult in the low-resourced setting of an Ebola Treatment 
+      Unit (ETU). CASE PRESENTATION: This report describes the clinical course of a 
+      pregnant adolescent, gravida 2 para 1, with a history of delivery by cesarean 
+      section only 12 months before her second pregnancy. She was vaccinated with 
+      rVSV-ZEBOV following the death of a family member with confirmed EVD. She was 
+      admitted to the ETU 8 days after her vaccination, where a diagnosis of EVD in 
+      pregnancy was made, and her RT-PCR results on the blood sample showed a high 
+      viral load. At admission, she was 32 weeks pregnant. She was treated with mAb114, 
+      a neutralizing monoclonal antibody. In the first two days of her treatment, viral 
+      loads were measured, and they progressively declined after the third day of 
+      treatment. On day 3 of admission, following the failure of tocolysis, she 
+      delivered a preterm live infant. Her delivery was complicated by post-partum 
+      hemorrhage, two lateral cervical and vaginal mucosa lesions, with leakage of 
+      urine through the vagina, suggesting a genito-urinary fistula due to the 
+      extension of these lesions. A manual uterine exploration was required to remove 
+      placental debris with the administration of uterotonic drugs. Methylene blue 
+      instillation confirmed the vesicovaginal fistula. Due to a lack of obstetrical 
+      equipment in the ETU, the full extent of the cervical lesions could not be 
+      assessed nor repaired. Despite our resuscitation measures and mechanical cervical 
+      compression, she died 14 h after delivery of hemorrhagic shock complicated by 
+      coagulopathy with severe acute respiratory distress in the setting of acute EVD 
+      infection despite decreasing viral load. CONCLUSION: In cases of Ebola in 
+      pregnancy, not all maternal deaths due to post-partum hemorrhage are necessarily 
+      due to EVD and, therefore, could be averted with resources to provide specialized 
+      obstetric and post-partum care.
+CI  - © 2026. The Author(s).
+FAU - Imani-Musimwa, Prince
+AU  - Imani-Musimwa P
+AUID- ORCID: 0000-0003-3507-8388
+AD  - Department of Obstetrics and Gynecology, School of Medicine and Public Health, 
+      University of Goma, Goma, Democratic Republic of Congo. princeimani12@gmail.com.
+AD  - Centre de Recherche et d'Evaluation en Santé Globale et Action Humanitaire 
+      (CRESAH), Goma, Democratic Republic of Congo. princeimani12@gmail.com.
+AD  - Faculty of Medicine and School of Public Health, Evangelical University in Africa 
+      (UEA), Bukavu, Democratic Republic of Congo. princeimani12@gmail.com.
+FAU - Grant, Emilie
+AU  - Grant E
+AUID- ORCID: 0009-0009-0074-7538
+AD  - Centre de Recherche et d'Evaluation en Santé Globale et Action Humanitaire 
+      (CRESAH), Goma, Democratic Republic of Congo.
+AD  - Maternal and Infant Care Center, University of Washington Medical Center, 
+      Seattle, WA, United States of America.
+FAU - Mukadi-Bamuleka, Daniel
+AU  - Mukadi-Bamuleka D
+AUID- ORCID: 0000-0002-6836-8704
+AD  - National Institute for Biomedical Research (INRB), Kinshasa, Democratic Republic 
+      of Congo.
+AD  - Department of Medical Biology, School of Medicine, University of Kinshasa, 
+      Kinshasa, Democratic Republic of Congo.
+AD  - Rodolphe Mérieux INRB-Goma Loaboratry, Goma, Democratic Republic of Congo.
+FAU - Tsongo-Kibendelwa, Zacharie
+AU  - Tsongo-Kibendelwa Z
+AD  - Department of Internal Medicine, School of Medicine, University of Kisangani, 
+      Kisangani, Democratic Republic of Congo.
+FAU - Fraterne-Muhayangabo, Rigo
+AU  - Fraterne-Muhayangabo R
+AUID- ORCID: 0000-0002-3266-0252
+AD  - Centre de Recherche et d'Evaluation en Santé Globale et Action Humanitaire 
+      (CRESAH), Goma, Democratic Republic of Congo.
+FAU - Mbala-Kingebeni, Placide
+AU  - Mbala-Kingebeni P
+AUID- ORCID: 0000-0003-1556-3570
+AD  - National Institute for Biomedical Research (INRB), Kinshasa, Democratic Republic 
+      of Congo.
+AD  - Department of Medical Biology, School of Medicine, University of Kinshasa, 
+      Kinshasa, Democratic Republic of Congo.
+FAU - Kitenge-Omasumbu, Richard
+AU  - Kitenge-Omasumbu R
+AD  - Ministry of Public Health, Hygiene and Prevention, Kinshasa, Democratic Republic 
+      of Congo.
+FAU - Barhwamire-Kabesha, Théophile
+AU  - Barhwamire-Kabesha T
+AD  - Department of Surgery, School of Medicine, Official University of Bukavu, Bukavu, 
+      Democratic Republic of Congo.
+FAU - Nyakio-Ngeleza, Olivier
+AU  - Nyakio-Ngeleza O
+AD  - Faculty of Medicine and School of Public Health, Evangelical University in Africa 
+      (UEA), Bukavu, Democratic Republic of Congo.
+AD  - Department of Obstetrics and Gynecology, School of Medicine, Official University 
+      of Bukavu, Bukavu, Democratic Republic of Congo.
+FAU - Sihali-Kyolov, Juakali
+AU  - Sihali-Kyolov J
+AD  - Department of Obstetrics and Gynecology, School of Medicine, University of 
+      Kisangani, Kisangani, Democratic Republic of Congo.
+FAU - Feza-Malira, Micheline
+AU  - Feza-Malira M
+AUID- ORCID: 0009-0000-9950-0870
+AD  - Centre de Recherche et d'Evaluation en Santé Globale et Action Humanitaire 
+      (CRESAH), Goma, Democratic Republic of Congo.
+FAU - Manwa-Budwaga, Baudouin
+AU  - Manwa-Budwaga B
+AD  - Department of Specialities, School of Medicine, Official University of Bukavu, 
+      Bukavu, Democratic Republic of Congo.
+FAU - Alumeti-Munyali, Desiré
+AU  - Alumeti-Munyali D
+AUID- ORCID: 0000-0002-3581-2987
+AD  - Faculty of Medicine and School of Public Health, Evangelical University in Africa 
+      (UEA), Bukavu, Democratic Republic of Congo.
+AD  - Department of Surgery, School of Medicine, Official University of Bukavu, Bukavu, 
+      Democratic Republic of Congo.
+FAU - Bitwe-Mihanda, Richard
+AU  - Bitwe-Mihanda R
+AUID- ORCID: 0009-0004-6409-6299
+AD  - Department of Pediatrics and Neonatology, School of Medicine, University of Goma, 
+      Goma, Democratic Republic of Congo.
+FAU - Sengey-Mushengezi-Amani, Dieudonné
+AU  - Sengey-Mushengezi-Amani D
+AUID- ORCID: 0000-0002-7197-8159
+AD  - Department of Obstetrics and Gynecology, School of Medicine, University of 
+      Kinshasa, Kinshasa, Democratic Republic of Congo.
+FAU - Ververs, Mija
+AU  - Ververs M
+AUID- ORCID: 0000-0002-7182-2998
+AD  - Center for Humanitarian Health, Johns Hopkins Bloomberg School of Public Health, 
+      Baltimore, MD, United States of America.
+LA  - eng
+PT  - Case Reports
+PT  - Journal Article
+DEP - 20260623
+PL  - England
+TA  - BMC Pregnancy Childbirth
+JT  - BMC pregnancy and childbirth
+JID - 100967799
+SB  - IM
+MH  - Adolescent
+MH  - Female
+MH  - Humans
+MH  - Pregnancy
+MH  - Congo
+MH  - *Hemorrhagic Fever, Ebola/complications/prevention & control/virology
+MH  - *Maternal Death/prevention & control/etiology
+MH  - *Postpartum Hemorrhage/etiology
+MH  - *Pregnancy Complications, Infectious/virology
+MH  - Viral Load
+MH  - Fatal Outcome
+PMC - PMC13330090
+OTO - NOTNLM
+OT  - DR Congo
+OT  - Ebola and pregnancy
+OT  - Genital tract lesions
+OT  - Limited resources
+OT  - Maternal death
+OT  - Post-partum hemorrhage and urinary fistula
+COIS- Declarations. Ethics approval and consent to participate: This is a case report 
+      study, so no ethical approval was required. Consent for publication: A 
+      responsible of its family provided written informed consent for publication of 
+      this case report. Competing interests: The authors declare no competing 
+      interests.
+EDAT- 2026/06/23 11:35
+MHDA- 2026/07/03 06:31
+PMCR- 2026/06/23
+CRDT- 2026/06/23 01:06
+PHST- 2024/07/02 00:00 [received]
+PHST- 2026/05/11 00:00 [accepted]
+PHST- 2026/07/03 06:31 [medline]
+PHST- 2026/06/23 11:35 [pubmed]
+PHST- 2026/06/23 01:06 [entrez]
+PHST- 2026/06/23 00:00 [pmc-release]
+AID - 10.1186/s12884-026-09271-2 [pii]
+AID - 9271 [pii]
+AID - 10.1186/s12884-026-09271-2 [doi]
+PST - epublish
+SO  - BMC Pregnancy Childbirth. 2026 Jun 23;26(1):706. doi: 10.1186/s12884-026-09271-2.
+
+
+PMID- 42043661
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20260628
+LR  - 20260813
+IS  - 2210-6014 (Electronic)
+IS  - 2210-6006 (Print)
+IS  - 2210-6006 (Linking)
+VI  - 16
+IP  - 1
+DP  - 2026 Apr 27
+TI  - Good Practices for Managing Acute Respiratory Viral Infections at Aerial Entry 
+      Points: A Scoping Review.
+LID - 10.1007/s44197-026-00564-5 [doi]
+LID - 76
+AB  - BACKGROUND: Aerial entry points are critical in the international spread of 
+      infectious diseases, underscoring the need for effective management of acute 
+      respiratory viral infections (ARVIs). Recent global outbreaks, including 
+      COVID‑19, have highlighted the importance of strengthened public health measures 
+      at air borders. However, evidence on ARVI management strategies at these points 
+      remains fragmented. This scoping review mapped and synthesized existing 
+      approaches to quarantine protocols, contact‑tracing methods, and advanced or 
+      innovative technologies used at aerial entry points. METHODS: We conducted a 
+      scoping review following the Arksey and O’Malley framework, refined by Levac et 
+      al., and reported in accordance with PRISMA ScR guidelines. Scientific databases 
+      were systematically searched for English language studies published between 2003 
+      and 2024 that described the management of ARVIs at air borders. Data from 
+      eligible studies were charted and analyzed using thematic analysis to identify 
+      and categorize quarantine approaches, contact tracing strategies, and advanced or 
+      innovative technologies applied in these settings. RESULTS: A total of 80 studies 
+      were included in the review, addressing diseases such as COVID 19, influenza, 
+      SARS, and Ebola. Most studies were conducted in high income countries and in 
+      regions of Southeast Asia and the Western Pacific. Various quarantine approaches 
+      were identified, including mandatory quarantine, risk based quarantine, and home 
+      based isolation strategies. Contact tracing methods ranged from traditional 
+      manual approaches using passenger information to technology supported systems 
+      that improved the speed of identifying exposed individuals. Several studies 
+      reported the use of advanced digital technologies such as digital health 
+      passports, geofencing monitoring systems, and electronic reporting platforms to 
+      support monitoring, compliance, and data management during public health 
+      responses at air borders. CONCLUSION: The findings highlight the diverse range of 
+      quarantine protocols, contact tracing approaches, and emerging technological 
+      tools used to manage ARVIs at air borders. Despite these developments, evidence 
+      regarding the effectiveness and long term implementation of these strategies 
+      remains limited. Further research is needed to strengthen the evidence base and 
+      support evidence informed policies for managing respiratory infectious diseases 
+      at international points of entry.
+CI  - © 2026. The Author(s).
+FAU - Pashapour, Hadi
+AU  - Pashapour H
+AD  - Department of Epidemiology, School of Public Health and Safety, Shahid Beheshti 
+      University of Medical Sciences, Tehran, Iran.
+FAU - Nikfarjam, Ali
+AU  - Nikfarjam A
+AD  - Department of Prevention and Control of Communicable Diseases, Deputy of Health, 
+      Tehran University of Medical Sciences, Tehran, Iran.
+FAU - Ghaffari, Mohtasham
+AU  - Ghaffari M
+AD  - Department of Public Health, School of Public Health and Safety, Shahid Beheshti 
+      University of Medical Sciences, Tehran, Iran.
+FAU - Kavousi, Amir
+AU  - Kavousi A
+AD  - Department of Epidemiology, School of Public Health and Safety, Shahid Beheshti 
+      University of Medical Sciences, Tehran, Iran.
+FAU - Aslani, Niloofar
+AU  - Aslani N
+AD  - School of Medicine, Urmia University of Medical Sciences, Urmia, Iran.
+FAU - Karami, Manoochehr
+AU  - Karami M
+AD  - Pandemic and Epidemic Preparedness and Response Research Network, Research 
+      Institute for Health Sciences and Environment, Shahid Beheshti University of 
+      Medical Sciences, Tehran, Iran. man.karami@yahoo.com.
+AD  - Department of Epidemiology, School of Public Health and Safety, Shahid Beheshti 
+      University of Medical Sciences, Tehran, 1983969411, Iran. man.karami@yahoo.com.
+LA  - eng
+GR  - 43013183/Shahid Beheshti University of Medical Sciences/
+PT  - Journal Article
+PT  - Scoping Review
+DEP - 20260427
+PL  - Switzerland
+TA  - J Epidemiol Glob Health
+JT  - Journal of epidemiology and global health
+JID - 101592084
+SB  - IM
+MH  - Humans
+MH  - *Quarantine/methods
+MH  - *Contact Tracing/methods
+MH  - *COVID-19/prevention & control/epidemiology
+MH  - *Respiratory Tract Infections/prevention & control
+MH  - Disease Outbreaks/prevention & control
+MH  - *Virus Diseases/prevention & control
+PMC - PMC13287172
+OTO - NOTNLM
+OT  - Acute respiratory viral infections
+OT  - Air borders
+OT  - Contact tracing
+OT  - Digital technologies
+OT  - Point of entry
+OT  - Quarantine
+COIS- Declarations. Ethical Approval and Consent to Participate: This study was 
+      conducted in accordance with ethical standards, and ethical approval was obtained 
+      from the Research Ethics Committees of the School of Public Health and 
+      Neuroscience Research Center, Shahid Beheshti University of Medical Sciences 
+      (Code: 1402.135REC.PHNS.SBMU.IR). Consent for Publication: Not applicable. 
+      Generative AI and AI-Assisted Technologies in the Writing Process: During the 
+      preparation of this work the authors used SciSpace in order to improve 
+      readability and paraphrase. After using this service, the authors reviewed and 
+      edited the content as needed and takes full responsibility for the content of the 
+      publication. Competing interests: The authors declare no competing interests.
+EDAT- 2026/04/27 12:34
+MHDA- 2026/06/23 18:34
+PMCR- 2026/04/27
+CRDT- 2026/04/27 11:22
+PHST- 2026/02/15 00:00 [received]
+PHST- 2026/04/15 00:00 [accepted]
+PHST- 2026/06/23 18:34 [medline]
+PHST- 2026/04/27 12:34 [pubmed]
+PHST- 2026/04/27 11:22 [entrez]
+PHST- 2026/04/27 00:00 [pmc-release]
+AID - 10.1007/s44197-026-00564-5 [pii]
+AID - 564 [pii]
+AID - 10.1007/s44197-026-00564-5 [doi]
+PST - epublish
+SO  - J Epidemiol Glob Health. 2026 Apr 27;16(1):76. doi: 10.1007/s44197-026-00564-5.
+
+
+PMID- 42384642
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20260701
+LR  - 20260813
+IS  - 1935-2735 (Electronic)
+IS  - 1935-2727 (Print)
+IS  - 1935-2727 (Linking)
+VI  - 20
+IP  - 7
+DP  - 2026 Jul
+TI  - Elimination of gambiense human African trypanosomiasis as a public health problem 
+      in Republic of Guinea: Paving the way for zero transmission.
+PG  - e0014469
+LID - 10.1371/journal.pntd.0014469 [doi]
+LID - e0014469
+AB  - The Republic of Guinea has faced an important challenge with human African 
+      trypanosomiasis (HAT), which was endemic over the last century. After initial 
+      control in the 1960s-1970s, HAT resurged in the 1990s along the Guinean coast, 
+      driven by economic and demographic pressures on the mangrove ecosystem. In 
+      response, the Guinean government established a national control program in 2002, 
+      focusing on medical mass screenings. In 2012, vector control using tiny targets 
+      was introduced in the East Boffa focus to reduce fly density and human-vector 
+      contact. However, the Ebola epidemic from 2013 to 2016 disrupted these efforts, 
+      leading to a reliance on passive screening. Resuming screenings in 2016-2017 
+      revealed increased cases in all foci except the East Boffa area, where vector 
+      control had been effective. Vector control continued during the SARS-CoV2 
+      pandemic and at the same time targeted door-to-door screenings were introduced to 
+      target high-risk individuals. Since 2018, around 30,000 at-risk individuals have 
+      been screened annually. These strategies reduced the total number of new cases 
+      below 1 per 10,000 inhabitants in endemic areas over the period 2019-2023, 
+      allowing to validate the elimination of HAT as a public health problem. The 
+      Guinean team and partners then focused on systematic spatial monitoring of 
+      patients and community engagement in vector control. The program also integrates 
+      control of other neglected tropical diseases and addresses new research 
+      questions, especially about anatomical and animal reservoirs for parasites. These 
+      efforts, combined with implementation of improved diagnostic tests and new oral 
+      treatments, through active involvement in multiple clinical trials and studies, 
+      now aim to interrupt HAT transmission by 2030.
+CI  - Copyright: © 2026 Kagbadouno et al. This is an open access article distributed 
+      under the terms of the Creative Commons Attribution License, which permits 
+      unrestricted use, distribution, and reproduction in any medium, provided the 
+      original author and source are credited.
+FAU - Kagbadouno, Moïse
+AU  - Kagbadouno M
+AD  - Programme National de Lutte contre les Maladies Tropicales Négligées, Ministère 
+      de la Santé, Conakry, Guinea.
+AD  - University Gamal Abdel Nasser of Conakry, Conakry, Guinea.
+FAU - Camara, Oumou
+AU  - Camara O
+AD  - Programme National de Lutte contre les Maladies Tropicales Négligées, Ministère 
+      de la Santé, Conakry, Guinea.
+FAU - Diallo, Bailo Mamadou
+AU  - Diallo BM
+AD  - Programme National de Lutte contre les Maladies Tropicales Négligées, Ministère 
+      de la Santé, Conakry, Guinea.
+FAU - Camara, Abdoulaye Dansy
+AU  - Camara AD
+AD  - Programme National de Lutte contre les Maladies Tropicales Négligées, Ministère 
+      de la Santé, Conakry, Guinea.
+FAU - Soumah, Aissata
+AU  - Soumah A
+AD  - Programme National de Lutte contre les Maladies Tropicales Négligées, Ministère 
+      de la Santé, Conakry, Guinea.
+FAU - Leno, Mamadou
+AU  - Leno M
+AD  - Programme National de Lutte contre les Maladies Tropicales Négligées, Ministère 
+      de la Santé, Conakry, Guinea.
+FAU - Béavogui, Favié
+AU  - Béavogui F
+AD  - Programme National de Lutte contre les Maladies Tropicales Négligées, Ministère 
+      de la Santé, Conakry, Guinea.
+FAU - Gassama, Mohamed Diaby
+AU  - Gassama MD
+AD  - Programme National de Lutte contre les Maladies Tropicales Négligées, Ministère 
+      de la Santé, Conakry, Guinea.
+FAU - Camara, Issiaga
+AU  - Camara I
+AD  - Programme National de Lutte contre les Maladies Tropicales Négligées, Ministère 
+      de la Santé, Conakry, Guinea.
+FAU - Coulibaly, Bamoro
+AU  - Coulibaly B
+AD  - Institut Pierre Richet (IPR), Bouaké, Côte d'Ivoire.
+FAU - Kaba, Dramane
+AU  - Kaba D
+AD  - Institut Pierre Richet (IPR), Bouaké, Côte d'Ivoire.
+FAU - Camara, Aïssata
+AU  - Camara A
+AD  - Parasitology Unit, Institut Pasteur of Guinea, Conakry, Guinea.
+FAU - Boiro, Salimatou
+AU  - Boiro S
+AD  - Parasitology Unit, Institut Pasteur of Guinea, Conakry, Guinea.
+FAU - Ilboudo, Hamidou
+AU  - Ilboudo H
+AD  - Institut de Recherche en Sciences de la Santé (IRSS)/Unité de Recherche Clinique 
+      de Nanoro, Nanoro, Burkina Faso.
+FAU - Rayaisse, Jean-Baptiste
+AU  - Rayaisse JB
+AD  - CIRDES, Bobo-Dioulasso, Burkina-Faso.
+FAU - MacLeod, Annette
+AU  - MacLeod A
+AD  - University of Glasgow, Scotland, United Kingdom.
+FAU - Ndungu, Joseph
+AU  - Ndungu J
+AD  - Foundation Initiative for New Diagnostics (FIND), Geneva, Switzerland.
+FAU - Bieler, Sylvain
+AU  - Bieler S
+AD  - Foundation Initiative for New Diagnostics (FIND), Geneva, Switzerland.
+FAU - Bessell, Paul
+AU  - Bessell P
+AD  - Independent Consultant, Edinburgh, United Kingdom.
+FAU - Ott, Damien
+AU  - Ott D
+AD  - Ambassade de France, Conakry, Guinea.
+FAU - Lejon, Veerle
+AU  - Lejon V
+AD  - INTERTRYP, Université de Montpellier, CIRAD, IRD, Montpellier, France.
+FAU - Ravel, Sophie
+AU  - Ravel S
+AD  - INTERTRYP, Université de Montpellier, CIRAD, IRD, Montpellier, France.
+FAU - Courtin, Fabrice
+AU  - Courtin F
+AD  - INTERTRYP, Université de Montpellier, CIRAD, IRD, Montpellier, France.
+FAU - Solano, Philippe
+AU  - Solano P
+AD  - INTERTRYP, Université de Montpellier, CIRAD, IRD, Montpellier, France.
+FAU - Jamonneau, Vincent
+AU  - Jamonneau V
+AD  - INTERTRYP, Université de Montpellier, CIRAD, IRD, Montpellier, France.
+FAU - Bart, Jean-Mathieu
+AU  - Bart JM
+AD  - Programme National de Lutte contre les Maladies Tropicales Négligées, Ministère 
+      de la Santé, Conakry, Guinea.
+AD  - INTERTRYP, Université de Montpellier, CIRAD, IRD, Montpellier, France.
+FAU - Rotureau, Brice
+AU  - Rotureau B
+AUID- ORCID: 0000-0003-0671-8999
+AD  - Parasitology Unit, Institut Pasteur of Guinea, Conakry, Guinea.
+FAU - Bucheton, Bruno
+AU  - Bucheton B
+AD  - INTERTRYP, Université de Montpellier, CIRAD, IRD, Montpellier, France.
+FAU - Camara, Mamadou
+AU  - Camara M
+AD  - Programme National de Lutte contre les Maladies Tropicales Négligées, Ministère 
+      de la Santé, Conakry, Guinea.
+LA  - eng
+PT  - Journal Article
+PT  - Review
+DEP - 20260701
+PL  - United States
+TA  - PLoS Negl Trop Dis
+JT  - PLoS neglected tropical diseases
+JID - 101291488
+SB  - IM
+MH  - Humans
+MH  - *Trypanosomiasis, African/prevention & control/epidemiology/transmission
+MH  - Animals
+MH  - Guinea/epidemiology
+MH  - *Trypanosoma brucei gambiense/physiology
+MH  - *Disease Eradication
+MH  - Public Health
+MH  - Insect Vectors/parasitology
+MH  - Tsetse Flies/parasitology
+PMC - PMC13322503
+COIS- The authors have declared that no competing interest exists.
+EDAT- 2026/07/01 18:33
+MHDA- 2026/07/01 18:34
+PMCR- 2026/07/01
+CRDT- 2026/07/01 13:33
+PHST- 2026/07/01 18:34 [medline]
+PHST- 2026/07/01 18:33 [pubmed]
+PHST- 2026/07/01 13:33 [entrez]
+PHST- 2026/07/01 00:00 [pmc-release]
+AID - PNTD-D-25-02006 [pii]
+AID - 10.1371/journal.pntd.0014469 [doi]
+PST - epublish
+SO  - PLoS Negl Trop Dis. 2026 Jul 1;20(7):e0014469. doi: 10.1371/journal.pntd.0014469. 
+      eCollection 2026 Jul.
+
+
+PMID- 42465517
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+DCOM- 20260727
+LR  - 20260823
+IS  - 2692-8205 (Electronic)
+IS  - 2692-8205 (Linking)
+DP  - 2026 Jul 10
+TI  - AI-Driven Discovery and BSL-4 Validation of Cross-Filovirus Ebola-Marburg 
+      Inhibitors and their Synergistic Combinations.
+LID - 2026.07.09.737586 [pii]
+LID - 10.64898/2026.07.09.737586 [doi]
+AB  - Filovirus outbreaks caused by Ebola virus (EBOV) and Marburg virus (MARV), pose 
+      severe global health threats characterized by high rates of fatal hemorrhagic 
+      fever. While species-specific vaccines and therapeutic monoclonal antibodies are 
+      approved for Zaire ebolavirus, broadly-active therapeutics remain unavailable, 
+      leaving populations vulnerable to MARV and other pathogenic Ebola species, such 
+      as Bundibugyo (BDBV) and Sudan (SUDV) ebolaviruses. Here we report a 
+      computationally guided, infectious virus validated screening platform for the 
+      rapid discovery of broad-spectrum filovirus antivirals. By leveraging 
+      quantitative structure- activity relationship (QSAR) models, we screened 142,382 
+      compounds in silico to prioritize 125 high-potential candidates. Subsequent 
+      dose-response and viability profiling identified 23 compounds exhibiting potent, 
+      low-micromolar pan-filovirus activity and favorable cytotoxicity profiles. 
+      Molecular docking indicates these compounds target conserved structural and 
+      functional domains-primarily the VP35 and L proteins-which may disrupt essential 
+      viral replication and immune antagonism. Furthermore, systematic combinatorial 
+      screening revealed three highly synergistic compound pairs, notably 
+      NCGC00113249-01 and NCGC00118008-01, demonstrating robust cross-species efficacy. 
+      By targeting conserved vulnerabilities across the filovirus family, this 
+      integrated in silico and in vitro pipeline provides a scalable framework to 
+      rapidly nominate and optimize synergistic therapeutic regimens against both 
+      endemic and emerging viral threats including BDBV.
+FAU - Martin, Holli-Joi
+AU  - Martin HJ
+AUID- ORCID: 0000-0002-9123-0439
+AD  - University of North Carolina (UNC), Chapel Hill, NC, 27599, USA.
+FAU - Scotti, Marcus Tullius
+AU  - Scotti MT
+AUID- ORCID: 0000-0003-4863-8057
+AD  - University of North Carolina (UNC), Chapel Hill, NC, 27599, USA.
+AD  - Federal University of Paraiba (UFPB), João Pessoa, PB, 58051-900, Brazil.
+FAU - Jain, Sankalp
+AU  - Jain S
+AUID- ORCID: 0000-0002-9370-9611
+AD  - Viral Special Pathogens Branch, Centers for Disease Control and Prevention (CDC), 
+      Atlanta, GA, 30329, USA.
+FAU - McMullan, Laura K
+AU  - McMullan LK
+AUID- ORCID: 0000-0003-2748-5151
+AD  - Division of Preclinical Innovation, National Center for Advancing Translational 
+      Sciences (NCATS), Rockville, MD, 20850.
+FAU - Chatterjee, Payel
+AU  - Chatterjee P
+AUID- ORCID: 0000-0001-6714-7232
+AD  - Division of Preclinical Innovation, National Center for Advancing Translational 
+      Sciences (NCATS), Rockville, MD, 20850.
+FAU - Melo-Filo, Cleber
+AU  - Melo-Filo C
+AUID- ORCID: 0000-0003-0056-6971
+AD  - University of North Carolina (UNC), Chapel Hill, NC, 27599, USA.
+FAU - Caza, Maximilian
+AU  - Caza M
+AD  - University of North Carolina (UNC), Chapel Hill, NC, 27599, USA.
+FAU - Tropsha, Alexander
+AU  - Tropsha A
+AUID- ORCID: 0000-0003-3802-8896
+AD  - University of North Carolina (UNC), Chapel Hill, NC, 27599, USA.
+AD  - Predictive, LLC, Raleigh, NC, 27614, USA.
+FAU - Lin, Hsiu-Ling
+AU  - Lin HL
+AD  - Viral Special Pathogens Branch, Centers for Disease Control and Prevention (CDC), 
+      Atlanta, GA, 30329, USA.
+FAU - Flint, Michael
+AU  - Flint M
+AUID- ORCID: 0000-0002-9784-5530
+AD  - Division of Preclinical Innovation, National Center for Advancing Translational 
+      Sciences (NCATS), Rockville, MD, 20850.
+FAU - Lee, Emily
+AU  - Lee E
+AD  - Viral Special Pathogens Branch, Centers for Disease Control and Prevention (CDC), 
+      Atlanta, GA, 30329, USA.
+FAU - Lo, Michael K
+AU  - Lo MK
+AUID- ORCID: 0000-0002-0409-7896
+AD  - Division of Preclinical Innovation, National Center for Advancing Translational 
+      Sciences (NCATS), Rockville, MD, 20850.
+FAU - Zakharov, Alexey V
+AU  - Zakharov AV
+AUID- ORCID: 0000-0003-2466-1711
+AD  - Viral Special Pathogens Branch, Centers for Disease Control and Prevention (CDC), 
+      Atlanta, GA, 30329, USA.
+FAU - Muratov, Eugene N
+AU  - Muratov EN
+AUID- ORCID: 0000-0003-4616-7036
+AD  - University of North Carolina (UNC), Chapel Hill, NC, 27599, USA.
+AD  - Federal University of Paraiba (UFPB), João Pessoa, PB, 58051-900, Brazil.
+LA  - eng
+GR  - 75N93024C00038/AI/NIAID NIH HHS/United States
+PT  - Journal Article
+PT  - Preprint
+DEP - 20260710
+PL  - United States
+TA  - bioRxiv
+JT  - bioRxiv : the preprint server for biology
+JID - 101680187
+PMC - PMC13370416
+COIS- Conflict of interest AT and ENM are co-founders of Predictive, LLC, which 
+      develops novel alternative methods and software for toxicity prediction. All 
+      other authors have nothing to disclose.
+EDAT- 2026/07/17 12:41
+MHDA- 2026/07/17 12:42
+PMCR- 2026/07/15
+CRDT- 2026/07/17 06:59
+PHST- 2026/07/17 12:41 [pubmed]
+PHST- 2026/07/17 12:42 [medline]
+PHST- 2026/07/17 06:59 [entrez]
+PHST- 2026/07/15 00:00 [pmc-release]
+AID - 2026.07.09.737586 [pii]
+AID - 10.64898/2026.07.09.737586 [doi]
+PST - epublish
+SO  - bioRxiv [Preprint]. 2026 Jul 10:2026.07.09.737586. doi: 
+      10.64898/2026.07.09.737586.
+
+
+PMID- 42542607
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+DCOM- 20260802
+LR  - 20260813
+IS  - 2168-8184 (Print)
+IS  - 2168-8184 (Electronic)
+IS  - 2168-8184 (Linking)
+VI  - 18
+IP  - 7
+DP  - 2026 Jul
+TI  - Closing Critical Gaps in the 2026 Bundibugyo Ebola Response: Five Actionable 
+      Priorities.
+PG  - e111921
+LID - 10.7759/cureus.111921 [doi]
+LID - e111921
+AB  - The 2026 Bundibugyo virus disease (BDBV) outbreak in the Democratic Republic of 
+      the Congo and adjacent Uganda has revealed major deficiencies in outbreak 
+      response. The available diagnostics, vaccines, and therapies were primarily 
+      designed against Zaire Ebola virus - leaving us ill-prepared for BDBV detection 
+      and control. We call for five immediate actions to strengthen existing efforts. 
+      First, rapidly establish a decentralized three-tier molecular diagnostic network 
+      to allow timely detection and genomic surveillance. Second, since there are few 
+      approved treatments that target BDBV specifically, adaptive platform trials 
+      should assess the potential of repurposed host-directed therapies. Third, in 
+      conflict-affected settings, routine enabling environment data collection to 
+      strengthen surveillance is needed, whilst digital proximity tracing and social 
+      support mechanisms, such as community tracing collaborative (CTC) responses to 
+      combat community transmission through contact identification and isolation, would 
+      also add value. Fourth, ring vaccination strategies with recombinant vesicular 
+      stomatitis virus-Zaire Ebola virus (rVSV-ZEBOV) as a post-exposure intervention 
+      should be explored, given the potential for cross-protection against BDBV. Fifth, 
+      implementation of extensive genomic surveillance should be enhanced to 
+      differentiate between continuous human transmission and sporadic zoonotic 
+      spillover events while informing ecology-based control strategies. Together, 
+      these recommendations highlight actionable, scalable steps that can be 
+      implemented quickly through existing systems and out-of-the-box solutions. 
+      Filling these key gaps could significantly affect the outcome of this current 
+      outbreak and enhance regional and global preparedness for future ebolavirus 
+      outbreaks.
+CI  - Copyright © 2026, Mohapatra et al.
+FAU - Mohapatra, Prasanta R
+AU  - Mohapatra PR
+AD  - Pulmonary Medicine and Critical Care, All India Institute of Medical Sciences, 
+      Bhubaneswar, Bhubaneswar, IND.
+FAU - Mishra, Baijayantimala
+AU  - Mishra B
+AD  - Microbiology, All India Institute of Medical Sciences, Bhubaneswar, Bhubaneswar, 
+      IND.
+LA  - eng
+PT  - Editorial
+DEP - 20260701
+PL  - United States
+TA  - Cureus
+JT  - Cureus
+JID - 101596737
+PMC - PMC13427566
+OTO - NOTNLM
+OT  - bundibugyo
+OT  - congo
+OT  - ebola
+OT  - uganda
+OT  - virus
+COIS- Conflicts of interest: In compliance with the ICMJE uniform disclosure form, all 
+      authors declare the following: Payment/services info: All authors have declared 
+      that no financial support was received from any organization for the submitted 
+      work. Financial relationships: All authors have declared that they have no 
+      financial relationships at present or within the previous three years with any 
+      organizations that might have an interest in the submitted work. Other 
+      relationships: All authors have declared that there are no other relationships or 
+      activities that could appear to have influenced the submitted work.
+EDAT- 2026/08/02 06:42
+MHDA- 2026/08/02 06:43
+PMCR- 2026/07/01
+CRDT- 2026/08/02 03:45
+PHST- 2026/07/01 00:00 [accepted]
+PHST- 2026/08/02 06:43 [medline]
+PHST- 2026/08/02 06:42 [pubmed]
+PHST- 2026/08/02 03:45 [entrez]
+PHST- 2026/07/01 00:00 [pmc-release]
+AID - 10.7759/cureus.111921 [doi]
+PST - epublish
+SO  - Cureus. 2026 Jul 1;18(7):e111921. doi: 10.7759/cureus.111921. eCollection 2026 
+      Jul.
+
+
+PMID- 42562123
+OWN - NLM
+STAT- Publisher
+LR  - 20260806
+IS  - 1878-3511 (Electronic)
+IS  - 1201-9712 (Linking)
+DP  - 2026 Aug 6
+TI  - Bundibugyo virus disease: transmission dynamics, infectiousness and viral 
+      persistence.
+PG  - 109037
+LID - S1201-9712(26)00672-7 [pii]
+LID - 10.1016/j.ijid.2026.109037 [doi]
+AB  - BVD is a severe filoviral haemorrhagic fever caused by the Bundibugyo virus 
+      (BDBV), for which outbreak-related evidence remains limited compared with that 
+      available for Zaire ebolavirus. This perspective summarizes current evidence on 
+      transmission dynamics, presymptomatic infectiousness, post-recovery viral 
+      persistence and the duration of infectiousness, distinguishing BDBV-specific data 
+      from evidence extrapolated from other ortho-Ebolaviruses. Available 
+      epidemiological data from the 2007-2008 outbreak in Uganda indicate that BDBV 
+      transmission occurs primarily through direct contact with the blood or body 
+      fluids of symptomatic or deceased individuals, with the handling of corpses 
+      representing a significant risk factor (adjusted odds ratio 3.83; 95% confidence 
+      interval 1.78-8.23). The average incubation period is 6.3 days, and prolonged 
+      chains of transmission were documented in household and healthcare settings. No 
+      documented human cases of pre-symptomatic transmission have been reported, 
+      however, the limited number of documented outbreaks precludes excluding this 
+      possibility, and experimental animal data support its biological plausibility. No 
+      BDBV-specific data are available regarding viral persistence and duration of 
+      infectiousness. Consequently, current recommendations rely largely on evidence 
+      derived from other orthoebolaviruses. Viral RNA may persist after recovery in 
+      immunoprivileged sites, particularly in semen, with rare but documented episodes 
+      of delayed transmission. The ongoing outbreak highlights the need for 
+      BDBV-specific studies to strengthen the evidence base underpinning public health 
+      recommendations.
+CI  - Copyright © 2026 The Author(s). Published by Elsevier Ltd.. All rights reserved.
+FAU - Bongiovanni, Andrea
+AU  - Bongiovanni A
+AD  - National Institute for Infectious Diseases "L.Spallanzani" IRCCS, Rome, Italy.
+FAU - Binetti, Erica
+AU  - Binetti E
+AD  - National Institute for Infectious Diseases "L.Spallanzani" IRCCS, Rome, Italy.
+FAU - Colavita, Francesca
+AU  - Colavita F
+AD  - National Institute for Infectious Diseases "L.Spallanzani" IRCCS, Rome, Italy. 
+      Electronic address: francesca.colavita@inmi.it.
+FAU - Mussetto, Ilaria
+AU  - Mussetto I
+AD  - National Institute for Infectious Diseases "L.Spallanzani" IRCCS, Rome, Italy.
+FAU - Scorzolini, Laura
+AU  - Scorzolini L
+AD  - National Institute for Infectious Diseases "L.Spallanzani" IRCCS, Rome, Italy.
+FAU - Lalle, Eleonora
+AU  - Lalle E
+AD  - National Institute for Infectious Diseases "L.Spallanzani" IRCCS, Rome, Italy.
+FAU - Antinori, Andrea
+AU  - Antinori A
+AD  - National Institute for Infectious Diseases "L.Spallanzani" IRCCS, Rome, Italy.
+FAU - Girardi, Enrico
+AU  - Girardi E
+AD  - National Institute for Infectious Diseases "L.Spallanzani" IRCCS, Rome, Italy.
+FAU - Maggi, Fabrizio
+AU  - Maggi F
+AD  - National Institute for Infectious Diseases "L.Spallanzani" IRCCS, Rome, Italy.
+FAU - Nicastri, Emanuele
+AU  - Nicastri E
+AD  - National Institute for Infectious Diseases "L.Spallanzani" IRCCS, Rome, Italy.
+FAU - Vairo, Francesco
+AU  - Vairo F
+AD  - National Institute for Infectious Diseases "L.Spallanzani" IRCCS, Rome, Italy.
+LA  - eng
+PT  - Journal Article
+DEP - 20260806
+PL  - Canada
+TA  - Int J Infect Dis
+JT  - International journal of infectious diseases : IJID : official publication of the 
+      International Society for Infectious Diseases
+JID - 9610933
+SB  - IM
+OTO - NOTNLM
+OT  - Bundibugyo virus
+OT  - Ebola virus disease
+OT  - orthoebolavirus
+OT  - pre-symptomatic transmission
+OT  - transmission dynamics
+OT  - viral persistence
+COIS- Declaration of competing interest The authors declare that they have no known 
+      competing financial interests or personal relationships that could have appeared 
+      to influence the work reported in this paper.
+EDAT- 2026/08/07 00:35
+MHDA- 2026/08/07 00:35
+CRDT- 2026/08/06 19:17
+PHST- 2026/06/19 00:00 [received]
+PHST- 2026/08/04 00:00 [revised]
+PHST- 2026/08/04 00:00 [accepted]
+PHST- 2026/08/07 00:35 [medline]
+PHST- 2026/08/07 00:35 [pubmed]
+PHST- 2026/08/06 19:17 [entrez]
+AID - S1201-9712(26)00672-7 [pii]
+AID - 10.1016/j.ijid.2026.109037 [doi]
+PST - aheadofprint
+SO  - Int J Infect Dis. 2026 Aug 6:109037. doi: 10.1016/j.ijid.2026.109037.
+
+
+PMID- 42426656
+OWN - NLM
+STAT- Publisher
+LR  - 20260710
+IS  - 1471-2334 (Electronic)
+IS  - 1471-2334 (Linking)
+DP  - 2026 Jul 9
+TI  - Mapping the global evidence base of bundibugyo ebolavirus disease: a systematic 
+      scoping review of research gaps and preparedness priorities.
+LID - 10.1186/s12879-026-13977-1 [doi]
+AB  - BACKGROUND: Bundibugyo ebolavirus (BDBV) is a rare filovirus species with an 
+      estimated case fatality rate (CFR) ranging from 25% to 51%. The 2026 BDBV 
+      outbreak in the Democratic Republic of the Congo (DRC) was declared a Public 
+      Health Emergency of International Concern (PHEIC), highlighting the critical 
+      necessity of assessing global research preparedness for this pathogen. 
+      OBJECTIVES: To systematically map the global scientific evidence base on BDBV, 
+      characterize temporal and thematic publication trends, identify critical 
+      knowledge gaps, and formulate actionable priorities for public health response 
+      and clinical research. METHODS: Following PRISMA-ScR guidelines, we 
+      programmatically searched PubMed/MEDLINE, OpenAlex, and Semantic Scholar for 
+      literature published from 2007 through May 2026. From 4,379 screened records, 100 
+      high-relevance studies were selected using a weighted composite relevance scoring 
+      system. To structure the evidence, we synthesized a novel conceptual model 
+      mapping BDBV research across three core pillars-epidemiological drivers, health 
+      system responses, and public health outcomes-connected by a policy feedback loop 
+      and conditioned by cross-cutting systemic moderators (conflict, weak 
+      infrastructure, global governance, and research gaps). Methodological quality was 
+      evaluated using the Risk of Bias 2.0 (RoB 2) framework. RESULTS: Only 23% of the 
+      included studies specifically addressed BDBV, with the remainder focusing on 
+      broader ebolavirus topics dominated by Ebola virus (EBOV). Applying the 
+      conceptual model revealed pronounced asymmetries across the research domains: the 
+      literature remains heavily concentrated within upstream epidemiological drivers 
+      and clinical features. Conversely, critical health system response domains lack 
+      validated tools; no licensed vaccine, specific therapeutic agent, or 
+      point-of-care rapid diagnostic test validated for BDBV currently exists. While 
+      cross-reactive monoclonal antibodies show preclinical efficacy, clinical-grade 
+      validation remains absent, and longitudinal survivor outcomes are sparsely 
+      documented. Systemic moderators, particularly weak health infrastructure and 
+      conflict, continue to compound these gaps. Methodological risk of bias was 
+      moderate, driven by missing outcome data (42% of studies) and selective reporting 
+      (41%). CONCLUSIONS: BDBV remains understudied relative to its epidemic potential. 
+      Sustained, internationally coordinated investments modeled on prior EBOV 
+      frameworks are required to transition from reactive to proactive research models. 
+      CLINICAL TRIAL NUMBER: Not applicable.
+CI  - © 2026. The Author(s).
+FAU - Boatemaa, Abigail
+AU  - Boatemaa A
+AUID- ORCID: 0009-0004-5919-4361
+AD  - Faculty of Health Studies, University of Bradford, Richmond Road, Bradford, BD7 
+      1DP, UK.
+FAU - Osei, Baffour
+AU  - Osei B
+AUID- ORCID: 0009-0001-8523-568X
+AD  - University of Skills Training and Entrepreneurial Development (USTED), Kumasi, 
+      Ghana.
+FAU - Forkuo, Gabriel Osei
+AU  - Forkuo GO
+AUID- ORCID: 0000-0001-8478-8066
+AD  - Department of Forest Engineering, Forest Management Planning and Terrestrial 
+      Measurements, Transilvania University of Brasov, Brasov, Romania. 
+      gabriel.forkuo@unitbv.ro.
+LA  - eng
+PT  - Journal Article
+DEP - 20260709
+PL  - England
+TA  - BMC Infect Dis
+JT  - BMC infectious diseases
+JID - 100968551
+SB  - IM
+OTO - NOTNLM
+OT  - Case fatality rate
+OT  - Democratic republic of the congo
+OT  - International concern
+OT  - Monoclonal antibodies
+OT  - Public health emergency of zoonotic reservoir
+OT  - Risk of bias
+COIS- Declarations. Ethics approval and consent to participate: Not applicable. This 
+      systematic scoping review used publicly available data and did not involve 
+      primary data collection from human participants. Consent for publication: Not 
+      applicable. Competing interests: The authors declare no competing interests.
+EDAT- 2026/07/10 06:35
+MHDA- 2026/07/10 06:35
+CRDT- 2026/07/10 00:07
+PHST- 2026/06/06 00:00 [received]
+PHST- 2026/07/06 00:00 [accepted]
+PHST- 2026/07/10 06:35 [medline]
+PHST- 2026/07/10 06:35 [pubmed]
+PHST- 2026/07/10 00:07 [entrez]
+AID - 10.1186/s12879-026-13977-1 [pii]
+AID - 10.1186/s12879-026-13977-1 [doi]
+PST - aheadofprint
+SO  - BMC Infect Dis. 2026 Jul 9. doi: 10.1186/s12879-026-13977-1.
+
+
+PMID- 42577877
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+DCOM- 20260811
+LR  - 20260813
+IS  - 2168-8184 (Print)
+IS  - 2168-8184 (Electronic)
+IS  - 2168-8184 (Linking)
+VI  - 18
+IP  - 7
+DP  - 2026 Jul
+TI  - Bundibugyo Virus Disease Outbreak and Cross-Border Response in the Democratic 
+      Republic of the Congo and Uganda, May-June 2026.
+PG  - e112459
+LID - 10.7759/cureus.112459 [doi]
+LID - e112459
+AB  - Bundibugyo virus disease (BVD) is a high-consequence filovirus infection with no 
+      approved vaccine or specific therapeutic, making early detection, supportive 
+      care, infection prevention, and coordinated public health action essential. This 
+      editorial is a rapid narrative synthesis of publicly available outbreak 
+      information from the WHO Disease Outbreak News, the Centers for Disease Control 
+      and Prevention (CDC) reports, the Uganda Ministry of Health updates, and the WHO 
+      African Region situation materials. We prioritized official reports because the 
+      event was rapidly evolving and because case counts, contact-tracing indicators, 
+      and health-zone classifications were being updated as surveillance and laboratory 
+      capacity expanded. This editorial summarizes the May-July 2026 BVD outbreak 
+      involving the Democratic Republic of the Congo (DRC) and Uganda and highlights 
+      public health lessons for cross-border preparedness. We reviewed official WHO, 
+      CDC, Uganda Ministry of Health, and WHO African Region reports, with data 
+      reviewed through July 3, 2026. WHO was alerted on May 5, 2026, to a 
+      high-mortality illness cluster in Mongbwalu Health Zone, Ituri Province, DRC. The 
+      DRC and Uganda declared outbreaks on May 15, 2026, and the WHO determined that 
+      the event constituted a public health emergency of international concern. 
+      Response measures included surveillance, laboratory expansion, isolation and 
+      supportive care, contact tracing, infection prevention and control, safe burial, 
+      community engagement, cross-border coordination, and preparation for ethically 
+      approved trials of candidate countermeasures. This outbreak shows that 
+      border-linked surveillance must be integrated with first-contact facility 
+      readiness, health-worker protection, trusted community engagement, continuity of 
+      essential services, complete contact follow-up, and trial-ready systems rather 
+      than reliance on generic Ebola plans or indiscriminate travel restrictions.
+CI  - Copyright © 2026, Akankwasa et al.
+FAU - Akankwasa, Prosper
+AU  - Akankwasa P
+AD  - Department of Obstetrics and Gynecology, Kampala International University Western 
+      Campus, Ishaka Bushenyi, UGA.
+FAU - Kakooza, Jackson
+AU  - Kakooza J
+AD  - Department of Surgery, Kampala International University Western Campus, Ishaka 
+      Bushenyi, UGA.
+FAU - Kisaakye, Wamala N
+AU  - Kisaakye WN
+AD  - Department of Public Health, Infectious Diseases Institute, Kampala, UGA.
+FAU - Nabushawo, Faith
+AU  - Nabushawo F
+AD  - Department of Obstetrics and Gynecology, Kampala International University Western 
+      Campus, Ishaka Bushenyi, UGA.
+FAU - Mutonyi, Shakirah
+AU  - Mutonyi S
+AD  - Department of Internal Medicine, Old Kampala Hospital, Kampala, UGA.
+FAU - Lewis, Catherine
+AU  - Lewis C
+AD  - Department of Surgery, St. Joseph's Hospital Kitovu, Masaka, UGA.
+LA  - eng
+PT  - Editorial
+DEP - 20260711
+PL  - United States
+TA  - Cureus
+JT  - Cureus
+JID - 101596737
+PMC - PMC13455710
+OTO - NOTNLM
+OT  - bundibugyo virus disease
+OT  - democratic republic of the congo
+OT  - ebola
+OT  - outbreak
+OT  - uganda
+COIS- Conflicts of interest: In compliance with the ICMJE uniform disclosure form, all 
+      authors declare the following: Payment/services info: All authors have declared 
+      that no financial support was received from any organization for the submitted 
+      work. Financial relationships: All authors have declared that they have no 
+      financial relationships at present or within the previous three years with any 
+      organizations that might have an interest in the submitted work. Other 
+      relationships: All authors have declared that there are no other relationships or 
+      activities that could appear to have influenced the submitted work.
+EDAT- 2026/08/11 12:37
+MHDA- 2026/08/11 12:38
+PMCR- 2026/07/11
+CRDT- 2026/08/11 06:36
+PHST- 2026/07/10 00:00 [accepted]
+PHST- 2026/08/11 12:38 [medline]
+PHST- 2026/08/11 12:37 [pubmed]
+PHST- 2026/08/11 06:36 [entrez]
+PHST- 2026/07/11 00:00 [pmc-release]
+AID - 10.7759/cureus.112459 [doi]
+PST - epublish
+SO  - Cureus. 2026 Jul 11;18(7):e112459. doi: 10.7759/cureus.112459. eCollection 2026 
+      Jul.
+
+
+PMID- 42609661
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+DCOM- 20260818
+LR  - 20260819
+IS  - 1687-9686 (Print)
+IS  - 1687-9694 (Electronic)
+IS  - 1687-9686 (Linking)
+VI  - 2026
+DP  - 2026
+TI  - High-Resolution Mapping of Environmental Suitability for Reported Ebola Spillover 
+      Events in Uganda to Inform Surveillance and Preparedness.
+PG  - 9889973
+LID - 10.1155/jotm/9889973 [doi]
+LID - 9889973
+AB  - BACKGROUND: Uganda experiences recurrent Ebola disease (EBOD) outbreaks, yet 
+      national suitability maps often pool virus species or are too coarse for 
+      district-level planning. We aimed to generate species-resolved, 1 km relative 
+      environmental suitability surfaces for reported Ebola spillover events in Uganda; 
+      quantify the contribution of environmental, anthropogenic, and reservoir-related 
+      predictors to modeled suitability; and translate continuous outputs into 
+      operational prioritization tiers for district surveillance and preparedness. 
+      METHODS: We compiled 71 laboratory-confirmed reported Ebola event localities in 
+      Uganda from 2000 to 2023, defined as the most likely documented locality of 
+      initial human infection where available, and paired them with 11 minimally 
+      collinear predictors. Pooled and virus-specific MaxEnt models were tuned in 
+      ENMeval by comparing feature-class sets across β = 0.5 to 3.0, ranked by AICc, 
+      and screened for acceptable omission at the 10% training-presence threshold. 
+      Performance was estimated using fourfold spatial block cross-validation. Pooled 
+      cloglog suitability values were thresholded at the 10% training-presence value 
+      and stratified into four operational prioritization tiers. RESULTS: Tuning 
+      selected LQHP with β = 1.5 for the pooled model. Under spatial block 
+      cross-validation, pooled performance was Test AUC = 0.845 (0.825 to 0.862) and 
+      Test Boyce = 0.58 (0.52 to 0.63), with Test OR10 = 0.101 (0.092 to 0.109). The 
+      operational threshold was cloglog = 0.084, classifying 25.4% of Uganda as 
+      suitable within the modeling framework. Tier 1, defined as the 
+      highest-suitability decile among suitable pixels (cloglog ≥ 0.65), covered 5.8% 
+      of land area yet contained approximately 12.6 million residents (29%). 
+      High-suitability areas were clustered in the Albertine Rift escarpment belt, the 
+      Kampala, Wakiso, Mukono peri-urban cluster extending along major corridors, and a 
+      northern Lake Kyoga shoreline crescent. Species-specific outputs were interpreted 
+      as exploratory secondary analyses. SUDV broadly reproduced the pooled modeled 
+      suitability geography, EBOV showed elevated suitability along the western border 
+      corridor, and BDBV suitability was concentrated around the Albertine escarpment. 
+      Checkerboard2 sensitivity produced a small AUC increase (ΔAUC = +0.006) and high 
+      tier agreement. CONCLUSIONS: Relative environmental suitability for reported 
+      Ebola spillover localities in Uganda is concentrated in compact high-priority 
+      belts where elevated modeled suitability overlaps with large resident 
+      populations. Tier 1 and Tier 2 areas provide a focused basis for strengthening 
+      event-based surveillance, early detection, laboratory referral, infection 
+      prevention and control readiness, rapid response capacity, One Health field 
+      investigation, and community engagement.
+CI  - Copyright © 2026 George Paasi et al. Journal of Tropical Medicine published by 
+      John Wiley & Sons Ltd.
+FAU - Paasi, George
+AU  - Paasi G
+AUID- ORCID: 0000-0001-6360-0589
+AD  - Clinical Trials Department, Mbale Clinical Research Institute, Mbale, Uganda.
+AD  - Department of Community and Public Health, Faculty of Health Sciences, Busitema 
+      University, Mbale, Uganda, busitema.ac.ug.
+FAU - Malaika, Nancy
+AU  - Malaika N
+AUID- ORCID: 0009-0002-8687-0412
+AD  - School of Medicine and Health Sciences, Soroti University, Soroti, Uganda, 
+      sun.ac.ug.
+FAU - Okware, Sam
+AU  - Okware S
+AUID- ORCID: 0000-0001-8448-0301
+AD  - Uganda National Health Research Organisation (UNHRO), Entebbe, Uganda.
+FAU - Olupot-Olupot, Peter
+AU  - Olupot-Olupot P
+AUID- ORCID: 0000-0002-5757-609X
+AD  - Clinical Trials Department, Mbale Clinical Research Institute, Mbale, Uganda.
+AD  - Department of Community and Public Health, Faculty of Health Sciences, Busitema 
+      University, Mbale, Uganda, busitema.ac.ug.
+LA  - eng
+PT  - Journal Article
+DEP - 20260816
+PL  - United States
+TA  - J Trop Med
+JT  - Journal of tropical medicine
+JID - 101524194
+PMC - PMC13478722
+OTO - NOTNLM
+OT  - MaxEnt
+OT  - Uganda
+OT  - ebola virus disease
+OT  - ecological niche modeling
+OT  - one health
+OT  - relative suitability
+COIS- The authors declare no conflicts of interest.
+EDAT- 2026/08/18 13:56
+MHDA- 2026/08/18 13:57
+PMCR- 2026/08/16
+CRDT- 2026/08/18 05:15
+PHST- 2026/02/27 00:00 [received]
+PHST- 2026/06/11 00:00 [revised]
+PHST- 2026/07/13 00:00 [accepted]
+PHST- 2026/08/18 13:57 [medline]
+PHST- 2026/08/18 13:56 [pubmed]
+PHST- 2026/08/18 05:15 [entrez]
+PHST- 2026/08/16 00:00 [pmc-release]
+AID - JOTM9889973 [pii]
+AID - 10.1155/jotm/9889973 [doi]
+PST - epublish
+SO  - J Trop Med. 2026 Aug 16;2026:9889973. doi: 10.1155/jotm/9889973. eCollection 
+      2026.
+
+
+PMID- 42367993
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+DCOM- 20260713
+LR  - 20260813
+IS  - 2692-8205 (Electronic)
+IS  - 2692-8205 (Linking)
+DP  - 2026 Jun 15
+TI  - A Single-Dose Bundibugyo Virus Vaccine Protects Macaques Within 3 Days.
+LID - 2026.06.14.732188 [pii]
+LID - 10.64898/2026.06.14.732188 [doi]
+AB  - Bundibugyo virus (BDBV), a member of the orthoebolaviruses in the Filoviridae 
+      family, causes severe hemorrhagic disease with high case-fatality rates. 
+      Currently, there are no medical countermeasures approved for human use hampering 
+      the response to the large ongoing outbreak in the Democratic Republic of the 
+      Congo and Uganda. While vesicular stomatitis virus (VSV)-based vaccines have 
+      demonstrated fast-acting prophylactic single-dose efficacy against multiple 
+      filoviruses, it has yet to be defined for VSV-BDBV. Here, we evaluated the rapid 
+      protection by a single-dose vaccination of VSV-BDBV in nonhuman primates (NHPs). 
+      Vaccination elicited rapid innate and early adaptive immune responses and 
+      conferred complete protection from clinical disease against BDBV challenge within 
+      3 days. Vaccinated NHPs exhibited minimal clinical signs, limited systemic 
+      inflammation, and no infectious virus was isolated from the blood at any time. 
+      Protection correlated with neutralizing antibodies and Fc effector functionality 
+      of the humoral immune response. These findings establish VSV-BDBV as a 
+      fast-acting vaccine candidate suitable for outbreak response and highlight immune 
+      mechanisms underlying rapid protection.
+FAU - O'Donnell, Kyle L
+AU  - O'Donnell KL
+AD  - Laboratory of Virology, Division of Intramural Research, National Institute of 
+      Allergy and Infectious Diseases, National Institutes of Health, Hamilton, MT, 
+      USA.
+FAU - Haase, Jil A
+AU  - Haase JA
+AD  - Laboratory of Virology, Division of Intramural Research, National Institute of 
+      Allergy and Infectious Diseases, National Institutes of Health, Hamilton, MT, 
+      USA.
+FAU - Henderson, Corey W
+AU  - Henderson CW
+AD  - Laboratory of Virology, Division of Intramural Research, National Institute of 
+      Allergy and Infectious Diseases, National Institutes of Health, Hamilton, MT, 
+      USA.
+FAU - Gathright, B Ryder
+AU  - Gathright BR
+AD  - Laboratory of Virology, Division of Intramural Research, National Institute of 
+      Allergy and Infectious Diseases, National Institutes of Health, Hamilton, MT, 
+      USA.
+FAU - Fletcher, Paige
+AU  - Fletcher P
+AD  - Laboratory of Virology, Division of Intramural Research, National Institute of 
+      Allergy and Infectious Diseases, National Institutes of Health, Hamilton, MT, 
+      USA.
+FAU - Rhoderick, Joseph F
+AU  - Rhoderick JF
+AD  - Laboratory of Virology, Division of Intramural Research, National Institute of 
+      Allergy and Infectious Diseases, National Institutes of Health, Hamilton, MT, 
+      USA.
+FAU - Clancy, Chad S
+AU  - Clancy CS
+AD  - Rocky Mountain Veterinary Branch, Division of Intramural Research, National 
+      Institute of Allergy and Infectious Diseases, National Institutes of Health, 
+      Hamilton, MT, USA.
+FAU - Jain, Shilpi
+AU  - Jain S
+AD  - Viral Special Pathogens Branch, Division of High-Consequence Pathogens and 
+      Pathology, Centers for Disease Control and Prevention, Atlanta, GA, USA.
+FAU - Albariño, César
+AU  - Albariño C
+AD  - Viral Special Pathogens Branch, Division of High-Consequence Pathogens and 
+      Pathology, Centers for Disease Control and Prevention, Atlanta, GA, USA.
+FAU - Smith, Brian J
+AU  - Smith BJ
+AD  - Rocky Mountain Veterinary Branch, Division of Intramural Research, National 
+      Institute of Allergy and Infectious Diseases, National Institutes of Health, 
+      Hamilton, MT, USA.
+FAU - Marzi, Andrea
+AU  - Marzi A
+AUID- ORCID: 0000-0003-0186-9587
+AD  - Laboratory of Virology, Division of Intramural Research, National Institute of 
+      Allergy and Infectious Diseases, National Institutes of Health, Hamilton, MT, 
+      USA.
+LA  - eng
+PT  - Journal Article
+PT  - Preprint
+DEP - 20260615
+PL  - United States
+TA  - bioRxiv
+JT  - bioRxiv : the preprint server for biology
+JID - 101680187
+PMC - PMC13307998
+OTO - NOTNLM
+OT  - BDBV
+OT  - Bundibugyo virus
+OT  - Filovirus
+OT  - VSV
+OT  - VSV-BDBV
+OT  - vesicular stomatitis virus
+COIS- Declaration of interests A.M. claims intellectual property regarding the 
+      vesicular stomatitis virus-based Bundibugyo virus vaccine. All other authors have 
+      no conflict of interests to declare.
+EDAT- 2026/06/29 12:32
+MHDA- 2026/06/29 12:33
+PMCR- 2026/06/26
+CRDT- 2026/06/29 06:43
+PHST- 2026/06/29 12:32 [pubmed]
+PHST- 2026/06/29 12:33 [medline]
+PHST- 2026/06/29 06:43 [entrez]
+PHST- 2026/06/26 00:00 [pmc-release]
+AID - 2026.06.14.732188 [pii]
+AID - 10.64898/2026.06.14.732188 [doi]
+PST - epublish
+SO  - bioRxiv [Preprint]. 2026 Jun 15:2026.06.14.732188. doi: 
+      10.64898/2026.06.14.732188.
+
+
+PMID- 42460397
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+DCOM- 20260716
+LR  - 20260813
+IS  - 2328-8957 (Print)
+IS  - 2328-8957 (Electronic)
+IS  - 2328-8957 (Linking)
+VI  - 13
+IP  - 7
+DP  - 2026 Jul
+TI  - Identification of Contacts With High Rates of Missed and Asymptomatic Infection 
+      Following an Outbreak of Ebola Virus Disease: A Seroepidemiological Study in 
+      Likati Health Zone, Democratic Republic of the Congo.
+PG  - ofag397
+LID - 10.1093/ofid/ofag397 [doi]
+LID - ofag397
+AB  - BACKGROUND: Ebola virus disease (EVD) is often regarded as severe and highly 
+      fatal, but growing evidence suggests that subclinical or minimally symptomatic 
+      infections occur and frequently go undetected. During the 2017 outbreak in Likati 
+      Health Zone, only 8 cases were confirmed despite many reported exposures. We 
+      evaluated the extent of asymptomatic or unrecognized Ebola virus infection and 
+      associated factors among contacts of reported cases. METHODS: In November 2017, 
+      we conducted a cross-sectional community-based serosurvey among contacts 
+      originally identified through Ministry of Health records and newly identified 
+      through additional post-outbreak investigations. Participants provided blood 
+      samples and completed questionnaires on demographics, exposures, and symptoms 
+      within 4 weeks of symptom onset of the EVD case with whom contact was reported. 
+      Sera were tested for anti-EBOV nucleoprotein IgG by ELISA. Seropositive 
+      individuals were classified as asymptomatic (no symptoms) or unrecognized (≥1 
+      symptom). Secondary attack rate (SAR) was estimated, and logistic regression 
+      assessed associations with sociodemographic factors, exposure level, and 
+      symptoms. RESULTS: Among 180 participants (79 originally identified; 101 newly 
+      identified), 33 (18.3%) were seropositive. Of these, 19 (58%) reported symptoms, 
+      and 14 (42%) were asymptomatic. Any EVD-related symptom was associated with 
+      higher odds of seropositivity (OR 2.48, P = .021), though no specific symptom was 
+      significant. Asymptomatic individuals had higher antibody titers than symptomatic 
+      seropositive contacts (P = .009). The overall SAR was 19.1% (95% CI: 15.9-23.0). 
+      High exposure level strongly predicted seropositivity (OR 11.2, 95% CI: 
+      3.8-33.3). CONCLUSIONS: Asymptomatic infections occurred, including among 
+      contacts missed during the response, highlighting the need for exposure-based 
+      serologic assessments in EVD investigations and raising questions about immune 
+      responses and the true disease burden in outbreak-affected settings.
+CI  - © The Author(s) 2026. Published by Oxford University Press on behalf of 
+      Infectious Diseases Society of America.
+FAU - Tshiani Mbaya, Olivier
+AU  - Tshiani Mbaya O
+AUID- ORCID: 0009-0005-9050-2921
+AD  - Department of Clinical Tropical Medicine, Institute of Tropical Medicine, 
+      Nagasaki University Graduate School of Biomedical Science, Nagasaki, Japan.
+AD  - Department of Clinical Immunology, Institut National de Recherche Biomédicale 
+      (INRB), Kinshasa, Democratic Republic of the Congo.
+AD  - Service of Microbiology, Department of Medical Biology, University of Kinshasa, 
+      Kinshasa, Democratic Republic of the Congo.
+AD  - Clinical Monitoring Research Program Directorate, Frederick National Laboratory 
+      for Cancer Research, Frederick, Maryland, USA.
+FAU - Ariyoshi, Koya
+AU  - Ariyoshi K
+AUID- ORCID: 0000-0002-1468-5296
+AD  - Department of Global Health, School of Tropical Medicine and Global Health, 
+      Nagasaki University, Nagasaki, Japan.
+AD  - Department of Infectious Disease Epidemiology & Dynamics, Institute of Tropical 
+      Medicine, Nagasaki University Graduate School of Biomedical Science, Nagasaki, 
+      Japan.
+FAU - Skrip, Laura
+AU  - Skrip L
+AUID- ORCID: 0000-0002-7952-0660
+AD  - Department of Global Health, School of Tropical Medicine and Global Health, 
+      Nagasaki University, Nagasaki, Japan.
+AD  - Department of Infectious Disease Epidemiology & Dynamics, Institute of Tropical 
+      Medicine, Nagasaki University Graduate School of Biomedical Science, Nagasaki, 
+      Japan.
+AD  - Department of Infectious Disease Epidemiology & Dynamics, London School of 
+      Hygiene and Tropical Medicine, London, UK.
+FAU - Kahusu, Christian M
+AU  - Kahusu CM
+AD  - Department of Clinical Immunology, Institut National de Recherche Biomédicale 
+      (INRB), Kinshasa, Democratic Republic of the Congo.
+FAU - Suangi, Anthony
+AU  - Suangi A
+AD  - Department of Clinical Immunology, Institut National de Recherche Biomédicale 
+      (INRB), Kinshasa, Democratic Republic of the Congo.
+FAU - Mubiala, Ange
+AU  - Mubiala A
+AD  - Department of Clinical Immunology, Institut National de Recherche Biomédicale 
+      (INRB), Kinshasa, Democratic Republic of the Congo.
+FAU - Tshomba, Antoine
+AU  - Tshomba A
+AUID- ORCID: 0000-0003-2440-8468
+AD  - Department of Clinical Immunology, Institut National de Recherche Biomédicale 
+      (INRB), Kinshasa, Democratic Republic of the Congo.
+AD  - Department of Epidemiology, University of Kisangani, Kisangani, Democratic 
+      Republic of the Congo.
+FAU - Yoshinao, Kubo
+AU  - Yoshinao K
+AD  - Department of Clinical Tropical Medicine, Institute of Tropical Medicine, 
+      Nagasaki University Graduate School of Biomedical Science, Nagasaki, Japan.
+AD  - Program for Nurturing Global Leaders in Tropical and Emerging Communicable 
+      Diseases, Graduate School of Biomedical Sciences, Nagasaki University, Nagasaki, 
+      Japan.
+FAU - Mumbere, Gregoire
+AU  - Mumbere G
+AD  - Health Zone of Likati, Ministry of Health of the Democratic Republic of the 
+      Congo, Kinshasa, Democratic Republic of the Congo.
+FAU - Muyembe, Jean-Jacques
+AU  - Muyembe JJ
+AD  - Department of Clinical Immunology, Institut National de Recherche Biomédicale 
+      (INRB), Kinshasa, Democratic Republic of the Congo.
+AD  - Service of Microbiology, Department of Medical Biology, University of Kinshasa, 
+      Kinshasa, Democratic Republic of the Congo.
+FAU - Mulangu, Sabue
+AU  - Mulangu S
+AD  - Department of Clinical Immunology, Institut National de Recherche Biomédicale 
+      (INRB), Kinshasa, Democratic Republic of the Congo.
+AD  - Service of Microbiology, Department of Medical Biology, University of Kinshasa, 
+      Kinshasa, Democratic Republic of the Congo.
+AD  - Global Medical Affairs, Ridgeback Biotherapeutics, Miami, Florida, USA.
+LA  - eng
+PT  - Journal Article
+DEP - 20260707
+PL  - United States
+TA  - Open Forum Infect Dis
+JT  - Open forum infectious diseases
+JID - 101637045
+PMC - PMC13371754
+OTO - NOTNLM
+OT  - Democratic Republic of the Congo
+OT  - Ebola virus disease
+OT  - Likati
+OT  - asymptomatic and paucisymptomatic infections
+OT  - seroepidemiology
+COIS- Potential conflicts of interest. The authors declare that they have no competing 
+      interests.
+EDAT- 2026/07/16 06:36
+MHDA- 2026/07/16 06:37
+PMCR- 2026/07/07
+CRDT- 2026/07/16 04:45
+PHST- 2026/03/12 00:00 [received]
+PHST- 2026/06/26 00:00 [accepted]
+PHST- 2026/07/16 06:37 [medline]
+PHST- 2026/07/16 06:36 [pubmed]
+PHST- 2026/07/16 04:45 [entrez]
+PHST- 2026/07/07 00:00 [pmc-release]
+AID - ofag397 [pii]
+AID - 10.1093/ofid/ofag397 [doi]
+PST - epublish
+SO  - Open Forum Infect Dis. 2026 Jul 7;13(7):ofag397. doi: 10.1093/ofid/ofag397. 
+      eCollection 2026 Jul.
+
+
+PMID- 42434627
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+DCOM- 20260711
+LR  - 20260813
+IS  - 2168-8184 (Print)
+IS  - 2168-8184 (Electronic)
+IS  - 2168-8184 (Linking)
+VI  - 18
+IP  - 6
+DP  - 2026 Jun
+TI  - Knowledge, Attitudes, and Practices Regarding Ebola Virus Disease Among Medical 
+      Students and Their Implications for Outbreak Preparedness.
+PG  - e110595
+LID - 10.7759/cureus.110595 [doi]
+LID - e110595
+AB  - Introduction Ebola virus disease (EVD) is a life-threatening illness caused by 
+      the Ebola virus (EBOV), a member of the Filoviridae family. In this study, we 
+      aimed to investigate the knowledge, attitudes, and practices of medical students 
+      at Fakeeh College for Medical Sciences, Jeddah, Saudi Arabia, concerning Ebola 
+      virus disease. Methods We conducted a cross-sectional study from January 2022 to 
+      June 2022, involving 198 students. We created a structured self-administered 
+      questionnaire to collect data from the participants. The questionnaire was 
+      disseminated to eligible students via official WhatsApp (Meta Platforms, Inc., 
+      Menlo Park, CA, USA) groups. Results The 198 respondents had a mean age of 21.87 
+      ± 1.26 years, and 53% (n = 105) were female students. Third-year medical students 
+      were the largest cohort (42.4%; n = 84), followed by second-year (34.9%; n = 69), 
+      and fourth-year students (22.7%; n = 45). The participants had a poor knowledge 
+      score overall, with only 16.7% (n = 33) answering 70% of the knowledge questions 
+      correctly. The attitudes of the students toward EVD survivors were mixed. In 
+      terms of practical competence, most students did not attend any workshops on how 
+      to manage Ebola cases (79.3%; n = 157). Furthermore, only 25.7% (n = 51) knew the 
+      importance of donning gowns and gloves to protect healthcare workers against EVD. 
+      Conclusions Our study not only provides insights into how medical students 
+      understand and feel regarding EVD, but also highlights notable gaps in knowledge 
+      and practical readiness. Educational programs focusing on transmission dynamics 
+      and management of EVD are therefore highly recommended. Additionally, more 
+      hands-on training is essential to increase the preparedness of future healthcare 
+      workers to face potential Ebola outbreaks with confidence and ability.
+CI  - Copyright © 2026, El-Kady et al.
+FAU - El-Kady, Rania A
+AU  - El-Kady RA
+AD  - Medical Microbiology and Immunology, Faculty of Medicine, Mansoura University, 
+      Mansoura, EGY.
+AD  - Pathological Sciences, Fakeeh College for Medical Sciences, Jeddah, SAU.
+FAU - Alasmari, Abdulelah F
+AU  - Alasmari AF
+AD  - College of Medicine (MBBS Program), Fakeeh College for Medical Sciences, Jeddah, 
+      SAU.
+FAU - Alotaibi, Sanhat S
+AU  - Alotaibi SS
+AD  - College of Medicine (MBBS Program), Fakeeh College for Medical Sciences, Jeddah, 
+      SAU.
+FAU - Rawa, Abdullah T
+AU  - Rawa AT
+AD  - College of Medicine (MBBS Program), Fakeeh College for Medical Sciences, Jeddah, 
+      SAU.
+LA  - eng
+PT  - Journal Article
+DEP - 20260610
+PL  - United States
+TA  - Cureus
+JT  - Cureus
+JID - 101596737
+PMC - PMC13353182
+OTO - NOTNLM
+OT  - ebola virus disease
+OT  - emerging
+OT  - infectious disease
+OT  - kap questionnaire
+OT  - preparedness
+OT  - saudi
+COIS- Human subjects: Informed consent for treatment and open access publication was 
+      obtained or waived by all participants in this study. Institutional Review Board 
+      (IRB), Dr. Soliman Fakeeh Hospital, Jeddah, Saudi Arabia issued approval 
+      140/IRB/2020, dated November 5, 2020. Animal subjects: All authors have confirmed 
+      that this study did not involve animal subjects or tissue. Conflicts of interest: 
+      In compliance with the ICMJE uniform disclosure form, all authors declare the 
+      following: Payment/services info: All authors have declared that no financial 
+      support was received from any organization for the submitted work. Financial 
+      relationships: All authors have declared that they have no financial 
+      relationships at present or within the previous three years with any 
+      organizations that might have an interest in the submitted work. Other 
+      relationships: All authors have declared that there are no other relationships or 
+      activities that could appear to have influenced the submitted work.
+EDAT- 2026/07/11 16:11
+MHDA- 2026/07/11 16:12
+PMCR- 2026/06/10
+CRDT- 2026/07/11 05:19
+PHST- 2026/06/09 00:00 [accepted]
+PHST- 2026/07/11 16:12 [medline]
+PHST- 2026/07/11 16:11 [pubmed]
+PHST- 2026/07/11 05:19 [entrez]
+PHST- 2026/06/10 00:00 [pmc-release]
+AID - 10.7759/cureus.110595 [doi]
+PST - epublish
+SO  - Cureus. 2026 Jun 10;18(6):e110595. doi: 10.7759/cureus.110595. eCollection 2026 
+      Jun.
+
+
+PMID- 42349475
+OWN - NLM
+STAT- Publisher
+LR  - 20260625
+IS  - 1474-4457 (Electronic)
+IS  - 1473-3099 (Linking)
+DP  - 2026 Jun 25
+TI  - Size of the 2026 Ebola outbreak and risk of cross-border spillover from 
+      Bundibugyo virus in Ituri Province, DR Congo, and its implications for 
+      preparedness: a recalibrated stochastic modelling study.
+LID - S1473-3099(26)00320-8 [pii]
+LID - 10.1016/S1473-3099(26)00320-8 [doi]
+AB  - BACKGROUND: On May 15, 2026, WHO declared a Bundibugyo virus (BDBV) outbreak in 
+      Ituri Province, DR Congo with an estimated index case on April 1, 2026 (6-week 
+      pre-declaration interval). By May 24, DR Congo reported 906 suspected cases (105 
+      confirmed and ten confirmed deaths) across three provinces. Uganda reported seven 
+      confirmed cases (three imported; four locally acquired including three 
+      health-care workers; case-fatality ratio 14%). WHO declared a Public Health 
+      Emergency of International Concern on May 17, 2026; Africa Centres for Disease 
+      Control and Prevention declared a Public Health Emergency of Continental Security 
+      on May 18, 2026. The study aimed to establish a short-term trajectory of the BDBV 
+      outbreak and probability of cross-border spillover into countries with elevated 
+      risk of importation to guide preparedness priorities. METHODS: We calibrated a 
+      stochastic SEIRD (susceptible, exposed, infectious, recovered, and dead) ensemble 
+      model to the laboratory-confirmed case series, anchoring on 598 cumulative 
+      confirmed cases on June 8, 2026 (day 68) using simulation filtering (calibration 
+      window ±30%; reporting fraction 1·0 for laboratory-confirmed cases). The 
+      case-fatality ratio was drawn from a previous value centred on the observed 
+      confirmed-case ratio of approximately 19% (115 of 598). A linked daily-hazard 
+      spillover model estimated importation probability for Uganda, South Sudan, 
+      Rwanda, and Burundi over a 12-week horizon. The early suspected-case series, 
+      which peaked at 1077 on May 26, 2026, before being substantially revised downward 
+      by laboratory reclassification, is reported for context but was not used for 
+      calibration. FINDINGS: Laboratory-confirmed DR Congo cases rose from 33 on May 
+      18, 2026, to 598 by June 8, 2026. Calibrated to the confirmed-case anchor (598 on 
+      June 8, 2026; central basic reproduction number [R(0)]=1·71), the confirmed-case 
+      trajectory is most consistent with the central scenario. Under the central 
+      scenario the ensemble projected a median of 990 cumulative confirmed cases by 
+      week 12 (June 24, 2026; 90% prediction interval [PI] 709-1293) and 174 deaths; 
+      the low scenario projected 870 confirmed cases (90% PI 641-1133) and 160 deaths. 
+      The early suspected-case count (peak 1077 on 26 May 2026) was substantially 
+      revised by laboratory reclassification and is reported for context only. 
+      Cross-border spillover remained material: Uganda 94·2% importation probability 
+      (19 confirmed cases as of June 4, 2026, including five health-care worker 
+      infections and two deaths); South Sudan 69·3%; Rwanda 8·6%; and Burundi 2·0%. As 
+      of June 22, 2026, DR Congo has 1048 confirmed cases and 267 confirmed deaths and 
+      Uganda has 20 confirmed cases, two confirmed deaths, and one probable death. 
+      These numbers are changing daily and are likely to align with what is predicted 
+      in the central scenario. INTERPRETATION: From the most recent 
+      laboratory-confirmed data, the outbreak is closer to what is predicted by the 
+      central scenario, even with the intensified response within DR Congo. However, 
+      uncertainty remains around reported case numbers due to low rate of contact 
+      tracing. Sustained control nonetheless remains the primary determinant of 
+      regional risk: importation into Uganda is already established, and South Sudan 
+      must continue to reinforce infection prevention and control, rapid response 
+      capacity, and cross-border surveillance under International Health Regulations 
+      2005. These projections should be interpreted as exploratory 
+      preparedness-oriented estimates derived from a stochastic scenario-based 
+      modelling framework, rather than predictions generated from formally fitted 
+      epidemiological models using comprehensive parameter estimation and 
+      identifiability analyses. FUNDING: None. TRANSLATIONS: For the French and Swahili 
+      translations of the abstract see Supplementary Materials section. TRANSLATIONS: 
+      For the French and Swahili translations of the abstract see Supplementary 
+      Materials section.
+CI  - Copyright 2026 Elsevier Ltd. All rights reserved, including those for text and 
+      data mining, AI training, and similar technologies.
+FAU - Chamla, Dick
+AU  - Chamla D
+AD  - WHO Regional Office for Africa, Nairobi, Kenya. Electronic address: 
+      chamlad@who.int.
+FAU - Belizaire, Marie Roseline Darnycka
+AU  - Belizaire MRD
+AD  - WHO Regional Office for Africa, Brazzaville, Republic of Congo.
+FAU - Co, Isaias Fernandes
+AU  - Co IF
+AD  - WHO Regional Office for Africa, Nairobi, Kenya.
+FAU - Jinadu, Arisekola
+AU  - Jinadu A
+AD  - WHO Regional Office for Africa, Nairobi, Kenya.
+FAU - Mamadu, Ibrahim
+AU  - Mamadu I
+AD  - WHO Regional Office for Africa, Nairobi, Kenya.
+FAU - Atagbaza, Ajiri Okpure
+AU  - Atagbaza AO
+AD  - WHO Regional Office for Africa, Nairobi, Kenya.
+LA  - eng
+PT  - Journal Article
+DEP - 20260625
+PL  - United States
+TA  - Lancet Infect Dis
+JT  - The Lancet. Infectious diseases
+JID - 101130150
+SB  - IM
+COIS- Declaration of interests We declare no competing interests.
+EDAT- 2026/06/26 00:45
+MHDA- 2026/06/26 00:45
+CRDT- 2026/06/25 18:53
+PHST- 2026/05/21 00:00 [received]
+PHST- 2026/06/10 00:00 [revised]
+PHST- 2026/06/11 00:00 [accepted]
+PHST- 2026/06/26 00:45 [medline]
+PHST- 2026/06/26 00:45 [pubmed]
+PHST- 2026/06/25 18:53 [entrez]
+AID - S1473-3099(26)00320-8 [pii]
+AID - 10.1016/S1473-3099(26)00320-8 [doi]
+PST - aheadofprint
+SO  - Lancet Infect Dis. 2026 Jun 25:S1473-3099(26)00320-8. doi: 
+      10.1016/S1473-3099(26)00320-8.
+
+
+PMID- 42488857
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+DCOM- 20260723
+LR  - 20260813
+IS  - 0300-1652 (Print)
+IS  - 2229-774X (Electronic)
+IS  - 0300-1652 (Linking)
+VI  - 66
+IP  - 6
+DP  - 2025 Nov-Dec
+TI  - Marburg Virus: A Looming Threat Nigeria Cannot Ignore.
+PG  - 2429-2433
+AB  - TO THE EDITOR: Marburg virus, a filovirus closely related to Ebola, causes a 
+      severe haemorrhagic illness with case fatality rates ranging from 24 % to 88 %, 
+      depending on the timeliness and strength of the outbreak response [1]. 
+      Transmission occurs through contact with infected body fluids or contaminated 
+      materials, and via exposure to infected fruit bats (Rousettus aegyptiacus), which 
+      have been recorded in several Nigerian ecological zones [1,2]. Deforestation, 
+      wildlife trade, and settlement encroachment further elevate spill-over 
+      risk.Nigeria's experiences with Lassa fever reveal enduring structural 
+      weaknesses: notably, delayed detection, limited laboratory coverage, and 
+      under-reporting, which would equally challenge any Marburg virus disease (MVD) 
+      response [3]. Analyses of recent Marburg outbreaks in Ghana and Rwanda highlight 
+      diagnostic delays, infection prevention and control (IPC) breaches, and 
+      overstretched laboratory capacity as critical gaps [4,5].The rising frequency of 
+      viral haemorrhagic fever (VHF) outbreaks across sub-Saharan Africa necessitates 
+      immediate and strategic action from Nigerian public health authorities. In the 
+      past five years, MVD outbreaks have been confirmed in Guinea, Ghana, Tanzania, 
+      and Rwanda, reflecting expanding regional vulnerability [1,6]. Although Nigeria 
+      has not yet reported any confirmed MVD cases, its porous borders, high population 
+      density, and concurrent Lassa fever and Mpox burdens make preparedness a national 
+      imperative [7]. The recent cross-sectional assessment by Oisakede et al. [8] 
+      offers empirical confirmation of this vulnerability. The study, conducted among 
+      216 healthcare workers at Nigeria's national viral haemorrhagic fever reference 
+      centre (Irrua Specialist Teaching Hospital), revealed that only 19 % of doctors 
+      and 10 % of nurses had received formal MVD training, and less than half felt 
+      adequately protected by personal protective equipment (PPE). Confidence in 
+      hospital readiness was significantly lower among doctors (32.5 %) than nurses 
+      (65.6 %), indicating institutional and role-specific disparities in outbreak 
+      preparedness.These empirical findings from Oisakede et al. [8] and the regional 
+      evidence base reveal a clear preparedness gap. While Nigeria benefits from a 
+      national Lassa fever infrastructure, this platform is yet to be fully extended to 
+      filoviruses like Marburg. The 2026 data provide a measurable baseline for 
+      monitoring progress and justify targeted capacity-building funding within the 
+      National Action Plan for Health Security (2026-2030). Preparedness is thus not 
+      merely theoretical; it demands investment in people, protocols and platforms. 
+      Leveraging the Oisakede et al. [8] evidence for policy advocacy strengthens the 
+      argument that Nigeria must institutionalise training, simulation, and 
+      infrastructure before the next filovirus crisis arrives. PROPOSED MODEL FOR 
+      REDUCING MVD AND OTHER VHF TRANSMISSION: Currently, no licensed vaccine exists 
+      for the Marburg virus or other VHFs, although several candidates are in 
+      preclinical or early-phase trials. However, vaccine development may take several 
+      years before wide deployment. To mitigate transmission and reduce disease impact, 
+      we propose a four-tiered model that can function even in the absence of a 
+      vaccine, focusing on environmental, ecological, and health system 
+      interventions.This Oisakede's Inverted Triangular Model (Fig. 1) outlines a 
+      sequential, evidence-based approach:i.Safe Built Environment: Promote 
+      environmental hygiene and structural designs that minimise human contact with 
+      vectors or reservoirs (e.g., fruit bats).ii.Eliminate or Drive Out the Culprit: 
+      Target vector control and wildlife surveillance to limit zoonotic 
+      spillover.iii.Provide Timely Treatment: Ensure rapid diagnosis, case management, 
+      and IPC compliance to prevent nosocomial transmission.iv.Vaccination (When 
+      Available): Once safe and effective vaccines become available, immunisation 
+      programmes should prioritise high-risk communities.The model is initially 
+      inverted, representing the current phase where prevention and surveillance 
+      dominate due to a lack of vaccines. Once vaccines are available, the triangle can 
+      be flipped upright, symbolising a shift toward immunity-based protection for 
+      high-risk populations under Oisakede's Triangular Model.
+CI  - Copyright © 2026 Nigerian Medical Association.
+FAU - Oisakede, Emmanuel O
+AU  - Oisakede EO
+AD  - Department of Clinical Oncology, Leeds Teaching Hospitals Trust, Leeds, England.
+AD  - Department of Health Research, University of Leeds, Leeds, England.
+LA  - eng
+PT  - Journal Article
+PT  - Review
+DEP - 20260326
+PL  - Nigeria
+TA  - Niger Med J
+JT  - Nigerian medical journal : journal of the Nigeria Medical Association
+JID - 0315137
+PMC - PMC13391109
+EDAT- 2026/07/23 06:39
+MHDA- 2026/07/23 06:40
+PMCR- 2026/03/26
+CRDT- 2026/07/23 04:56
+PHST- 2026/07/23 06:40 [medline]
+PHST- 2026/07/23 06:39 [pubmed]
+PHST- 2026/07/23 04:56 [entrez]
+PHST- 2026/03/26 00:00 [pmc-release]
+PST - epublish
+SO  - Niger Med J. 2026 Mar 26;66(6):2429-2433. eCollection 2025 Nov-Dec.
+
+
+PMID- 42583079
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+DCOM- 20260812
+LR  - 20260813
+IS  - 2279-9028 (Print)
+IS  - 2279-9036 (Electronic)
+IS  - 2279-9028 (Linking)
+VI  - 15
+IP  - 3
+DP  - 2026 Jul
+TI  - Infectious medical waste (IMW) and disease transmission: A critical public health 
+      challenge in Africa and the global implications - A systematic review.
+PG  - 22799036261470478
+LID - 10.1177/22799036261470478 [doi]
+LID - 22799036261470478
+AB  - BACKGROUND: Infectious Medical Waste (IMW) from both human and animal healthcare 
+      sources have the potential to transmit diseases in human populations due to its 
+      pathogenic composition. Conversely, a paucity of data regarding cause-and-effect 
+      relationships inhibits our understanding of the extent to which disease 
+      transmission occurs. In parts of Africa where the management of IMW is not 
+      prioritized, the risks to public health, along with its global implications 
+      cannot be ignored. METHODOLOGY: A systematic literature search following the 
+      PRISMA guidelines was conducted across five electronic databases including 
+      PubMed, Embase, Scopus, ProQuest and Ovid. Relevant studies were identified using 
+      keywords such as 'infectious medical waste', 'infectious diseases', 'routes of 
+      infection', 'route of transmission', 'epidemics', 'diseases', 'sub-Sahara 
+      Africa', and 'infectious waste management'. RESULTS: Overall, 6721 articles were 
+      retrieved from the search, 6634 of which were excluded due to a lack of alignment 
+      with the study objectives. After screening, 87 studies were deemed eligible and 
+      were included in the review. Our findings identified 11 diseases that are 
+      potentially transmissible via IMW. These include Anthrax, Crimean-congo 
+      haemorrhagic Fever, Ebola Virus Disease, Hepatitis B, Hepatitis C, Human 
+      Immunodeficiency Virus, Lassa Fever, Measles, Monkeypox, Plague, and Rift Valley 
+      Fever. Disease transmission may occur via human contact with different classes of 
+      IMW, contaminated materials and accessories. CONCLUSIONS: Medical waste can be a 
+      source of infectious disease transmission. However, evidence of such a pathway is 
+      currently unavailable due to a paucity of scientific data. Therefore, further 
+      research is needed to establish cause-and-effect relationships.
+CI  - © The Author(s) 2026.
+FAU - Squire, Jeffrey N T
+AU  - Squire JNT
+AD  - Department of Social Science, York University, Toronto, Canada.
+FAU - George, Michaelann
+AU  - George M
+AD  - Faculty of Applied Health and Community Studies, Sheridan College, Toronto, 
+      Canada.
+FAU - Allain, Zakirah
+AU  - Allain Z
+AD  - Department of Anthropology, York University, Toronto, Canada.
+FAU - Eyawo, Oghenowede
+AU  - Eyawo O
+AD  - School of Global Health, Faculty of Health, York University, Toronto, Canada.
+LA  - eng
+PT  - Journal Article
+DEP - 20260717
+PL  - United States
+TA  - J Public Health Res
+JT  - Journal of public health research
+JID - 101580775
+PMC - PMC13459670
+OTO - NOTNLM
+OT  - Africa
+OT  - global health
+OT  - infectious diseases
+OT  - infectious medical waste
+OT  - public health
+OT  - risks
+COIS- The authors declared no potential conflicts of interest with respect to the 
+      research, authorship, and/or publication of this article.
+EDAT- 2026/08/12 11:38
+MHDA- 2026/08/12 11:39
+PMCR- 2026/07/17
+CRDT- 2026/08/12 06:53
+PHST- 2025/07/23 00:00 [received]
+PHST- 2026/05/14 00:00 [revised]
+PHST- 2026/07/03 00:00 [accepted]
+PHST- 2026/08/12 11:39 [medline]
+PHST- 2026/08/12 11:38 [pubmed]
+PHST- 2026/08/12 06:53 [entrez]
+PHST- 2026/07/17 00:00 [pmc-release]
+AID - 10.1177_22799036261470478 [pii]
+AID - 10.1177/22799036261470478 [doi]
+PST - epublish
+SO  - J Public Health Res. 2026 Jul 17;15(3):22799036261470478. doi: 
+      10.1177/22799036261470478. eCollection 2026 Jul.
+
+
+PMID- 42490920
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+DCOM- 20260723
+LR  - 20260813
+IS  - 2297-1769 (Print)
+IS  - 2297-1769 (Electronic)
+IS  - 2297-1769 (Linking)
+VI  - 13
+DP  - 2026
+TI  - Zoonotic disease knowledge attitude and practices among rural hunting communities 
+      in Gabon.
+PG  - 1857652
+LID - 10.3389/fvets.2026.1857652 [doi]
+LID - 1857652
+AB  - INTRODUCTION: Zoonotic diseases represent a major public health concern in 
+      Central Africa, where forest-dependent communities experience frequent contact 
+      with wildlife through hunting activities, bushmeat handling, consumption, and 
+      trade. This study assessed knowledge, attitudes, and practices related to 
+      zoonotic diseases among communities engaged in hunting practices, bushmeat 
+      consumption, and wildlife trade in Mulundu Department. METHODS: A cross-sectional 
+      questionnaire-based survey was conducted from April 2023 to April 2024 among 326 
+      participants from five communities. Data on sociodemographic characteristics, 
+      awareness of zoonoses, perceived transmission routes, clinical signs, attitudes, 
+      and preventive practices were collected through structured 
+      interviewer-administered questionnaires. Knowledge was assessed using 13 items 
+      and categorized into poor or good knowledge level. Associations between knowledge 
+      level and participant characteristics were examined using Pearson's chi-square 
+      tests and logistic regression. RESULTS: Overall, 72.7% of respondents had 
+      previously heard of zoonotic diseases, with Ebola being the most frequently 
+      identified. Most participants had poor knowledge overall (69.3%), while 30.7% had 
+      good knowledge. Knowledge level varied significantly by regroupement (p = 0.037), 
+      and age (p = 0.023). Attitudes toward prevention were generally positive, up to 
+      31.0% of participants remained uncertain about how to respond appropriately in 
+      high-risk situations. DISCUSSION: These findings highlight important geographic 
+      and behavioral gaps in zoonotic disease preparedness and support the need for 
+      sustained, culturally adapted, community-based One Health interventions in rural 
+      communities in Gabon.
+CI  - Copyright © 2026 Dibakou, Efoua Tomo, Moussadji Kinga, Ekore, Makouloutou Nzassi, 
+      N'dilimabaka, Kassa Kassa, Mouity Matoumba, Okomo Nguema, Lembanaka, Mathouet, 
+      Pouliquen, Boupana Mapeyi, Tsoumbou, Ngoubangoye, Vanthomme, Delabouglise and 
+      Maganga.
+FAU - Dibakou, Serge Ely
+AU  - Dibakou SE
+AD  - Unité de Bactériologie et One Health (UBOH), Centre Interdisciplinaire de 
+      Recherches Médicales de Franceville (CIRMF), Franceville, Gabon.
+FAU - Efoua Tomo, Natacha
+AU  - Efoua Tomo N
+AD  - Unité 'Emergence des Maladies Virales, Département de Virologie, Centre 
+      Interdisciplinaire de Recherches Médicales de Franceville (CIRMF), Franceville, 
+      Gabon.
+AD  - CIRAD, UMR ASTRE, Montpellier, France.
+AD  - ASTRE, Université de Montpellier, CIRAD, INRAE, Montpellier, France.
+AD  - Institut de Recherche Agronomique et Forestière (IRAF), Libreville, Gabon.
+FAU - Moussadji Kinga, Ivan Cyr
+AU  - Moussadji Kinga IC
+AD  - Centre de Primatologie (CDP), Centre Interdisciplinaire de Recherches Médicales 
+      de Franceville (CIRMF), Franceville, Gabon.
+FAU - Ekore, Désiré Otsaghe
+AU  - Ekore DO
+AD  - Unité de Bactériologie et One Health (UBOH), Centre Interdisciplinaire de 
+      Recherches Médicales de Franceville (CIRMF), Franceville, Gabon.
+FAU - Makouloutou Nzassi, Patrice
+AU  - Makouloutou Nzassi P
+AD  - Institut de Recherches en Ecologie Tropicale (IRET), Libreville, Gabon.
+AD  - Unité de Recherches en Ecologie de la Santé (URES), Centre Interdisciplinaire de 
+      Recherches Médicales de Franceville (CIRMF), Franceville, Gabon.
+FAU - N'dilimabaka, Berthe-Nadine
+AU  - N'dilimabaka BN
+AD  - Unité 'Emergence des Maladies Virales, Département de Virologie, Centre 
+      Interdisciplinaire de Recherches Médicales de Franceville (CIRMF), Franceville, 
+      Gabon.
+AD  - Département de Biologie, Université des Sciences et Techniques de Masuku (USTM), 
+      Franceville, Gabon.
+FAU - Kassa Kassa, Roland Fabrice
+AU  - Kassa Kassa RF
+AD  - Laboratoire d'Analyse Médicales, Centre Interdisciplinaire de Recherches 
+      Médicales de Franceville (CIRMF), Franceville, Gabon.
+FAU - Mouity Matoumba, Anicet
+AU  - Mouity Matoumba A
+AD  - Unité 'Emergence des Maladies Virales, Département de Virologie, Centre 
+      Interdisciplinaire de Recherches Médicales de Franceville (CIRMF), Franceville, 
+      Gabon.
+FAU - Okomo Nguema, Linaa Yasmine
+AU  - Okomo Nguema LY
+AD  - Unité de Bactériologie et One Health (UBOH), Centre Interdisciplinaire de 
+      Recherches Médicales de Franceville (CIRMF), Franceville, Gabon.
+FAU - Lembanaka, Hélène Sisraëlla
+AU  - Lembanaka HS
+AD  - Unité de Bactériologie et One Health (UBOH), Centre Interdisciplinaire de 
+      Recherches Médicales de Franceville (CIRMF), Franceville, Gabon.
+FAU - Mathouet, Jenny
+AU  - Mathouet J
+AD  - Unité 'Emergence des Maladies Virales, Département de Virologie, Centre 
+      Interdisciplinaire de Recherches Médicales de Franceville (CIRMF), Franceville, 
+      Gabon.
+FAU - Pouliquen, Aude
+AU  - Pouliquen A
+AD  - CIRAD, UMR ASTRE, Montpellier, France.
+AD  - ASTRE, Université de Montpellier, CIRAD, INRAE, Montpellier, France.
+FAU - Boupana Mapeyi, Gilles Aurélien
+AU  - Boupana Mapeyi GA
+AD  - CIRAD, UMR ASTRE, Montpellier, France.
+AD  - ASTRE, Université de Montpellier, CIRAD, INRAE, Montpellier, France.
+FAU - Tsoumbou, Thierry-Audrey
+AU  - Tsoumbou TA
+AD  - Centre de Primatologie (CDP), Centre Interdisciplinaire de Recherches Médicales 
+      de Franceville (CIRMF), Franceville, Gabon.
+FAU - Ngoubangoye, Barthélémy
+AU  - Ngoubangoye B
+AD  - Unité de Bactériologie et One Health (UBOH), Centre Interdisciplinaire de 
+      Recherches Médicales de Franceville (CIRMF), Franceville, Gabon.
+FAU - Vanthomme, Hadrien
+AU  - Vanthomme H
+AD  - CIRAD, UPR Forêts et Sociétés, Montpellier, France.
+AD  - Forêts et Sociétés, Université de Montpellier, Cirad, Montpellier, France.
+FAU - Delabouglise, Alexis
+AU  - Delabouglise A
+AD  - CIRAD, UMR ASTRE, Montpellier, France.
+AD  - ASTRE, Université de Montpellier, CIRAD, INRAE, Montpellier, France.
+FAU - Maganga, Gael Darren
+AU  - Maganga GD
+AD  - Unité 'Emergence des Maladies Virales, Département de Virologie, Centre 
+      Interdisciplinaire de Recherches Médicales de Franceville (CIRMF), Franceville, 
+      Gabon.
+AD  - Institut d'Agronomie et de Biotechnologies (INSAB), Université des Sciences et 
+      Techniques de Masuku (USTM), Franceville, Gabon.
+LA  - eng
+PT  - Journal Article
+DEP - 20260703
+PL  - Switzerland
+TA  - Front Vet Sci
+JT  - Frontiers in veterinary science
+JID - 101666658
+PMC - PMC13375579
+OTO - NOTNLM
+OT  - Gabon
+OT  - One Health
+OT  - attitudes and practices
+OT  - bushmeat hunting
+OT  - knowledge
+OT  - rural communities
+OT  - spillover risk
+OT  - zoonotic diseases
+COIS- The author(s) declared that this work was conducted in the absence of any 
+      commercial or financial relationships that could be construed as a potential 
+      conflict of interest.
+EDAT- 2026/07/23 18:35
+MHDA- 2026/07/23 18:36
+PMCR- 2026/07/03
+CRDT- 2026/07/23 15:50
+PHST- 2026/04/16 00:00 [received]
+PHST- 2026/05/30 00:00 [revised]
+PHST- 2026/06/10 00:00 [accepted]
+PHST- 2026/07/23 18:36 [medline]
+PHST- 2026/07/23 18:35 [pubmed]
+PHST- 2026/07/23 15:50 [entrez]
+PHST- 2026/07/03 00:00 [pmc-release]
+AID - 10.3389/fvets.2026.1857652 [doi]
+PST - epublish
+SO  - Front Vet Sci. 2026 Jul 3;13:1857652. doi: 10.3389/fvets.2026.1857652. 
+      eCollection 2026.
+
+
+PMID- 42491006
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+DCOM- 20260723
+LR  - 20260813
+IS  - 2352-3042 (Electronic)
+IS  - 2352-4820 (Print)
+IS  - 2352-3042 (Linking)
+VI  - 13
+IP  - 6
+DP  - 2026 Nov
+TI  - DNA-based vaccines: Advances, applications, and future prospects.
+PG  - 102025
+LID - 10.1016/j.gendis.2025.102025 [doi]
+LID - 102025
+AB  - DNA-based vaccines represent a promising advancement in immunization strategies, 
+      offering a novel approach for preventing infectious diseases and treating various 
+      conditions, including cancers and autoimmune disorders. These vaccines utilize 
+      genetically engineered plasmid or viral vector DNA encoding antigens of interest, 
+      which, upon administration, are taken up by host cells to produce the antigen in 
+      situ. This endogenous antigen expression elicits both humoral and cellular immune 
+      responses, mimicking natural infection pathways. Compared to conventional 
+      vaccines, DNA vaccines offer several advantages: they are relatively easy to 
+      design and manufacture, relatively stable, and capable of inducing long-lasting 
+      immunity without the need for live pathogens. Additionally, their platform is 
+      highly adaptable, enabling rapid development against emerging pathogens. Despite 
+      their success in animal models and promising results in clinical trials for 
+      infectious diseases caused by viruses, such as Zika, HPV, and SARS-CoV-2, DNA 
+      vaccines have faced challenges in eliciting robust immunogenicity in humans. 
+      Recent innovations-including improved delivery technologies, adjuvant 
+      formulations, and optimized plasmid and viral vectors-are addressing these 
+      limitations. The approval of DNA vaccines for veterinary use and recent human 
+      applications, such as Adenovirus (Ad) DNA-based Ebola vaccines and plasmid 
+      DNA-based COVID-19 vaccine, ZyCoV-D, mark significant milestones. Continued 
+      research and technological refinement are expected to expand their utility in 
+      global health. Overall, DNA-based vaccines hold great potential as a 
+      next-generation platform for safe, effective, and rapid-response immunization 
+      against a broad spectrum of diseases.
+CI  - © 2026 The Authors.
+FAU - Zhou, Zhichang Peter
+AU  - Zhou ZP
+AD  - Translational Medicine Program, Hospital for Sick Children Research Institute, 
+      Toronto, Ontario M5G 0A4, Canada.
+AD  - Department of Molecular Genetics, Faculty of Medicine, University of Toronto, 
+      Toronto, Ontario M5S 1A8, Canada.
+FAU - Chen, Ziyan Rachel
+AU  - Chen ZR
+AD  - Translational Medicine Program, Hospital for Sick Children Research Institute, 
+      Toronto, Ontario M5G 0A4, Canada.
+AD  - Department of Laboratory Medicine and Pathobiology, University of Toronto, 
+      Toronto, Ontario M5S 1A8, Canada.
+FAU - Bandara, Ranmal Avinash
+AU  - Bandara RA
+AD  - Translational Medicine Program, Hospital for Sick Children Research Institute, 
+      Toronto, Ontario M5G 0A4, Canada.
+AD  - Department of Laboratory Medicine and Pathobiology, University of Toronto, 
+      Toronto, Ontario M5S 1A8, Canada.
+FAU - Duan, Rongqi
+AU  - Duan R
+AD  - Department of Laboratory Medicine and Pathobiology, University of Toronto, 
+      Toronto, Ontario M5S 1A8, Canada.
+FAU - Cao, Huibi
+AU  - Cao H
+AD  - Department of Laboratory Medicine and Pathobiology, University of Toronto, 
+      Toronto, Ontario M5S 1A8, Canada.
+FAU - Liu, Jun
+AU  - Liu J
+AD  - Department of Molecular Genetics, Faculty of Medicine, University of Toronto, 
+      Toronto, Ontario M5S 1A8, Canada.
+FAU - Hu, Jim
+AU  - Hu J
+AD  - Translational Medicine Program, Hospital for Sick Children Research Institute, 
+      Toronto, Ontario M5G 0A4, Canada.
+AD  - Department of Laboratory Medicine and Pathobiology, University of Toronto, 
+      Toronto, Ontario M5S 1A8, Canada.
+LA  - eng
+PT  - Journal Article
+PT  - Review
+DEP - 20260110
+PL  - Netherlands
+TA  - Genes Dis
+JT  - Genes & diseases
+JID - 101635967
+PMC - PMC13375960
+OTO - NOTNLM
+OT  - DNA vaccines
+OT  - Immunotherapy
+OT  - Infectious diseases
+OT  - Pandemic
+OT  - Plasmids
+OT  - Viral vectors
+COIS- Jim Hu is a member of the Genes & Diseases Editorial Board. To minimize bias, he 
+      was excluded from all editorial decision-making related to the acceptance of this 
+      article for publication. The remaining authors declare no conflict of interests.
+EDAT- 2026/07/23 18:35
+MHDA- 2026/07/23 18:36
+PMCR- 2026/01/10
+CRDT- 2026/07/23 15:53
+PHST- 2025/07/17 00:00 [received]
+PHST- 2025/09/30 00:00 [revised]
+PHST- 2025/11/25 00:00 [accepted]
+PHST- 2026/07/23 18:36 [medline]
+PHST- 2026/07/23 18:35 [pubmed]
+PHST- 2026/07/23 15:53 [entrez]
+PHST- 2026/01/10 00:00 [pmc-release]
+AID - S2352-3042(25)00514-8 [pii]
+AID - 102025 [pii]
+AID - 10.1016/j.gendis.2025.102025 [doi]
+PST - epublish
+SO  - Genes Dis. 2026 Jan 10;13(6):102025. doi: 10.1016/j.gendis.2025.102025. 
+      eCollection 2026 Nov.
+
+
+PMID- 42387048
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20260811
+LR  - 20260814
+IS  - 2210-6014 (Electronic)
+IS  - 2210-6006 (Print)
+IS  - 2210-6006 (Linking)
+VI  - 16
+IP  - 1
+DP  - 2026 Jul 2
+TI  - Strengthening Data Systems and Use for Infectious Outbreak Preparedness in 
+      Uganda.
+LID - 10.1007/s44197-026-00602-2 [doi]
+LID - 101
+AB  - BACKGROUND: The Covid-19 pandemic highlighted a critical lesson for global health 
+      systems: effective preparedness depends on timely access to reliable and 
+      interconnected health data. Across many countries, fragmented information systems 
+      limited the rapid exchange and use of data needed for outbreak detection, 
+      response, and decision-making. In Uganda, the recurrent emergence of infectious 
+      disease outbreaks, including Ebola, Marburg virus disease, and cholera, has 
+      reinforced the importance of resilient and interoperable health information 
+      systems. Although substantial progress has been made in strengthening disease 
+      surveillance and response mechanisms, persistent challenges continue to affect 
+      the country's capacity to generate and utilize high-quality data during public 
+      health emergencies. METHODS: This study combined a review of published and grey 
+      literature with qualitative inquiry to explore existing challenges in Uganda's 
+      health data ecosystem. Six key informants with expertise in health information 
+      systems, disease surveillance, and outbreak response participated in in-depth 
+      interviews to provide insights into current gaps and potential solutions. 
+      RESULTS: The findings revealed several interconnected challenges, including 
+      fragmented and poorly integrated information systems, limited access to critical 
+      digital infrastructures, incomplete digitalization of data collection processes, 
+      and weaknesses in data quality and accessibility. These challenges often result 
+      in delays in data sharing and evidence-based decision-making during outbreaks. 
+      Participants noted that many of these barriers are well recognized and can be 
+      addressed through targeted and relatively modest investments. Key recommendations 
+      included accelerating the integration of existing health information platforms, 
+      expanding end-to-end digital data collection, increasing investments in health 
+      information systems, and strengthening coordination among government agencies and 
+      development partners. CONCLUSIONS: Strengthening Uganda's preparedness for future 
+      epidemics requires sustained commitment to interoperable health information 
+      systems and high-quality data management. Building on the strong foundations 
+      already established through collaboration with partners such as World Health 
+      Organization and Africa Centres for Disease Control and Prevention, targeted 
+      investments and enhanced governance mechanisms could address the most pressing 
+      system gaps. Advancing these efforts will improve the availability and use of 
+      quality health data, enabling more effective surveillance, faster outbreak 
+      response, and greater resilience against future public health threats.
+CI  - © 2026. The Author(s).
+FAU - Nizeyimana, Ildephonse
+AU  - Nizeyimana I
+AD  - School of Science and Aerospace Studies, Moi University, Eldoret, Kenya. 
+      inizeyimana@ampath.or.ke.
+FAU - Ario, Alex Riolexus
+AU  - Ario AR
+AD  - Uganda Public Health Fellowship Program, Kampala, Uganda.
+FAU - Mwangi, Thumbi
+AU  - Mwangi T
+AD  - Center for Epidemiological Modelling and Analysis, University of Nairobi, 
+      Nairobi, Kenya.
+FAU - Muthiru, Ann
+AU  - Muthiru A
+AD  - Department of Anthropology, Gender and African Studies, University of Nairobi, 
+      Nairobi, Kenya.
+FAU - Ofori, Michael Arthur
+AU  - Ofori MA
+AD  - University of Cape Coast, Cape Coast, Ghana.
+FAU - Adedokun, Olufemi
+AU  - Adedokun O
+AD  - University of Ibadan Research Foundation, Ibadan, Nigeria.
+FAU - Mwangi, Ann
+AU  - Mwangi A
+AD  - School of Science and Aerospace Studies, Moi University, Eldoret, Kenya.
+LA  - eng
+GR  - EPS-iPEP24-004/Science for Africa Foundation/
+PT  - Journal Article
+DEP - 20260702
+PL  - Switzerland
+TA  - J Epidemiol Glob Health
+JT  - Journal of epidemiology and global health
+JID - 101592084
+SB  - IM
+MH  - Humans
+MH  - Uganda/epidemiology
+MH  - *Disease Outbreaks/prevention & control
+MH  - *COVID-19/epidemiology
+MH  - Pandemic Preparedness
+MH  - Public Health Infrastructure
+MH  - *Health Information Systems/organization & administration
+PMC - PMC13462018
+OTO - NOTNLM
+OT  - Data systems interoperability
+OT  - Disease surveillance
+OT  - Ebola
+OT  - Health data
+OT  - Infectious disease outbreaks
+OT  - Pandemic preparedness
+OT  - Public health emergencies
+COIS- Declarations. Competing Interests: The authors declare no competing interests. 
+      Ethics Approval and Consent to Participate: Ethics approval was deemed 
+      unnecessary as this work constitutes program evaluation where key informants were 
+      consulted in their professional capacity regarding organizational public policies 
+      and practices. Referring to internationally recognized ethical standards such as 
+      Canadian Tri-Council Policy Statement, TCPS2 2022, Chapter 2, Article 2.5; U.S. 
+      Federal Regulations (45 CFR 46.104); and the UK Health Departments’ Governance 
+      Arrangements for Research Ethics Committees, paragraph 2.3.13; such activities do 
+      not need ethical approval since participants who provide information in their 
+      official professional roles are not considered research subjects. While there is 
+      no universal international exemption, this approach aligns with ethical 
+      principles since no personal, confidential, or sensitive data of the participants 
+      were collected. All methods used are in accordance with relevant human research 
+      guidelines and regulations, including the principles of the Declaration of 
+      Helsinki. Consent for Publication: Not Applicable.
+EDAT- 2026/07/02 00:34
+MHDA- 2026/08/11 12:37
+PMCR- 2026/07/02
+CRDT- 2026/07/01 23:44
+PHST- 2026/02/16 00:00 [received]
+PHST- 2026/06/26 00:00 [accepted]
+PHST- 2026/08/11 12:37 [medline]
+PHST- 2026/07/02 00:34 [pubmed]
+PHST- 2026/07/01 23:44 [entrez]
+PHST- 2026/07/02 00:00 [pmc-release]
+AID - 10.1007/s44197-026-00602-2 [pii]
+AID - 602 [pii]
+AID - 10.1007/s44197-026-00602-2 [doi]
+PST - epublish
+SO  - J Epidemiol Glob Health. 2026 Jul 2;16(1):101. doi: 10.1007/s44197-026-00602-2.
+
+
+PMID- 42529543
+OWN - NLM
+STAT- PubMed-not-MEDLINE
+DCOM- 20260730
+LR  - 20260813
+IS  - 2352-7714 (Print)
+IS  - 2352-7714 (Electronic)
+IS  - 2352-7714 (Linking)
+VI  - 23
+DP  - 2026 Dec
+TI  - Gendered socioeconomic impacts of emerging infectious diseases: Insights from a 
+      mixed-methods study in Guinea.
+PG  - 101525
+LID - 10.1016/j.onehlt.2026.101525 [doi]
+LID - 101525
+AB  - This study examines the gendered socioeconomic impacts of infectious disease 
+      outbreaks, including both epidemics (e.g., yellow fever, Ebola, Marburg and Mpox) 
+      and pandemics (e.g., COVID-19), on populations in Guinea, using data from the 
+      Decentralize and Operationalize One Health Platforms (DOPERAUS) project. A 
+      mixed-methods approach combined quantitative survey data (N = 906) from 
+      participants aged 18 and over and qualitative data from an open-ended 
+      questionnaire answered by 508 respondents to capture both measurable outcomes and 
+      nuanced experiences. Sampling accounted for gender, age, and vulnerable 
+      populations. Analyses incorporated descriptive statistics, Chi-square tests, 
+      Wilcoxon-Mann-Whitney tests, and thematic coding of qualitative data. Findings 
+      reveal gendered disparities in how socioeconomic impacts are experienced during 
+      infectious disease outbreaks. Women disproportionately bore caregiving and 
+      household management responsibilities and were more affected by income loss and 
+      reduced market access, as many reported being unable to sell their goods in the 
+      qualitative data. Men were more affected by income loss and disruptions to 
+      traditional gender roles based on the quantitative data. Vulnerability was also 
+      shaped by age and occupational status, with adults aged 30-49 and those in 
+      informal or precarious employment experiencing heightened economic and social 
+      stress. Women frequently relied on informal borrowing and community support to 
+      cope with financial strain, highlighting structural gaps in social protection 
+      systems. These results underscore the intersectional nature of infectious disease 
+      outbreaks impacts, showing that gender alone does not fully explain 
+      vulnerability. The study emphasizes the importance of integrating social science 
+      perspectives into the One Health approach. Understanding household dynamics, 
+      community roles, and economic inequalities is essential for designing effective 
+      and equitable outbreak preparedness and response strategies.
+CI  - © 2026 The Authors.
+FAU - Maltais, Stéphanie
+AU  - Maltais S
+AD  - Department of Health Management, Evaluation and Policy, School of Public Health, 
+      Université de Montréal, Canada.
+AD  - Centre for Public Health Research, Université de Montréal and CIUSSS du 
+      Centre-Sud-de-l'Île-de-Montréal, Canada.
+AD  - Research Group on Epidemiology of Zoonoses and Public Health (GREZOSP), Faculty 
+      of Veterinary Medicine, Université de Montréal, Canada.
+FAU - Beaulieu, Janyck
+AU  - Beaulieu J
+AD  - School of International Development and Global Studies, University of Ottawa, 
+      Canada.
+FAU - Hounmenou, Castro Gbêmêmali
+AU  - Hounmenou CG
+AD  - Centre de Recherche et de Formation en Infectiologie de Guinée (CERFIG), Gamal 
+      Abdel Nasser University, Conakry, Guinea.
+AD  - Computer Science Department, University of Labe, Guinea.
+FAU - Bangoura, Salifou Talassone
+AU  - Bangoura ST
+AD  - Centre de Recherche et de Formation en Infectiologie de Guinée (CERFIG), Gamal 
+      Abdel Nasser University, Conakry, Guinea.
+AD  - Public Health Department, Faculty of Sciences and Health Techniques, Gamal Abdel 
+      Nasser University, Conakry, Guinea.
+FAU - Koniono, Gnouma Laurent
+AU  - Koniono GL
+AD  - Centre de Recherche et de Formation en Infectiologie de Guinée (CERFIG), Gamal 
+      Abdel Nasser University, Conakry, Guinea.
+FAU - Bongono, Emile Faya
+AU  - Bongono EF
+AD  - Centre de Recherche et de Formation en Infectiologie de Guinée (CERFIG), Gamal 
+      Abdel Nasser University, Conakry, Guinea.
+AD  - Département de Médecine Vétérinaire de l'Institut Supérieur des Sciences et de 
+      Médecine Vétérinaire de Dalaba, Guinea.
+FAU - Camara, Alioune
+AU  - Camara A
+AD  - Centre de Recherche et de Formation en Infectiologie de Guinée (CERFIG), Gamal 
+      Abdel Nasser University, Conakry, Guinea.
+AD  - Public Health Department, Faculty of Sciences and Health Techniques, Gamal Abdel 
+      Nasser University, Conakry, Guinea.
+FAU - Masumu, Justin
+AU  - Masumu J
+AD  - Institut national pour la recherche biomédicale (INRB), Democratic Republic of 
+      the Congo.
+FAU - Touré, Abdoulaye
+AU  - Touré A
+AD  - Centre de Recherche et de Formation en Infectiologie de Guinée (CERFIG), Gamal 
+      Abdel Nasser University, Conakry, Guinea.
+AD  - Public Health Department, Faculty of Sciences and Health Techniques, Gamal Abdel 
+      Nasser University, Conakry, Guinea.
+LA  - eng
+PT  - Journal Article
+DEP - 20260719
+PL  - Netherlands
+TA  - One Health
+JT  - One health (Amsterdam, Netherlands)
+JID - 101660501
+PMC - PMC13417981
+OTO - NOTNLM
+OT  - Gender
+OT  - Guinea
+OT  - Infectious disease outbreaks
+OT  - Intersectionality
+OT  - One health
+OT  - Socioeconomic impacts
+COIS- The authors declare that they have no known competing financial interests or 
+      personal relationships that could have appeared to influence the work reported in 
+      this paper.
+EDAT- 2026/07/30 06:41
+MHDA- 2026/07/30 06:42
+PMCR- 2026/07/19
+CRDT- 2026/07/30 05:08
+PHST- 2025/09/10 00:00 [received]
+PHST- 2026/07/06 00:00 [revised]
+PHST- 2026/07/17 00:00 [accepted]
+PHST- 2026/07/30 06:42 [medline]
+PHST- 2026/07/30 06:41 [pubmed]
+PHST- 2026/07/30 05:08 [entrez]
+PHST- 2026/07/19 00:00 [pmc-release]
+AID - S2352-7714(26)00209-0 [pii]
+AID - 101525 [pii]
+AID - 10.1016/j.onehlt.2026.101525 [doi]
+PST - epublish
+SO  - One Health. 2026 Jul 19;23:101525. doi: 10.1016/j.onehlt.2026.101525. eCollection 
+      2026 Dec.
+
+
