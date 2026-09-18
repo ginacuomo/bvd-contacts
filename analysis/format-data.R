@@ -74,7 +74,7 @@ dat <- data %>%
          numerator <= denominator)
 
 # now reformat the exposures table
-# TODO: decide if we need to remap levels 0 and 1 -- separate for the moment
+# TODO: decide if we need to combine levels 0 and 1 in the mapping -- separate for the moment
 exclude_vars <- c("include", "imputed", "notes", 
                   "definition_contact", "location", "country")
 
@@ -91,6 +91,7 @@ exposures_long %>%
   dplyr::group_by(first_author, doi, exposure) %>%
   dplyr::summarise(n = n()) %>% 
   dplyr::filter(n > 1) 
+
 # Jezek has duplicate between household and non-household contact exposure for non-caregiving
 exposures_long %>%
   dplyr::group_by(first_author, doi, exposure, household) %>%
@@ -176,3 +177,31 @@ ggplot(bower, aes(x = definition_contact_me, y = (numerator/denominator)*100, co
   labs(x = "Exposure", y = "SAR (%)", subtitle = "Note: imputed exposures were to enable comparison with other papers") +
   scale_y_continuous(breaks = seq(0, 100, by = 10), limits = c(0, 100)) #+ ylim(c(0,100))
 ggsave("plots/bower.png", dpi = 500, width = 20, height = 15, units = "cm")
+
+# Check that the data is in the format that we want in order to proceed with performing the analysis here
+View(dat_joined)
+
+# making a summary table of the studies
+# -------------------------------------------------------------------------
+# Study summary table
+# -------------------------------------------------------------------------
+
+canonical_levels_plus <- c(canonical_levels, "All")
+
+study_summary <- dat_joined %>%
+  dplyr::filter(!(is.na(exposure))) %>% 
+  group_by(first_author, year_publication, location, label) %>%
+  summarise(n_index_cases = first(num_index),
+            n_contacts    = sum(denominator),
+            exposure_categories = paste(
+      canonical_levels_plus[canonical_levels_plus %in% unique(exposure)],collapse = "; "),
+      n_exposure_categories = n_distinct(exposure),
+    .groups = "drop") %>%
+  arrange(year_publication, first_author)
+
+print(study_summary)
+write_csv(study_summary, "data/data-derived/study_summary.csv")
+
+saveRDS(dat_joined, "data/data-derived/dat_joined.rds")
+
+
