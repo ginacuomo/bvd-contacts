@@ -1,6 +1,6 @@
 # # format-data.R
 # Author: Gina Cuomo-Dannenburg
-# Date: 2026-08-25
+# Date: 2026-09-28
 # Purpose: Reformat the dataset in order to be able to perform the secondary attack
 # rate inference
 # Input: Data extracted from review of literature 
@@ -17,8 +17,8 @@ library(ggplot2)
 # 1. Read and format the data ---------------------------------------------
 
 # data import 
-data <- readxl::read_excel("data/data-raw/sar_extraction.xlsx", sheet = "data-fomite")
-labels <- readxl::read_excel("data/data-raw/sar_extraction.xlsx", sheet = "study-labels")
+data <- readxl::read_excel("data/data-raw/data-extracted.xlsx", sheet = "complete-data")
+labels <- readxl::read_excel("data/data-raw/data-extracted.xlsx", sheet = "study-labels")
 
 # now listing all of the unique exposures for inclusion
 exposures_to_map <- data %>%
@@ -27,7 +27,6 @@ exposures_to_map <- data %>%
   filter(definition_contact_me != "All")
 
 length(unique(data$doi))
-# Gayedu-Dennis I think should be excluded and some studies also with only all contacts available
 length(unique(exposures_to_map$doi)) 
 
 # now output this interim file to enable the mapping onto categories
