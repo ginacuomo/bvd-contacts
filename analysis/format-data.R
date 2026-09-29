@@ -63,14 +63,114 @@ dat$definition_contact_me[which(!(dat$definition_contact_me %in% exposures$defin
 dat_joined <- dat %>%
   left_join(
     exposures %>% select(first_author, year, doi, definition_contact_me, exposure1:exposure5),
-    by = c("first_author", "year", "doi", "definition_contact_me"))
+    by = c("first_author", "year", "doi", "definition_contact_me")) %>%
+  left_join(labels) %>%
+  relocate(label)
 
-# now reformat the data to be long
-dat_joined <- dat_joined %>% 
-  pivot_longer(exposure1:exposure5, names_to = "exposurenum", values_to = "exposure") %>%
-  dplyr::filter(exposure != "") %>% 
-  dplyr::filter(!(is.na(exposure))) %>%
-  dplyr::select(-exposurenum)
+# Identify how many canonical exposure categories are represented in each row
+# (ignoring blanks)
+
+dat_joined <- dat_joined %>%
+  mutate(n_exposures_mapped = rowSums(!is.na(dplyr::across(exposure1:exposure5)) & dplyr::across(exposure1:exposure5) != ""))
+
+# Identify studies with a completely disaggregated exposure distribution:
+# - every exposure row maps to exactly one exposure category
+# - the exposure-specific denominators sum to the total number of contacts
+# - rows labelled "All" are excluded from this calculation
+
+disaggregated_studies <- dat_joined %>%
+  filter(!definition_contact_me %in% c("All", "All contacts")) %>%
+  group_by(label, total_contacts) %>%
+  summarise(all_single_exposure = all(n_exposures_mapped == 1),
+            sum_contacts = sum(denominator),
+            .groups = "drop") %>%
+  filter(all_single_exposure,
+         sum_contacts == total_contacts) %>%
+  pull(label)
+
+disaggregated_studies
+# [1] "Bower, 2016a" "Bower, 2016b"
+
+# Note however, that one of these Bower studies only includes children < 3 and therefore is not
+# representative => only use "Bower, 2016b"
+disaggregated_studies <- "Bower, 2016b"
+
+# Due to only one study, we now use the empirical information
+reference_distribution <- dat_joined %>%
+  filter(
+    label %in% disaggregated_studies,
+    !definition_contact_me %in% c("All", "All contacts")
+  ) %>%
+  pivot_longer(
+    cols = exposure1:exposure5,
+    values_to = "exposure",
+    values_drop_na = TRUE
+  ) %>%
+  filter(exposure != "") %>%
+  group_by(exposure) %>%
+  summarise(
+    n_contacts = sum(denominator),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    proportion = n_contacts / sum(n_contacts)
+  )
+
+print(reference_distribution)
+
+# Check that proportions sum to 1
+stopifnot(abs(sum(reference_distribution$proportion) - 1) < 1e-8)
+
+# 3. Create fractional exposure vectors -------------------------------
+
+# Put the reference proportions into a named vector for easy lookup
+
+reference_props <- reference_distribution$proportion
+names(reference_props) <- reference_distribution$exposure
+
+
+# For each row, identify the canonical exposure categories it covers and
+# assign the reference proportions within those categories.
+
+dat_fractional <- dat_joined %>%
+  # exclude all contacts before performing this because they are separate analyses
+  dplyr::filter(!(definition_contact_me %in% c("All", "All contacts"))) %>%
+  rowwise() %>%
+  mutate(mapped_exposures = list(
+    c(exposure1, exposure2, exposure3, exposure4, exposure5) |>
+      na.omit() |>(\(x) x[x != ""])()) ) %>%
+  mutate(mapped_props = list(reference_props[match(mapped_exposures, names(reference_props))])) %>%
+  mutate(mapped_props = list(mapped_props / sum(mapped_props))) %>%
+  ungroup()
+
+# 4. Create wide fractional exposure design matrix ---------------------
+
+# Create one column for each canonical exposure category
+
+all_exposures <- sort(unique(unlist(dat_fractional$mapped_exposures)))
+
+# Create one column per canonical exposure
+
+for (lvl in names(reference_props)) {
+  dat_fractional[[lvl]] <- purrr::map2_dbl(
+    dat_fractional$mapped_exposures, dat_fractional$mapped_props,
+    ~{ idx <- match(lvl, .x)
+      if (is.na(idx)) {
+        0
+      } else {
+        .y[idx]
+      }
+    }
+  )
+}
+
+# Check that the rows sum to 1
+dat_fractional %>%
+  dplyr::mutate(fraction_sum = rowSums(across(all_of(names(reference_props))))) %>%
+  pull(fraction_sum)
+
+
+
 
 
 # 2. Map exposures onto the canonical levels correctly --------------------
