@@ -20,28 +20,62 @@ library(ggplot2)
 data <- readxl::read_excel("data/data-raw/data-extracted.xlsx", sheet = "complete-data")
 labels <- readxl::read_excel("data/data-raw/data-extracted.xlsx", sheet = "study-labels")
 
+# check how all contacts are encoded so that we exclude these from the mapping
+sort(unique(data$definition_contact_me))[1:6]
+
 # now listing all of the unique exposures for inclusion
-exposures_to_map <- data %>%
+dat <- data %>%
+  dplyr::mutate(numerator = as.integer(numerator),
+                denominator = as.integer(denominator),
+                num_index = as.integer(num_index),
+                year = as.character(year),
+                sar_observed = numerator / denominator,
+                uninfected_contacts = denominator - numerator) %>%
+  # additional checks but this has manually been checked already
+  dplyr::filter(!is.na(numerator),
+                !is.na(denominator),
+                denominator > 0,
+                numerator <= denominator) %>%
+  dplyr::filter(include == TRUE)
+
+# check that we have all rows for inclusion here 
+nrow(dat) == sum(data$include)
+
+exposures_to_map <- dat %>%
   dplyr::filter(include == TRUE) %>%
   dplyr::select(first_author:year, household, definition_contact, definition_contact_me:notes) %>%
-  filter(definition_contact_me != "All")
+  filter(!(definition_contact_me  %in% c("All", "All contacts")))
 
-length(unique(data$doi))
-length(unique(exposures_to_map$doi)) 
+length(unique(data$doi)) == length(unique(exposures_to_map$doi)) 
 
 # now output this interim file to enable the mapping onto categories
 write.csv(exposures_to_map, "data/data-raw/exposures-to-map.csv", row.names = FALSE)
 
 # This was then manually edited and saved to the data/data-derived folder to read back in and merge with the 
 # standard data set in order to proceed with the analysis
-# TODO: figure out how to map the Dowell study. 
-# we have % of cases with each risk factor but need to convert this into the actual numbers with 
-# numerators and denominators
+exposures <- read.csv("data/data-derived/exposures-mapped.csv")
 
-# define the exposure levels
-# Classes 0 and 1 merged into a single reference "No direct physical contact"
-# because both are sparsely reported and was propagating bias through the analysis
+# check we aren't missing any exposures
+dat$definition_contact_me[which(!(dat$definition_contact_me %in% exposures$definition_contact_me))]
+# only missing the All / Al contacts contacts which is correct => something is going wrong in the joining further down
 
+# join the datasets together
+dat_joined <- dat %>%
+  left_join(
+    exposures %>% select(first_author, year, doi, definition_contact_me, exposure1:exposure5),
+    by = c("first_author", "year", "doi", "definition_contact_me"))
+
+# now reformat the data to be long
+dat_joined <- dat_joined %>% 
+  pivot_longer(exposure1:exposure5, names_to = "exposurenum", values_to = "exposure") %>%
+  dplyr::filter(exposure != "") %>% 
+  dplyr::filter(!(is.na(exposure))) %>%
+  dplyr::select(-exposurenum)
+
+
+# 2. Map exposures onto the canonical levels correctly --------------------
+
+# define the canonical levels
 canonical_levels <- c(
   "No/minimal contact",
   "Indirect contact only",
@@ -55,152 +89,23 @@ canonical_levels <- c(
 reference_level      <- canonical_levels[1]
 non_reference_levels <- canonical_levels[-1]
 
-exposures <- read.csv("data/data-derived/exposures-mapped.csv")
+# reformat it so that it matches the canonical levels
+# make the lookup table
+unique(dat_joined$exposure)
 
-# reformat the data into the classes that we want/need
-dat <- data %>%
-  mutate(numerator = as.integer(numerator),
-         denominator = as.integer(denominator),
-         num_index = as.integer(num_index),
-         year = as.character(year),
-         study_id = paste(first_author, year_publication, location, sep = "_"),
-         sar_observed = numerator / denominator,
-         uninfected_contacts = denominator - numerator,
-         household = as.integer(household)) %>%
-  filter(!is.na(numerator),
-         !is.na(denominator),
-         denominator > 0,
-         numerator <= denominator)
+lookup <- tibble(exposure = c("handled corpse", "body fluid exposure", "nursing care", "direct contact", "fomites", "indirect", "minimal"),
+                 levels = rev(canonical_levels))
 
-# now reformat the exposures table
-# TODO: decide if we need to combine levels 0 and 1 in the mapping -- separate for the moment
-exclude_vars <- c("include", "imputed", "notes", 
-                  "definition_contact", "location", "country")
+dat_joined <- dat_joined %>%
+  mutate(exposure = lookup$levels[match(exposure, lookup$exposure)])
 
-exposures_long <- exposures %>%
-  pivot_longer(cols = starts_with("exposure"),
-               names_to  = "exposurenum",
-               values_to = "exposure") %>%
-  dplyr::select(-exposurenum) %>%
-  dplyr::filter(!(is.na(exposure))) %>%
-  dplyr::select(-any_of(exclude_vars))
-
-# check if there are any duplicate mappings across the different studies
-exposures_long %>%
-  dplyr::group_by(first_author, doi, exposure) %>%
-  dplyr::summarise(n = n()) %>% 
-  dplyr::filter(n > 1) 
-
-# Jezek has duplicate between household and non-household contact exposure for non-caregiving
-exposures_long %>%
-  dplyr::group_by(first_author, doi, exposure, household) %>%
-  dplyr::summarise(n = n()) %>% 
-  dplyr::filter(n > 1)
-
-# reduce number of overlapping columns between the merging
-intersect(names(dat), names(exposures_long))
-
-# join the dataframes together
-dat_joined <- left_join(dat, labels) %>%
-  left_join(exposures_long) %>%
-  dplyr::mutate(exposure = if_else(definition_contact_me == "All", "All", exposure))
+# add the study labels to the dataset
+dat_joined <- left_join(dat_joined, labels) %>%
+  relocate(label) %>%
+  arrange(label)
 
 
-# 2. Analyse SAR across all contacts --------------------------------------
-
-# studies that didn't have SDBs i.e. included exposures from handling a corpse
-# TODO: go to each individual study and see if they mention whether there were unsafe burials included
-# non_sdb <- dat_joined %>%
-#   dplyr::filter(exposure == "Handled corpse") %>%
-#   pull(first_author)
-
-all_contacts <- dat_joined %>%
-  dplyr::filter(exposure == "All") %>%
-  dplyr::filter(include == TRUE) %>% 
-  group_by(label) %>% 
-  dplyr::mutate(ci_lower = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$lower,
-                ci_upper = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$upper) %>%
-  dplyr::arrange(desc(sar_observed))
-
-ggplot(all_contacts, aes(x = label, y = sar_observed*100, col = study_design)) +
-  theme_bw() + geom_point() + ylim(c(0, 50)) +
-  geom_errorbar(aes(ymin = ci_lower*100, ymax = ci_upper*100)) +
-  labs(x = "First Author", y = "Observed SAR (%)") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
-  labs(subtitle = "All contacts") + 
-  guides(col = guide_legend(title = "Study design")) + 
-  theme(legend.direction = "horizontal", legend.position = "bottom")
-ggsave("plots/all_contacts.png", dpi = 500, width = 25, height = 15, units = "cm")
-  
-
-# 3. Exposure disaggregation ----------------------------------------------
-
-mapping_table <- dat_joined  %>%
-  dplyr::filter(exposure != "All") %>%
-  distinct(first_author, definition_contact_me, exposure, household, .keep_all = TRUE) %>%
-  group_by(first_author, definition_contact_me) %>%
-  mutate(n_canonical = n(),
-         disaggregated  = n_canonical == 1,
-         covered_levels = list(exposure)) %>%
-  mutate(exposure = factor(exposure, levels = canonical_levels)) %>%
-  ungroup()
-
-ggplot(mapping_table, aes(y = label, x = exposure, fill = disaggregated)) + 
-  theme_bw() + geom_tile() +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-ggsave("plots/data-source.png", dpi = 500, width = 20, height = 15, units = "cm")
-
-# looking closely at the Bower study because we actually had to aggregate this ourselves
-bower <- dat_joined %>%
-  dplyr::filter(first_author == "Bower") %>%
-  group_by(definition_contact_me) %>%
-  dplyr::mutate(ci_lower = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$lower,
-                ci_upper = binom::binom.confint(x = numerator, n = denominator, methods = "wilson")$upper) %>%
-  distinct(numerator, denominator, definition_contact_me, .keep_all = TRUE)
-bower$definition_contact_me <- factor(bower$definition_contact_me,
-                                      levels = c("All", 
-                                                 "Handled corpse",
-                                                 "Handled fluids", 
-                                                 "Direct wet contact",        
-                                                 "Direct dry contact",
-                                                 "Direct contact combined",
-                                                 "Indirect wet contact",        
-                                                 "Indirect dry contact",
-                                                 "Indirect contact combined",
-                                                 "Minimal/no contact"))
-
-ggplot(bower, aes(x = definition_contact_me, y = (numerator/denominator)*100, col = imputed)) + 
-  theme_bw() + geom_point() + 
-  geom_errorbar(aes(ymin = ci_lower*100, ymax = ci_upper*100)) +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) + 
-  labs(x = "Exposure", y = "SAR (%)", subtitle = "Note: imputed exposures were to enable comparison with other papers") +
-  scale_y_continuous(breaks = seq(0, 100, by = 10), limits = c(0, 100)) #+ ylim(c(0,100))
-ggsave("plots/bower.png", dpi = 500, width = 20, height = 15, units = "cm")
-
-# Check that the data is in the format that we want in order to proceed with performing the analysis here
-View(dat_joined)
-
-# making a summary table of the studies
-# -------------------------------------------------------------------------
-# Study summary table
-# -------------------------------------------------------------------------
-
-canonical_levels_plus <- c(canonical_levels, "All")
-
-study_summary <- dat_joined %>%
-  dplyr::filter(!(is.na(exposure))) %>% 
-  group_by(first_author, year_publication, location, label) %>%
-  summarise(n_index_cases = first(num_index),
-            n_contacts    = sum(denominator),
-            exposure_categories = paste(
-      canonical_levels_plus[canonical_levels_plus %in% unique(exposure)],collapse = "; "),
-      n_exposure_categories = n_distinct(exposure),
-    .groups = "drop") %>%
-  arrange(year_publication, first_author)
-
-print(study_summary)
-write_csv(study_summary, "data/data-derived/study_summary.csv")
+# 3. Save data output -----------------------------------------------------
 
 saveRDS(dat_joined, "data/data-derived/dat_joined.rds")
-
 
