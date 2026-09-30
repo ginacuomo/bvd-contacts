@@ -22,6 +22,7 @@ summary_all <- data_all %>%
   dplyr::mutate(binom::binom.confint(x = numerator,
                                      n = denominator,
                                      methods = "wilson")) %>%
+  dplyr::mutate(household = if_else(household == 1, "Household contacts only", "All contacts")) %>%
 # map the study designs onto something useful
   dplyr::mutate(study_design = case_when(
     study_design == "Prospective" ~ "Prospective",
@@ -54,12 +55,33 @@ ggplot(summary_all, aes(x = label, y = mean*100, col = study_design_clean)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 ggsave("plots/sar_all_outbreak.png", dpi = 500, width = 30, height = 20, units = "cm")
 
+ggplot(summary_all, aes(x = label, y = mean*100, col = study_design_clean)) +
+  theme_bw() + facet_grid(. ~ household, scales = "free_x") + 
+  geom_point() +
+  geom_errorbar(aes(ymin = lower*100, ymax = upper*100)) +
+  scale_y_continuous(limits = c(0, 60), breaks = seq(0, 60, by = 10)) +
+  labs(x = "Study", y = "SAR (%)", subtitle = "Secondary attack rate for all contacts") +
+  guides(colour = guide_legend(title = "Contact ascertainment")) + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggsave("plots/sar_all_household.png", dpi = 500, width = 30, height = 20, units = "cm")
+
 
 # Make a summary table of key information for each study ------------------
 
-table <- summary_all %>% 
+summary_table <- summary_all %>% 
   dplyr::mutate(sar = sar_observed * 100) %>%
   dplyr::arrange(year, country, label) %>%
-  dplyr::mutate(household = if_else(household == 1, "Household contacts only", "All contacts")) %>%
-  dplyr::select(label, country, year, outbreak, study_design, household, numerator, denominator, sar) 
+  dplyr::select(label, country, year, outbreak, study_design, household, numerator, denominator, sar) %>%
+  rename(
+    Label = label,
+    Country = country,
+    Year = year,
+    Outbreak = outbreak,
+    `Study Design` = study_design,
+    Household = household,
+    Numerator = numerator,
+    Denominator = denominator,
+    `SAR (%)` = sar
+  )
 
+write.csv(summary_table, "data/data-out/summary_table.csv", row.names = FALSE)

@@ -1,14 +1,14 @@
-"","label","country","year","outbreak","study_design","household","numerator","denominator","sar"
-"1","Baron, 1983","Sudan (now South Sudan)","1979","South Sudan, 1979","Mixed","Household contacts only",29,132,21.969696969697
-"2","Jezek, 1999","DRC","1981-1983","DRC, 1981-1983","Prospective","All contacts",28,188,14.8936170212766
-"3","Dowell, 1999","DRC","1995","DRC, 1995","Retrospective","Household contacts only",28,173,16.1849710982659
-"4","Francescioni, 2003","Uganda","2000-2001","Uganda, 2000-2001","Retrospective","All contacts",24,89,26.9662921348315
-"5","Reaves, 2014","Liberia","2014","West Africa","Prospective","All contacts",21,233,9.01287553648069
-"6","Swanson, 2018","Liberia","2014-15","West Africa","Retrospective","All contacts",334,17876,1.86842694115015
-"7","Reichler, 2018","Sierra Leone","2014-2015","West Africa","Prospective","Household contacts only",83,838,9.90453460620525
-"8","Bower, 2016a","Sierra Leone","2015","West Africa","Retrospective","Household contacts only",33,77,42.8571428571429
-"9","Bower, 2016b","Sierra Leone","2015","West Africa","Retrospective","Household contacts only",347,809,42.8924598269468
-"10","Henao-Restrepo, 2017","Guinea","2015-2016","West Africa","Vaccine trial","All contacts",13,412,3.15533980582524
-"11","Tshiani Mbaya, 2026","DRC","2017","DRC, 2017","Retrospective","All contacts",33,180,18.3333333333333
-"12","Timothy, 2019","Guinea","2017","West Africa","Retrospective","Household contacts only",18,224,8.03571428571429
-"13","Mulongo, 2025","Uganda","2022","Uganda, 2022","Retrospective","All contacts",102,3140,3.2484076433121
+"Label","Country","Year","Outbreak","Study Design","Household","Numerator","Denominator","SAR (%)"
+"Baron, 1983","Sudan (now South Sudan)","1979","South Sudan, 1979","Mixed","Household contacts only",29,132,21.969696969697
+"Jezek, 1999","DRC","1981-1983","DRC, 1981-1983","Prospective","All contacts",28,188,14.8936170212766
+"Dowell, 1999","DRC","1995","DRC, 1995","Retrospective","Household contacts only",28,173,16.1849710982659
+"Francescioni, 2003","Uganda","2000-2001","Uganda, 2000-2001","Retrospective","All contacts",24,89,26.9662921348315
+"Reaves, 2014","Liberia","2014","West Africa","Prospective","All contacts",21,233,9.01287553648069
+"Swanson, 2018","Liberia","2014-15","West Africa","Retrospective","All contacts",334,17876,1.86842694115015
+"Reichler, 2018","Sierra Leone","2014-2015","West Africa","Prospective","Household contacts only",83,838,9.90453460620525
+"Bower, 2016a","Sierra Leone","2015","West Africa","Retrospective","Household contacts only",33,77,42.8571428571429
+"Bower, 2016b","Sierra Leone","2015","West Africa","Retrospective","Household contacts only",347,809,42.8924598269468
+"Henao-Restrepo, 2017","Guinea","2015-2016","West Africa","Vaccine trial","All contacts",13,412,3.15533980582524
+"Tshiani Mbaya, 2026","DRC","2017","DRC, 2017","Retrospective","All contacts",33,180,18.3333333333333
+"Timothy, 2019","Guinea","2017","West Africa","Retrospective","Household contacts only",18,224,8.03571428571429
+"Mulongo, 2025","Uganda","2022","Uganda, 2022","Retrospective","All contacts",102,3140,3.2484076433121
