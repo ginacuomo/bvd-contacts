@@ -1,0 +1,8 @@
+definition,high_risk_classes,sar,sensitivity,specificity,found_cases,missed_cases,prop_missed,number_fu
+Handled corpse,corpse,0.51,0.148,0.935,52,299,0.852,102
+Body fluid+,body_fluid; corpse,0.471,0.365,0.812,128,223,0.635,272
+Nursing+,nursing; body_fluid; corpse,0.426,0.84,0.481,295,56,0.16,692
+Direct contact+,direct; nursing; body_fluid; corpse,0.374,0.915,0.298,321,30,0.085,858
+Fomite+,fomites; direct; nursing; body_fluid; corpse,0.366,0.92,0.268,323,28,0.08,883
+Indirect+,indirect; fomites; direct; nursing; body_fluid; corpse,0.345,0.966,0.159,339,12,0.034,982
+All contacts,minimal; indirect; fomites; direct; nursing; body_fluid; corpse,0.315,1,NA,351,0,0,1116

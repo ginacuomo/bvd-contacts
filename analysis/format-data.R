@@ -243,3 +243,4 @@ dat_all <- dat %>%
 saveRDS(dat_all, "data/data-derived/all_contacts.rds")
 saveRDS(pseudo_contacts, "data/data-derived/data_logistic.rds")
 saveRDS(dat_fractional, "data/data-derived/sar_exposure.rds")
+saveRDS(reference_distribution, "data/data-derived/reference_distribution.rds")
