@@ -219,7 +219,7 @@ dat_fractional <- dat_fractional %>%
 # Expand each row to one pseudo-individual per contact
 
 pseudo_contacts <- dat_fractional %>%
-  dplyr::select(source_row, label, household, outbreak,  
+  dplyr::select(source_row, label, household, outbreak, ct_type, 
                 numerator, denominator, total_contacts, dplyr::all_of(all_exposures)) %>%
   uncount(denominator, .id = "contact", .remove = FALSE) %>%
   group_by(source_row) %>%
