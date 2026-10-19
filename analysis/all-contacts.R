@@ -65,6 +65,18 @@ ggplot(summary_all, aes(x = label, y = mean*100, col = study_design_clean)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 ggsave("plots/sar_all_household.png", dpi = 500, width = 30, height = 20, units = "cm")
 
+ggplot(summary_all, aes(x = label, y = mean*100, col = ct_type)) +
+  theme_bw() + facet_grid(. ~ ct_type, scales = "free_x") + 
+  geom_point() +
+  geom_errorbar(aes(ymin = lower*100, ymax = upper*100)) +
+  scale_y_continuous(limits = c(0, 60), breaks = seq(0, 60, by = 10)) +
+  labs(x = "Study", y = "SAR (%)", subtitle = "Secondary attack rate for all contacts") +
+  guides(colour = guide_legend(title = "Contact ascertainment")) + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+ggsave("plots/sar_ct_type.png", dpi = 500, width = 30, height = 20, units = "cm")
+
+
+
 
 # Make a summary table of key information for each study ------------------
 

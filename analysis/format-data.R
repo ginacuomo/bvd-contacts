@@ -237,6 +237,17 @@ dat_all <- dat %>%
   left_join(labels) %>%
   relocate(label)
 
+# # read in the aggregate data too for analysis
+# data_agg <- readxl::read_excel("data/data-raw/data-extracted.xlsx", sheet = "aggregated-data")
+# 
+# dat_agg <- data_agg %>%
+#   left_join(select(labels, doi, label), by = "doi") %>% 
+#   relocate(label) %>%
+#   dplyr::mutate(sar_observed = numerator/denominator) %>%
+#   dplyr::filter(!(is.na(sar_observed))) %>%
+#   dplyr::select(names(dat_all))
+# dat_all <- rbind(dat_all, dat_agg) %>%
+#   dplyr::arrange(label)
 
 # 7. Save data ------------------------------------------------------------
 
