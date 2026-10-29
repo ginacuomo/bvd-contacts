@@ -243,7 +243,72 @@ ggplot(or_estimates,
   )  
 ggsave("plots/or-petal.png", dpi = 300, units = "cm", height = 20, width = 30)
 
+# Logistic regression with direct contact as reference with household size as covariate
 
+pseudo_contacts_petal_hh <- pseudo_contacts_petal %>%
+  dplyr::filter(household == 1) %>%
+  # omit the study in infants because this is not representative
+  dplyr::filter(label != "Bower, 2016a") %>%
+  dplyr::mutate(household_size = if_else(label == "Dowell, 1999", 7.4, 10.0))
+
+model_or_hh <- glm(
+  outcome ~ not_direct + nursing + body_fluid + corpse + household_size,
+  data = pseudo_contacts_petal_hh,
+  family = binomial()
+)
+
+summary(model_or_hh)
+
+# Extract odds ratios and 95% confidence intervals for exposure categories
+
+or_estimates_hh <- broom::tidy(
+  model_or_hh,
+  conf.int = TRUE,
+  conf.method = "Wald",
+  exponentiate = TRUE
+) %>%
+  dplyr::filter(term != "(Intercept)", term != "household_size") %>%
+  dplyr::rename(
+    exposure = term,
+    odds_ratio = estimate,
+    ci_lower = conf.low,
+    ci_upper = conf.high
+  ) %>%
+  bind_rows(
+    tibble(
+      exposure = "direct",
+      odds_ratio = 1,
+      ci_lower = NA_real_,
+      ci_upper = NA_real_
+    )
+  ) %>%
+  mutate(
+    exposure = factor(
+      exposure,
+      levels = all_exposures_petal,
+      labels = unname(canonical_labels_petal[all_exposures_petal])
+    )
+  ) %>%
+  arrange(exposure)
+
+print(or_estimates_hh)
+
+# Extract odds ratio and 95% confidence interval for household size separately
+
+household_size_estimate <- broom::tidy(
+  model_or_hh,
+  conf.int = TRUE,
+  conf.method = "Wald",
+  exponentiate = TRUE
+) %>%
+  dplyr::filter(term == "household_size") %>%
+  dplyr::rename(
+    odds_ratio = estimate,
+    ci_lower = conf.low,
+    ci_upper = conf.high
+  )
+
+print(household_size_estimate)
 
 # save the outputs so it's easy for Charlie
 saveRDS(household_sar, "data/data-out/household-sar.rds")
