@@ -412,18 +412,68 @@ ggsave("plots/plot_3.png", units = "cm", width = 30, height = 20, dpi = 300)
 
 # plot 4. as above but with odds ratios for a fully stratified analysis.
 
-# Generate odds ratios and 95% CIs for each model
+# 1. Fit logistic regressions with direct contact as reference ------------
 
-or_comparison <- purrr::imap_dfr(models, function(fit, model_name) {
+# Primary analysis
+
+model_or <- glm(
+  outcome ~ minimal + indirect + fomites + nursing + body_fluid + corpse,
+  data = pseudo_contacts,
+  family = binomial()
+)
+
+model_standard_or <- glm(
+  outcome ~ minimal + indirect + fomites + nursing + body_fluid + corpse,
+  data = pseudo_contacts %>%
+    dplyr::filter(ct_type == "Real-time Contact Tracing"),
+  family = binomial()
+)
+
+model_enhanced_or <- glm(
+  outcome ~ minimal + indirect + fomites + nursing + body_fluid + corpse,
+  data = pseudo_contacts %>% dplyr::filter(ct_type == "Research Study"),
+  family = binomial()
+)
+
+# Sensitivity analysis
+
+model_sens_or <- glm(
+  outcome ~ minimal + indirect + fomites + nursing + body_fluid + corpse,
+  data = pseudo_contacts_sensitivity,
+  family = binomial()
+)
+
+model_standard_sens_or <- glm(
+  outcome ~ minimal + indirect + fomites + nursing + body_fluid + corpse,
+  data = pseudo_contacts_sensitivity %>% dplyr::filter(ct_type == "Real-time Contact Tracing"),
+  family = binomial()
+)
+
+model_enhanced_sens_or <- glm(
+  outcome ~ minimal + indirect + fomites + nursing + body_fluid + corpse,
+  data = pseudo_contacts_sensitivity %>% dplyr::filter(ct_type == "Research Study"   ),
+  family = binomial()
+)
+
+
+# 2. Create model list ----------------------------------------------------
+
+models_or <- list(
+  "All data - Standard" = model_or,
+  "Operational contact tracing - Standard" = model_standard_or,
+  "Enhanced contact tracing - Standard" = model_enhanced_or,
+  "All data - Sensitivity" = model_sens_or,
+  "Operational contact tracing - Sensitivity" = model_standard_sens_or,
+  "Enhanced contact tracing - Sensitivity" = model_enhanced_sens_or
+)
+
+
+# 3. Extract odds ratios and 95% CIs -------------------------------------
+
+or_comparison <- purrr::imap_dfr(models_or, function(fit, model_name) {
   
-  # Extract fixed effects for mixed models, coefficients for GLMs
-  if (inherits(fit, "merMod")) {
-    estimates <- lme4::fixef(fit)
-    se <- sqrt(diag(vcov(fit)))
-  } else {
-    estimates <- coef(fit)
-    se <- sqrt(diag(vcov(fit)))
-  }
+  estimates <- coef(fit)
+  se <- sqrt(diag(vcov(fit)))
   
   tibble(
     model = model_name,
@@ -434,74 +484,83 @@ or_comparison <- purrr::imap_dfr(models, function(fit, model_name) {
   )
 })
 
-# Order and label exposure categories
+
+# 4. Add reference category and format -----------------------------------
 
 or_comparison <- or_comparison %>%
-  # Remove intercept (minimal is the reference)
   dplyr::filter(exposure != "(Intercept)") %>%
-  # Keep only exposure coefficients
   dplyr::filter(exposure %in% all_exposures) %>%
+  bind_rows(
+    tibble(
+      model = names(models_or),
+      exposure = "direct",
+      odds_ratio = 1,
+      ci_lower = NA_real_,
+      ci_upper = NA_real_
+    )
+  ) %>%
   mutate(
     exposure = factor(
       exposure,
       levels = all_exposures,
       labels = unname(canonical_labels[all_exposures])
-    )
-  ) %>%
-  dplyr::mutate(
-    data_type = stringr::str_trim(stringr::str_extract(model, "^[^-]+")),
+    ),
+    data_type = stringr::str_trim(
+      stringr::str_extract(model, "^[^-]+")
+    ),
     analysis_type = case_when(
       str_detect(model, "Standard") ~ "Primary analysis",
       str_detect(model, "Sensitivity") ~ "Sensitivity analysis"
     )
   )
 
-# stratified analysis colour palette
-stratified_colours <- c(
-  "Operational contact tracing" = "#0072B2",
-  "Enhanced contact tracing" = "#D55E00"
+or_comparison$data_type <- factor(
+  or_comparison$data_type,
+  levels = c(
+    "Operational contact tracing",
+    "Enhanced contact tracing",
+    "All data"
+  )
 )
 
-or_comparison$data_type <- factor(or_comparison$data_type,
-                                  levels = c(
-                                    "Operational contact tracing",
-                                    "Enhanced contact tracing"
-                                  ))
-# make the figure now
-ggplot(filter(or_comparison, data_type != "All data" & 
-                analysis_type == "Primary analysis"),
-       aes(x = exposure, y = odds_ratio, colour = data_type)) +
-  geom_point(position = position_dodge(width = 0.5),
-             width = 0.2) +
-  geom_errorbar(
-    aes(ymin = ci_lower, ymax = ci_upper),
-    position = position_dodge(width = 0.5),
-    width = 0.2
-  ) +
-  scale_colour_manual(values = stratified_colours) +
-  labs(
-    x = "Maximum exposure category",
-    y = "Predicted odds ratio",
-    colour = "Stratified analysis",
-    subtitle = "Odds ratio - reference: no/minimal contact"
-  ) 
-ggsave("plots/plot_4.png", units = "cm", width = 30, height = 20, dpi = 300)
 
-ggplot(filter(or_comparison, data_type != "All data" & 
-                analysis_type == "Primary analysis"),
-       aes(x = exposure, y = odds_ratio, colour = data_type)) +
-  geom_point(position = position_dodge(width = 0.5),
-             width = 0.2) +
+# 5. Plot stratified odds ratios ------------------------------------------
+
+ggplot(
+  filter(
+    or_comparison,
+    data_type != "All data" &
+      analysis_type == "Primary analysis"
+  ),
+  aes(
+    x = exposure,
+    y = odds_ratio,
+    colour = data_type
+  )
+) +
+  geom_hline(yintercept = 1, linetype = "dashed") +
+  geom_point(
+    position = position_dodge(width = 0.5),
+    size = 3
+  ) +
   geom_errorbar(
     aes(ymin = ci_lower, ymax = ci_upper),
     position = position_dodge(width = 0.5),
     width = 0.2
   ) +
+  scale_y_log10() +
   scale_colour_manual(values = stratified_colours) +
   labs(
     x = "Maximum exposure category",
-    y = "Predicted odds ratio",
-    colour = "Stratified analysis",
-    subtitle = "Odds ratio - reference: no/minimal contact"
-  ) + coord_cartesian(ylim = c(0, 50))
-ggsave("plots/plot_4b.png", units = "cm", width = 30, height = 20, dpi = 300)
+    y = "Odds ratio",
+    colour = "Contact tracing type",
+    subtitle = "Reference: Direct physical contact"
+  ) 
+
+ggsave(
+  "plots/plot_4.png",
+  units = "cm",
+  width = 30,
+  height = 20,
+  dpi = 300
+)
