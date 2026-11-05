@@ -65,13 +65,13 @@ stopifnot(nrow(mapping_check) == 0)
 
 # check we aren't missing any exposures
 dat$definition_contact_me[which(!(dat$definition_contact_me %in% exposures$definition_contact_me))]
-# only missing the All / Al contacts contacts which is correct => something is going wrong in the joining further down
+# only missing the All / All contacts contacts which is correct => something is going wrong in the joining further down
 
 # join the datasets together
 dat_joined <- dat %>%
   left_join(
-    exposures %>% select(first_author, year, doi, definition_contact_me, exposure1:exposure5),
-    by = c("first_author", "year", "doi", "definition_contact_me")) %>%
+    exposures %>% select(first_author, year, doi, household, definition_contact_me, exposure1:exposure5),
+    by = c("first_author", "year", "doi", "household", "definition_contact_me")) %>%
   left_join(labels) %>%
   relocate(label)
 

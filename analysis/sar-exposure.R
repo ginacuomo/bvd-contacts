@@ -348,7 +348,7 @@ names(exposure_props) <- all_exposures
 
 sar_by_exposure <- pred_grid %>%
   arrange(factor(exposure, levels = all_exposures)) %>%
-  pull(sensitivity_sar)
+  pull(predicted_sar)
 names(sar_by_exposure) <- all_exposures
 
 # checks
@@ -469,7 +469,7 @@ summary_stats <- function(high_risk_def) {
   
   # There are no non-high-risk contacts when all exposure categories are high risk
   if (length(summary_table$uninfected[summary_table$contact_class == "non_high_risk"]) == 0) {
-    specificity <- NA_real_
+    specificity <- 0
     missed_cases <- 0
     prop_missed <- 0
   } else {

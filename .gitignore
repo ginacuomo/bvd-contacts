@@ -49,3 +49,5 @@ po/*~
 rsconnect/
 .positai
 **/.DS_Store
+
+~$*.xlsx

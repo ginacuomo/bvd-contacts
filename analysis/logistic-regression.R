@@ -297,6 +297,11 @@ analysis_colours <- c(
   "Sensitivity analysis" = "#CC79A7"
 )
 
+stratified_colours <- c(
+  "Operational contact tracing" = "#0072B2",
+  "Enhanced contact tracing" = "#D55E00"
+)
+
 # Christophe suggested that we present four figures to show this analysis
 # plot 1. with the aggregate SAR for the three studies with routine contact tracing,
 #   and with all of the studies with research contact tracing.
